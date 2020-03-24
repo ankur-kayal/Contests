@@ -28,13 +28,21 @@ int main() {
 		int low,high;
 		cin >> low >> high;
 		int ans = -1;
-		for(auto i: factors) {
-			if(low <= i and i <= high) {
-				ans = i;
+		int lb = 0;
+		int rb = factors.size() - 1;
+		while(lb <= rb) {
+			int mid = (lb + rb+1) / 2;
+			if(low <= factors[mid] and factors[mid] <= high) {
+				ans = factors[mid];
+				lb = mid + 1;
 			}
-			else if(i > high) {
-				break;
+			else if(factors[mid] < low){
+				lb = mid + 1;
 			}
+			else {
+				rb = mid - 1;
+			}
+			// cout << lb << " " << rb << " " << mid  << '\n';
 		}
 		cout << ans << '\n';
 	}
