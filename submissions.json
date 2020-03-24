@@ -5746,6 +5746,23 @@
     ],
     "timestamp": "May/25/2021 00:39"
   },
+  "CF74209306": {
+    "contest_id": 75,
+    "language": "GNU C++14",
+    "path": "codeforces\\75\\C.cpp",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "Modified GCD",
+    "problem_url": "https://codeforces.com/contest/75/problem/C",
+    "submission_id": "CF74209306",
+    "submission_url": "https://codeforces.com/contest/75/submission/74209306",
+    "tags": [
+      "binary search",
+      "number theory",
+      "*1600"
+    ],
+    "timestamp": "Mar/24/2020 19:45"
+  },
   "CF74401119": {
     "contest_id": 1328,
     "language": "GNU C++14",
