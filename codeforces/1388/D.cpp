@@ -1,70 +1,66 @@
 #include <bits/stdc++.h>
-#define ll long long
-#define all(a) a.begin(),a.end()
+
+#define Vanya Unstoppable
 
 using namespace std;
 
-vector <vector <int> > edge;
-vector <ll> a;
-vector <int> b, used;
-vector <int> order[2];
-ll ans;
-inline void dfs (int v) {
-    used[v] = 1;
-    for (int to : edge[v]) {
-        if (!used[to]) dfs(to);
-    }
-    ans += a[v];
-    if (b[v] != -1 && a[v] > 0) {
-        a[b[v]] += a[v];
-    }
-    if (a[v] > 0) {
-        order[0].push_back(v);
-    }
-    else {
-        order[1].push_back(v);
-    }
-}
-inline void solve () {
-    for (auto &i : edge) i.clear();
-    edge.clear();
-    a.clear();
-    order[0].clear();
-    order[1].clear();
-    b.clear();
-    used.clear();
-    int n, x;
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr); cout.tie(nullptr);
+    
+    int n;
     cin >> n;
-    edge.resize(n);
-    a.resize(n);
-    b.resize(n);
-    for (auto &i : a) cin >> i;
-    for (int i = 0; i < n; i++) {
-        cin >> x;
-        if (x != -1) {
-            --x;
-            edge[x].push_back(i);
-        }
-        b[i] = x;
+    
+    long long a[n];
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
     }
-    ans = 0;
-    used.assign(n, 0);
-    for (int i = 0; i < n; i++) {
-        if (!used[i]) {
-            dfs(i);
+    
+    set < int > s;
+    for (int i = 0; i < n; ++i) {
+        s.insert(i);
+    }
+    
+    int b[n];
+    vector < int > sz(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> b[i]; --b[i];
+        if (b[i] == -2) continue;
+        ++sz[b[i]];
+        if (sz[b[i]] == 1) {
+            s.erase(b[i]);
         }
     }
-    cout << ans << '\n';
-    reverse(all(order[1]));
-    for (auto &i : order[0]) cout << i + 1 << ' ';
-    for (auto &i : order[1]) cout << i + 1 << ' ';
-    cout << '\n';
-}
-main()
-{
-    ios::sync_with_stdio(0);
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    solve();
+    
+    long long sum = 0;
+    vector < int > ans[2];
+    
+    while (!s.empty()) {
+        int v = *s.begin();
+        s.erase(s.begin());
+        int w = b[v];
+        sum += a[v];
+        if (a[v] >= 0) {
+            if (w >= 0) {
+                a[w] += a[v];
+            }
+            ans[0].push_back(v);
+        } else {
+            ans[1].push_back(v);
+        }
+        if (w >= 0) {
+            --sz[w];
+            if (sz[w] == 0) {
+                s.insert(w);
+            }
+        }
+    }
+    
+    cout << sum << endl;
+    for (int to : ans[0]) cout << to + 1 << ' ';
+    
+    reverse(ans[1].begin(), ans[1].end());
+    
+    for (int to : ans[1]) cout << to + 1 << ' ';
+    cout << endl;
 }
