@@ -1,65 +1,47 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-const int MAXN = 100009;
-int cnt[MAXN];
-vector<int> a;
-int n;
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define ar array
+#define ff first
+#define ss second
 
-bool check(int x) {
-    for (int i = 1; i <= n; i ++) cnt[i] = 0;
-    for (int i = 0; i < n; i ++) cnt[a[i]]++;
-
-    set<pair<int, int>, greater<pair<int, int>>> ss; //use greater comparator to sort set in descending order
-    for (int i = 1; i <= n; i ++) {
-        if (cnt[i] > 0) ss.insert({cnt[i], i});
-    }
-
-    vector<int> b;
-    for (int i = 0; i < n; i ++) {
-        if (i >= x && cnt[b[i - x]]) {
-            ss.insert({cnt[b[i - x]], b[i - x]});
-        }
-
-        if (ss.empty()) return 0;
-        b.push_back(ss.begin()->second);
-        ss.erase(ss.begin());
-        cnt[b.back()]--;
-    }
-
-    return 1;
+void solve() {
+	int n;
+	cin >> n;
+	int a[n];
+	map <int,int> cnt;
+	int mx = 0;
+	int maxc = 0;
+	for(int i=0;i<n;i++) {
+		cin >> a[i];
+		cnt[a[i]]++;
+		mx = max(cnt[a[i]],mx);
+	}
+	for(int i=1;i<=n;i++) {
+		if(mx == cnt[i]) maxc++;
+	}
+	ll rest = n - maxc * mx;
+	// cout << rest << '\n';
+	ll fill = rest / (mx - 1);
+	cout << (maxc - 1) + fill << '\n';
 }
 
-signed main() {
-	ios :: sync_with_stdio(0);
-	cin.tie(0);
+int main() {
+	ios_base::sync_with_stdio(0); cin.tie(0);
 
-	int ttt;
-	cin >> ttt;
+#ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r+", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w+", stdout);
+#endif
 
-	while (ttt--) {
-        cin >> n;
-
-        a.resize(n);
-        for (int i = 0; i < n; i ++) {
-            cin >> a[i];
-        }
-
-        int l = 0, r = n;
-        while (r - l > 1) {
-            int m = (r + l) / 2;
-            if (check(m)) {
-                l = m;
-            }
-
-            else {
-                r = m;
-            }
-        }
-
-        cout << l - 1 << "\n";
-	}
-
-	return 0;
+    int t;
+    cin >> t;
+    while(t--) {
+    	solve();
+    }
 }
