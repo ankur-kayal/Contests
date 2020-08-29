@@ -1,106 +1,80 @@
+#pragma GCC optimize ("O3")
+#pragma GCC target ("sse4")
+ 
 #include <bits/stdc++.h>
-#define mod 1000000007
-#define ull unsigned ll
-#define ll long long int
-#define ld long double
-#define pb push_back
-#define mp make_pair
-#define mt make_tuple
-#define ff first
-#define ss second
-#define pi acos(-1)
-#define nui 100
-#define INF 100000000000
-#pragma GCC optimize("Ofast")
-#pragma GCC target("avx,avx2,fma")
-#pragma GCC optimization ("unroll-loops")
-#define F(i,a,n) for(ll i=a;i<n;i++)
-#define B(i,a,n) for(ll i=n-1;i>=a;i--)
-#define tc int t;cin>>t;while(t--)
-#define tcf int t;cin>>t;for(int w=1;w<=t;w++)
-
-
-
+ 
 using namespace std;
+ 
+typedef long long ll;
+typedef long double ld;
+typedef complex<ld> cd;
+ 
+typedef pair<int, int> pi;
+typedef pair<ll,ll> pl;
+typedef pair<ld,ld> pd;
+ 
+typedef vector<int> vi;
+typedef vector<ld> vd;
+typedef vector<ll> vl;
+typedef vector<pi> vpi;
+typedef vector<pl> vpl;
+typedef vector<cd> vcd;
+ 
+#define FOR(i, a, b) for (int i=a; i<(b); i++)
+#define F0R(i, a) for (int i=0; i<(a); i++)
+#define FORd(i,a,b) for (int i = (b)-1; i >= a; i--)
+#define F0Rd(i,a) for (int i = (a)-1; i >= 0; i--)
+#define trav(a,x) for (auto& a : x)
+#define uid(a, b) uniform_int_distribution<int>(a, b)(rng)
+ 
+#define sz(x) (int)(x).size()
+#define mp make_pair
+#define pb push_back
+#define f first
+#define s second
+#define lb lower_bound
+#define ub upper_bound
+#define all(x) x.begin(), x.end()
+#define ins insert
 
-void dex(int a)
-{
-    if (a == 1)
-    {
-        cout << "1\n";
-    }
-    else if (a == -1)
-    {
-        cout << "-1\n";
-    }
-    else if (a == 0)
-    {
-        cout << "0\n";
-    }
-    else if (a == 2)
-    {
-        cout << "YES\n";
-    }
-    else if (a == 3)
-    {
-        cout << "NO\n";
-    }
+template<class T> bool ckmin(T& a, const T& b) { return b < a ? a = b, 1 : 0; }
+template<class T> bool ckmax(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
+ 
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+ 
+const int MOD = 1e9+7;
+const char nl = '\n';
+const int MX = 100001; //check the limits, dummy
 
+
+ 
+int main() {
+	ios_base::sync_with_stdio(0); cin.tie(0);  
+
+/*#ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r+", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w+", stdout);
+#endif  */
+	
+    int N;
+    cin >> N;
+    vl A(N);
+    for(int i=0;i<N;i++) {
+    	cin >> A[i];
+    }
+    vl pre(N);
+    pre[0] = A[0];
+    for(int i=1;i<N;i++) {
+    	pre[i] = (pre[i-1] + A[i]) % MOD;
+    }
+    ll ans = 0;
+    for(int i=1;i<N;i++) {
+    	ans = (ans + (pre[i-1] * A[i])%MOD) % MOD;
+    }
+    cout << ans << '\n';
 }
-
-ll binpow(ll a, ll b)
-{
-    ll res = 1;
-    while (b > 0)
-    {
-        if (b & 1)
-        {
-            res = (res * a) % mod;
-        }
-       a = (a * a) % mod;
-        b >>= 1;
-    }
-    return res;
-}
-
-
-
-
-int main()
-{
-
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
-
-    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-
-    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-
-    ll n;
-    cin >> n;
-    ll a[n];
-    ll sum = 0;
-    ll csum = 0;
-    F(i, 0, n)
-    {
-        cin >> a[i];
-        sum += a[i];
-        csum += (a[i] % mod) * (a[i] % mod);
-        csum %= mod;
-        sum %= mod;
-    }
-    sum = ((sum % mod) * (sum % mod)) % mod;
-    cout << ((mod + sum - csum) * binpow(2,mod-2) ) % mod << "\n";
-
-	//cout << binpow(2,mod-2) << '\n';
-
-
-
-    return 0;
-
-
-    return 0;
-
-}
+ 
+// read the question correctly (ll vs int)
+// template by bqi343
