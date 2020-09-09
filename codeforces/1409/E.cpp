@@ -1,212 +1,143 @@
 #include <bits/stdc++.h>
+ 
 using namespace std;
+ 
+#define send {ios_base::sync_with_stdio(false);}
+#define help {cin.tie(NULL); cout.tie(NULL);}
+#define f first
+#define s second
+#define getunique(v) {sort(v.begin(), v.end()); v.erase(unique(v.begin(), v.end()), v.end());}
+typedef long long ll;
+typedef long double lld;
+typedef unsigned long long ull;
+ 
+template<typename A> ostream& operator<<(ostream &cout, vector<A> const &v);
+template<typename A, typename B> ostream& operator<<(ostream &cout, pair<A, B> const &p) { return cout << "(" << p.f << ", " << p.s << ")"; }
+template<typename A> ostream& operator<<(ostream &cout, vector<A> const &v) {
+	cout << "["; for(int i = 0; i < v.size(); i++) {if (i) cout << ", "; cout << v[i];} return cout << "]";
+}
+template<typename A, typename B> istream& operator>>(istream& cin, pair<A, B> &p) {
+	cin >> p.first;
+	return cin >> p.second;
+}
+ 
+mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+// mt19937 rng(61378913);
+/* usage - just do rng() */
+ 
+void usaco(string filename) {
+  // #pragma message("be careful, freopen may be wrong")
+	freopen((filename + ".in").c_str(), "r", stdin);
+	freopen((filename + ".out").c_str(), "w", stdout);
+}
+ 
+const lld pi = 3.14159265358979323846;
+const ll mod = 1000000007;
+// const ll mod = 998244353;
+// ll mod;
+ 
 
-#define ll long long
-#define ld long double
-#define ar array
 
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
-using namespace __gnu_pbds;
+ll n, m, k, q, l, r, x, y, z;
+const ll template_array_size = 1e6 + 1101;
+ll a[template_array_size];
+ll b[template_array_size]; // best starting at i
+ll c[template_array_size]; // best ending at i 
+string s, t;
+ll ans = 0;
 
-template <typename T> using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+pair<ll, ll> comp[200005];
+ll pref[200005];
+ll suf[200005];
 
-#define vt vector
-#define pb push_back
-#define all(c) (c).begin(), (c).end()
-#define sz(x) (int)(x).size()
-
-#define F_OR(i, a, b, s) for (int i=(a); (s)>0?i<(b):i>(b); i+=(s))
-#define F_OR1(e) F_OR(i, 0, e, 1)
-#define F_OR2(i, e) F_OR(i, 0, e, 1)
-#define F_OR3(i, b, e) F_OR(i, b, e, 1)
-#define F_OR4(i, b, e, s) F_OR(i, b, e, s)
-#define GET5(a, b, c, d, e, ...) e
-#define F_ORC(...) GET5(__VA_ARGS__, F_OR4, F_OR3, F_OR2, F_OR1)
-#define FOR(...) F_ORC(__VA_ARGS__)(__VA_ARGS__)
-#define EACH(x, a) for (auto& x: a)
-
-template<class T> bool umin(T& a, const T& b) {
-	return b<a?a=b, 1:0;
-}
-template<class T> bool umax(T& a, const T& b) { 
-	return a<b?a=b, 1:0;
-} 
-
-ll FIRSTTRUE(function<bool(ll)> f, ll lb, ll rb) {
-	while(lb<rb) {
-		ll mb=(lb+rb)/2;
-		f(mb)?rb=mb:lb=mb+1; 
-	} 
-	return lb;
-}
-ll LASTTRUE(function<bool(ll)> f, ll lb, ll rb) {
-	while(lb<rb) {
-		ll mb=(lb+rb+1)/2;
-		f(mb)?lb=mb:rb=mb-1; 
-	} 
-	return lb;
-}
-
-template<class A> void read(vt<A>& v);
-template<class A, size_t S> void read(ar<A, S>& a);
-template<class T> void read(T& x) {
-	cin >> x;
-}
-void read(double& d) {
-	string t;
-	read(t);
-	d=stod(t);
-}
-void read(long double& d) {
-	string t;
-	read(t);
-	d=stold(t);
-}
-template<class H, class... T> void read(H& h, T&... t) {
-	read(h);
-	read(t...);
-}
-template<class A> void read(vt<A>& x) {
-	EACH(a, x)
-		read(a);
-}
-template<class A, size_t S> void read(array<A, S>& x) {
-	EACH(a, x)
-		read(a);
-}
-
-string to_string(char c) {
-	return string(1, c);
-}
-string to_string(bool b) {
-	return b?"true":"false";
-}
-string to_string(const char* s) {
-	return string(s);
-}
-string to_string(string s) {
-	return s;
-}
-string to_string(vt<bool> v) {
-	string res;
-	FOR(sz(v))
-		res+=char('0'+v[i]);
-	return res;
-}
-
-template<size_t S> string to_string(bitset<S> b) {
-	string res;
-	FOR(S)
-		res+=char('0'+b[i]);
-	return res;
-}
-template<class T> string to_string(T v) {
-    bool f=1;
-    string res;
-    EACH(x, v) {
-		if(!f)
-			res+=' ';
-		f=0;
-		res+=to_string(x);
+void solve(int tc = 0) {	
+	cin >> n >> k;
+	
+	for (ll i = 0; i < n; i++) cin >> a[i];
+	
+	for (ll i = 0; i < n; i++) {
+		ll useless_variable_that_i_disrespect;
+		cin >> useless_variable_that_i_disrespect;
 	}
-    return res;
-}
-
-template<class A> void write(A x) {
-	cout << to_string(x);
-}
-template<class H, class... T> void write(const H& h, const T&... t) { 
-	write(h);
-	write(t...);
-}
-void print() {
-	write("\n");
-}
-template<class H, class... T> void print(const H& h, const T&... t) { 
-	write(h);
-	if(sizeof...(t))
-		write(' ');
-	print(t...);
-}
-
-void DBG() {
-	cerr << "]" << endl;
-}
-template<class H, class... T> void DBG(H h, T... t) {
-	cerr << to_string(h);
-	if(sizeof...(t))
-		cerr << ", ";
-	DBG(t...);
-}
-#ifdef _DEBUG
-#define dbg(...) cerr << "LINE(" << __LINE__ << ") -> [" << #__VA_ARGS__ << "]: [", DBG(__VA_ARGS__)
-#else
-#define dbg(...) 0
-#endif
-
-template<class T> void offset(ll o, T& x) {
-	x+=o;
-}
-template<class T> void offset(ll o, vt<T>& x) {
-	EACH(a, x)
-		offset(o, a);
-}
-template<class T, size_t S> void offset(ll o, ar<T, S>& x) {
-	EACH(a, x)
-		offset(o, a);
-}
-
-mt19937 mt_rng(chrono::steady_clock::now().time_since_epoch().count());
-ll randint(ll a, ll b) {
-	return uniform_int_distribution<ll>(a, b)(mt_rng);
-}
-
-template<class T, class U> void vti(vt<T> &v, U x, size_t n) {
-	v=vt<T>(n, x);
-}
-template<class T, class U> void vti(vt<T> &v, U x, size_t n, size_t m...) {
-	v=vt<T>(n);
-	EACH(a, v)
-		vti(a, x, m);
-}
-
-const int d4i[4]={-1, 0, 1, 0}, d4j[4]={0, 1, 0, -1};
-const int d8i[8]={-1, -1, 0, 1, 1, 1, 0, -1}, d8j[8]={0, 1, 1, 1, 0, -1, -1, -1};
-
-void solve() {
-	int n, k;
-	read(n, k);
-	vt<int> x(n), y(n);
-	read(x, y);
-	sort(all(x));
-	vt<int> d1(n+1), d2(n+1);
-	for(int i=0, j=0; i<n; ++i) {
-		while(x[j]<x[i]-k)
-			++j;
-		d1[i+1]=i-j+1;
+	
+	map<ll, ll> count;
+	for (ll i = 0; i < n; i++) {
+		++count[a[i]];
 	}
-	for(int i=n-1, j=n-1; ~i; --i) {
-		while(x[j]>x[i]+k)
-			--j;
-		d2[i]=j-i+1;
+	
+	ll m = 0;
+	for (pair<ll, ll> x: count) { // (location, count)
+		comp[m++] = x;
 	}
-	int ans=0;
-	FOR(n)
-		umax(d1[i+1], d1[i]);
-	FOR(n+1)
-		umax(ans, d1[i]+d2[i]);
-	print(ans);
+	
+	ll cnt = 0;
+	ll rpt = 0;
+	for (ll i = 0; i < m; i++) {
+		while (rpt < m && comp[rpt].f <= comp[i].f + k) {
+			cnt += comp[rpt].s;
+			++rpt;
+		}
+		b[i] = cnt;
+		cnt -= comp[i].s;
+	}
+	
+	cnt = 0;
+	ll lpt = m - 1;
+	for (ll i = m - 1; i >= 0; i--) {
+		while (lpt >= 0 && comp[i].f - k <= comp[lpt].f) {
+			cnt += comp[lpt].s;
+			--lpt;
+		}
+		c[i] = cnt;
+		cnt -= comp[i].s;
+	}
+	
+	ll r = 0;
+	for (ll i = 0; i < m; i++) {
+		r = max(r, c[i]);
+		pref[i] = r;
+	}
+	
+	r = 0;
+	for (ll i = m - 1; i >= 0; i--) {
+		r = max(r, b[i]);
+		suf[i] = r;
+	}
+	
+	ll ans = max(suf[0], pref[m - 1]);
+	for (ll i = 0; i < m - 1; i++) {
+		ans = max(ans, pref[i] + suf[i + 1]);
+	}
+	
+	// for (ll i = 0; i < m; i++) {
+		// cout << b[i] << " " << c[i] << '\n';
+	// }
+	
+	cout << ans << '\n';
 }
-
+ 
 int main() {
-	ios::sync_with_stdio(0);
-	cin.tie(0);
-
-	int t=1;
-	read(t);
-	FOR(t) {
-		//write("Case #", i+1, ": ");
-		solve();
-	}
-}
+	#ifdef galen_colin_local
+		auto begin = std::chrono::high_resolution_clock::now();
+	#endif
+	
+	send help
+ 
+	#ifndef galen_colin_local
+		// usaco("cowland");
+	#endif
+	
+	// usaco("cowland");
+	
+	// freopen("tc.cpp", "r", stdin);
+ 
+	int tc = 1;
+	cin >> tc;
+	for (int t = 0; t < tc; t++) solve(t);
+	
+	#ifdef galen_colin_local
+		auto end = std::chrono::high_resolution_clock::now();
+		cout << setprecision(4) << fixed;
+		// cout << "Execution time: " << std::chrono::duration_cast<std::chrono::duration<double>>(end - begin).count() << " seconds" << endl;
+	#endif
+} 
