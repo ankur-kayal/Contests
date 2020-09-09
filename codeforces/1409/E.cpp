@@ -1,9 +1,19 @@
 #pragma GCC optimize ("O3")
 #pragma GCC target ("sse4")
+
+//HEADER FILES AND NAMESPACES
  
-#include <bits/stdc++.h>
- 
+#include<bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>  
+#include <ext/pb_ds/tree_policy.hpp>   
 using namespace std;
+using namespace __gnu_pbds;
+ 
+template <typename T>
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+ 
+template <typename T>
+using ordered_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>; 
  
 typedef long long ll;
 typedef long double ld;
@@ -25,6 +35,7 @@ typedef vector<cd> vcd;
 #define FORd(i,a,b) for (int i = (b)-1; i >= a; i--)
 #define F0Rd(i,a) for (int i = (a)-1; i >= 0; i--)
 #define trav(a,x) for (auto& a : x)
+#define uid(a, b) uniform_int_distribution<int>(a, b)(rng)
  
 #define sz(x) (int)(x).size()
 #define mp make_pair
@@ -46,34 +57,57 @@ const char nl = '\n';
 const int MX = 100001; //check the limits, dummy
  
 int main() {
-	ios_base::sync_with_stdio(0); cin.tie(0);    
+	ios_base::sync_with_stdio(0); cin.tie(0);  
+
+#ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r+", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w+", stdout);
+#endif  
 	
-    int T; cin >> T;
+    int T;
+    cin >> T;
     while(T--) {
-        int N; ll K; cin >> N >> K;
-        vl X(N);
-        vl Y(N);
-        F0R(i, N) cin >> X[i];
-        F0R(i, N) cin >> Y[i];
-        sort(all(X));
-        ll rev[N+1];
-        rev[N] = 0;
-        F0Rd(i, N) {
-            rev[i] = ub(all(X), X[i]+K) - X.begin();
-            rev[i] -= i;
-            ckmax(rev[i], rev[i+1]);
-        }
-        ll ans = 0;
-        F0R(i, N) {
-            ll pos = ub(all(X), X[i] + K) - X.begin();
-            ckmax(ans, pos - i + rev[pos]);
-        }
-        cout << ans << nl;
+    	int N,K;
+    	cin>>N>>K;
+    	vi A(N);
+    	trav(a,A) cin >> a;
+    	for(int i=0;i<N;i++) {
+    		int tmp;
+    		cin >> tmp;
+    	}
+    	sort(all(A));
+    	// trav(a,A) cout << a << " ";
+    	// cout << '\n';
+    	vi L(N),R(N);
+    	int left = 0;
+    	L[0] = 1;
+    	for(int i=1;i<N;i++) {
+    		while(A[i]-A[left] > K) {
+    			left++;
+    		}
+    		L[i] = max(L[i-1], (i-left+1));
+    	}
+    	int right = N-1;
+    	R[right] = 1;
+    	for(int i=N-2;i>=1;i--) {
+    		while(A[right] - A[i] > K) right--;
+    		R[i] = max(R[i+1], (right-i+1));
+    	}
+    	// trav(a,L) cout << a <<  " ";
+    	// cout << '\n';
+    	// trav(a,R) cout << a << " ";
+    	// cout << '\n';
+    	int ans = 1;
+    	for(int i=0;i<N-1;i++) {
+    		// cout << L[i]+R[i+1] << '\n';
+    		int tmp = L[i] + R[i+1];
+    		ans = max(ans,tmp);
+    	}
+    	cout << ans << '\n';
     }
-	
-	return 0;
 }
  
 // read the question correctly (ll vs int)
 // template by bqi343
-
