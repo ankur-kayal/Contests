@@ -1,8 +1,5 @@
 #pragma GCC optimize ("O3")
 #pragma GCC target ("sse4")
-#pragma GCC optimize("Ofast")
-#pragma GCC target("avx,avx2,fma")
-#pragma GCC optimization ("unroll-loops")
 
 //HEADER FILES AND NAMESPACES
  
