@@ -2367,6 +2367,26 @@
     ],
     "timestamp": "Feb/16/2021 23:44"
   },
+  "CF92604538": {
+    "contest_id": 1406,
+    "language": "GNU C++17",
+    "path": "codeforces\\1406\\B.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Maximum Product",
+    "problem_url": "https://codeforces.com/contest/1406/problem/B",
+    "submission_id": "CF92604538",
+    "submission_url": "https://codeforces.com/contest/1406/submission/92604538",
+    "tags": [
+      "brute force",
+      "dp",
+      "greedy",
+      "implementation",
+      "sortings",
+      "*1200"
+    ],
+    "timestamp": "Sep/12/2020 19:54"
+  },
   "CF92631300": {
     "contest_id": 1406,
     "language": "GNU C++17",
