@@ -1,4 +1,20 @@
 {
+  "AC16738936": {
+    "contest_id": "abc178",
+    "language": "C++ (GCC 9.2.1)",
+    "path": "atcoder\\abc178\\D.cpp",
+    "platform": "AtCoder",
+    "problem_index": "D",
+    "problem_name": "Redistribution",
+    "problem_url": "https://atcoder.jp/contests/abc178/tasks/abc178_d",
+    "submission_id": "AC16738936",
+    "submission_url": "https://atcoder.jp/contests/abc178/submissions/16738936",
+    "tags": [
+      "AtCoder",
+      "*400"
+    ],
+    "timestamp": "Sep/14/2020 10:56"
+  },
   "AC16739241": {
     "contest_id": "abc178",
     "language": "C++ (GCC 9.2.1)",
