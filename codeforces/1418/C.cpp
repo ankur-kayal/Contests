@@ -1,65 +1,98 @@
-#include <bits/stdc++.h>
+#pragma GCC optimize ("O3")
+#pragma GCC target ("sse4")
+
+//HEADER FILES AND NAMESPACES
+ 
+#include<bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>  
+#include <ext/pb_ds/tree_policy.hpp>   
 using namespace std;
+using namespace __gnu_pbds;
+ 
+template <typename T>
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+ 
+template <typename T>
+using ordered_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>; 
+ 
+typedef long long ll;
+typedef long double ld;
+typedef complex<ld> cd;
+ 
+typedef pair<int, int> pi;
+typedef pair<ll,ll> pl;
+typedef pair<ld,ld> pd;
+ 
+typedef vector<int> vi;
+typedef vector<ld> vd;
+typedef vector<ll> vl;
+typedef vector<pi> vpi;
+typedef vector<pl> vpl;
+typedef vector<cd> vcd;
+ 
+#define FOR(i, a, b) for (int i=a; i<(b); i++)
+#define F0R(i, a) for (int i=0; i<(a); i++)
+#define FORd(i,a,b) for (int i = (b)-1; i >= a; i--)
+#define F0Rd(i,a) for (int i = (a)-1; i >= 0; i--)
+#define trav(a,x) for (auto& a : x)
+#define uid(a, b) uniform_int_distribution<int>(a, b)(rng)
+ 
+#define sz(x) (int)(x).size()
+#define mp make_pair
+#define pb push_back
+#define f first
+#define s second
+#define lb lower_bound
+#define ub upper_bound
+#define all(x) x.begin(), x.end()
+#define ins insert
 
-//----------------------------------- DEBUG -----------------------------------
-#define sim template < class c
-#define ris return * this
-#define dor > debug & operator <<
-#define eni(x) sim > typename \
-enable_if<sizeof dud<c>(0) x 1, debug&>::type operator<<(c i) {
-sim > struct rge { c b, e; };
-sim > rge<c> range(c i, c j) { return rge<c>{i, j}; }
-sim > auto dud(c* x) -> decltype(cerr << *x, 0);
-sim > char dud(...);
-struct debug {
-#ifdef LOCAL
-~debug() { cerr << endl; }
-eni(!=) cerr << boolalpha << i; ris; }
-eni(==) ris << range(begin(i), end(i)); }
-sim, class b dor(pair < b, c > d) {
-  ris << "(" << d.first << ", " << d.second << ")";
-}
-sim dor(rge<c> d) {
-  *this << "[";
-  for (auto it = d.b; it != d.e; ++it)
-	*this << ", " + 2 * (it == d.b) << *it;
-  ris << "]";
-}
-#else
-sim dor(const c&) { ris; }
-#endif
-};
-#define imie(...) " [" << #__VA_ARGS__ ": " << (__VA_ARGS__) << "] "
-// debug & operator << (debug & dd, P p) { dd << "(" << p.x << ", " << p.y << ")"; return dd; }
-
-//----------------------------------- END DEBUG --------------------------------
-
+template<class T> bool ckmin(T& a, const T& b) { return b < a ? a = b, 1 : 0; }
+template<class T> bool ckmax(T& a, const T& b) { return a < b ? a = b, 1 : 0; }
+ 
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+ 
+const int MOD = 1000000007;
+const char nl = '\n';
+const int MX = 100001; //check the limits, dummy
+ 
 int main() {
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	ios_base::sync_with_stdio(0); cin.tie(0);  
 
-	int t;
-	cin >> t;
-	while(t--) {
-		int n;
-		cin >> n;
-		const int mxN = 1e9;
-		vector<int> a(n+1);
-		vector<int> me(n+1,1e9);
-		vector<int> him(n+1,1e9);
-		for(int i=1;i<=n;i++) {
-			cin >> a[i];
-		}
-
-		him[1] = a[1];
-		me[1] = him[1];
-		me[0] = 0;
-		for(int i=2;i<=n;i++) {
-			him[i] = min({him[i], me[i-1] + a[i], me[i-2] + a[i] + a[i-1]});
-			me[i] = min({me[i],him[i-1],him[i-2]});
-		}
-		debug() << imie(him);
-		debug() << imie(me);
-
-		cout << min(him[n], me[n]) << '\n';
-	}
+#ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r+", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w+", stdout);
+#endif  
+	
+    int tt;
+    cin >> tt;
+    while(tt--) { 
+    	int n;
+    	cin >> n;
+    	vector <int> a(n);
+    	vector <int> us(n+1), him(n+1);
+    	us[n] = 0;
+    	him[n] = 0;
+    	trav(a,a) cin >> a;
+    	for(int i=n-1;i>=0;i--) {
+    		{
+    			him[i] = us[i+1] + a[i];
+    			if(i + 2 < n) {
+    				him[i] = min(him[i], us[i+2] + a[i] + a[i+1]);
+    			}
+    		}
+    		{
+    			us[i] = him[i+1];
+    			if(i + 2 <= n) {
+    				us[i] = min(us[i], him[i+2]);
+    			}
+    		}
+    	}
+    	cout << him[0] << '\n';
+    }
 }
+ 
+// read the question correctly (ll vs int)
+// template by bqi343
