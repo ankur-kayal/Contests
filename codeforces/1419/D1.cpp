@@ -66,33 +66,34 @@ int main() {
     freopen("output.txt", "w+", stdout);
 #endif  
 	
-    int t = 1;
-    // cin >> t;
-    while(t--) {
-    	int n;
-    	cin >> n;
-    	vi a(n) , ans(n);
-    	trav(a,a) cin >> a;
-    	sort(all(a));
-    	int ele = 0;
-    	for(int i=1;i<n;i+=2) {
-	    	ans[i] = a[ele];
-	    	ele++;
-	    }
-	    for(int i=0;i<n;i+=2) {
-	    	ans[i] = a[ele];
-	    	ele++;
-	    }
-	    int cnt = 0;
-	    for(int i=1;i<n-1;i+=2) {
-	    	if(ans[i] < ans[i-1] and ans[i] < ans[i+1]) {
-	    		cnt++;
-	    	}
-	    }
-
-	    cout << cnt << '\n';
-	    trav(a,ans) cout << a << " ";
-	    cout << '\n';
+    int n;
+    cin >> n;
+    vi a(n);
+    vi ans(n);
+    trav(a,a) cin >> a;
+    sort(all(a));
+    int ele = 0;
+    for(int i=1;i<n;i+=2) {
+    	ans[i] = a[ele];
+    	ele++;
+    }
+    for(int i=0;i<n;i+=2) {
+    	ans[i] = a[ele];
+    	ele++;
+    }
+    if(n % 2 == 0) {
+    	cout << n/2 - 1 << '\n';
+    	trav(a,ans) {
+    		cout << a << " ";
+    	}
+		cout << '\n';
+    }
+    else {
+    	cout << n/2 << '\n';
+    	trav(a,ans) {
+    		cout << a << " ";
+    	}
+    	cout << '\n';
     }
 }
  
