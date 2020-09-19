@@ -2367,6 +2367,24 @@
     ],
     "timestamp": "Feb/16/2021 23:44"
   },
+  "CF93275461": {
+    "contest_id": 1419,
+    "language": "Java 11",
+    "path": "codeforces\\1419\\C.java",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "Killjoy",
+    "problem_url": "https://codeforces.com/contest/1419/problem/C",
+    "submission_id": "CF93275461",
+    "submission_url": "https://codeforces.com/contest/1419/submission/93275461",
+    "tags": [
+      "greedy",
+      "implementation",
+      "math",
+      "*1500"
+    ],
+    "timestamp": "Sep/20/2020 00:14"
+  },
   "CF93277306": {
     "contest_id": 1419,
     "language": "GNU C++17",
