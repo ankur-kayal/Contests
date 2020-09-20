@@ -9,8 +9,7 @@ bool prime(int x) {
 	return true;
 }
 
-int main() {
-    ios_base::sync_with_stdio(0); cin.tie(0);
+signed main() {
 	int T;
 	cin >> T;
 	while (T --> 0) {
@@ -33,7 +32,7 @@ int main() {
 			continue;
 		}
 
-		map<int, bool> used;
+		unordered_map<int, bool> used;
 		vector<int> primes;
 		for (int i = 2; i * i <= n; ++i) {
 			if (n % i == 0) {
