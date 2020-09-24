@@ -51,19 +51,6 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 const int MOD = 1000000007;
 const char nl = '\n';
 const int MX = 100001; //check the limits, dummy
-
-void update(vector<ll> &a, ll index, ll val, ll &ans) {
-	int n = a.size();
-	ans -= max(0LL, a[index] - a[index - 1]);
-	if(index + 1 < n) {
-		ans -= max(0LL, a[index + 1] - a[index]);
-	}
-	a[index] = val;
-	ans += max(0LL, a[index] - a[index - 1]);
-	if(index + 1 < n) {
-		ans += max(0LL, a[index + 1] - a[index]);
-	}
-}
  
 int main() {
 	ios_base::sync_with_stdio(0); cin.tie(0);  
@@ -83,32 +70,35 @@ int main() {
 #endif 
 
 	// start your program here
+    int t;
+    cin >> t;
+    while(t--) {
+    	int n,q;
+    	cin >> n >> q;
+    	vector<ll> a(n);
+    	for(int i=0;i<n;i++) {
+    		cin >> a[i];
+    	}
+    	a.push_back(-1);
 
-	int t;
-	cin >> t;
-	while(t--) {
-		ll n,q;
-		cin >> n >> q;
-		vector<ll> a(n+1,0);
-		ll ans = 0;
-		for(int i=1;i<=n;i++) {
-			int tmp;
-			cin >> tmp;
-			update(a,i,tmp, ans);
-		}
-
-		cout << ans << '\n';
-		while(q--) {
-			ll l,r;
-			cin >> l >> r;
-			ll tmp = a[l];
-			update(a,l,a[r],ans);
-			update(a,r,tmp,ans);
-			cout << ans << '\n';
-		}
-
-	}
-
+    	ll ans = 0;
+    	ll mn = 0;
+    	ll peak = 0;
+    	for(int i=0;i<n;i++) {
+    		
+    		peak = max(peak, a[i]);
+    		if(a[i] <= a[i+1]) {
+    			mn = mn;
+    		}
+    		else {
+    			ans += peak - mn;
+    			peak = 0;
+    			mn = a[i+1];
+    		}
+    		// cout << i << " " << ans << '\n';
+    	}
+    	cout << ans << '\n';
+    }
 
 #ifdef DEBUG
     end = clock();  
