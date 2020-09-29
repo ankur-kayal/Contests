@@ -2367,6 +2367,22 @@
     ],
     "timestamp": "Feb/16/2021 23:44"
   },
+  "CF94227239": {
+    "contest_id": 698,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\698\\A.cpp",
+    "platform": "Codeforces",
+    "problem_index": "A",
+    "problem_name": "Vacations",
+    "problem_url": "https://codeforces.com/contest/698/problem/A",
+    "submission_id": "CF94227239",
+    "submission_url": "https://codeforces.com/contest/698/submission/94227239",
+    "tags": [
+      "dp",
+      "*1400"
+    ],
+    "timestamp": "Sep/29/2020 21:21"
+  },
   "CF94228463": {
     "contest_id": 729,
     "language": "GNU C++17 (64)",
