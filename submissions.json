@@ -1,4 +1,20 @@
 {
+  "AC17104396": {
+    "contest_id": "abc132",
+    "language": "C++ (GCC 9.2.1)",
+    "path": "atcoder\\abc132\\C.cpp",
+    "platform": "AtCoder",
+    "problem_index": "C",
+    "problem_name": "Divide the Problems",
+    "problem_url": "https://atcoder.jp/contests/abc132/tasks/abc132_c",
+    "submission_id": "AC17104396",
+    "submission_url": "https://atcoder.jp/contests/abc132/submissions/17104396",
+    "tags": [
+      "AtCoder",
+      "*300"
+    ],
+    "timestamp": "Sep/29/2020 23:54"
+  },
   "AC17104447": {
     "contest_id": "abc142",
     "language": "C++ (GCC 9.2.1)",
