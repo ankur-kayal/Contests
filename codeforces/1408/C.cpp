@@ -105,7 +105,7 @@ int main() {
 		ld l = 0;
 		ld r = 1e9;
 
-		for(int i=0;i<60;i++) {
+		for(int i=0;i<100;i++) {
 			ld m = l + (r - l) / 2;
 			if(good(a,len,m)) {
 				l = m;
