@@ -40,8 +40,11 @@ int main() {
 	int t;
 	cin >> t;
 	while(t--) {
-	  long long a,b,c;
-		cin >> a >> b >> c;
-		cout << (a + b + c - 1LL) << '\n';
+		// int a,b,c;
+		vector<long double> pts(3);
+		cin >> pts[0] >> pts[1] >> pts[2];
+		sort(pts.begin(), pts.end());
+		long long ans = ceil(sqrtl(pts[1] * pts[1] + (pts[2] - pts[1]) *(pts[2] - pts[1]) ));
+		cout << ans << '\n';
 	}
 }
