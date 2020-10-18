@@ -2367,6 +2367,26 @@
     ],
     "timestamp": "Feb/16/2021 23:44"
   },
+  "CF95853189": {
+    "contest_id": 1428,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1428\\E.cpp",
+    "platform": "Codeforces",
+    "problem_index": "E",
+    "problem_name": "Carrots for Rabbits",
+    "problem_url": "https://codeforces.com/contest/1428/problem/E",
+    "submission_id": "CF95853189",
+    "submission_url": "https://codeforces.com/contest/1428/submission/95853189",
+    "tags": [
+      "binary search",
+      "data structures",
+      "greedy",
+      "math",
+      "sortings",
+      "*2200"
+    ],
+    "timestamp": "Oct/18/2020 13:56"
+  },
   "CF95857982": {
     "contest_id": 1421,
     "language": "GNU C++17 (64)",
