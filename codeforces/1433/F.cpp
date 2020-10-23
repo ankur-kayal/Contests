@@ -66,7 +66,7 @@ int main() {
 		for(int j=0;j<m;j++) {
 			for(int cnt=0;cnt<=m/2;cnt++) {
 				for(int rem = 0;rem < k;rem++) {
-				// 	if(dp[i][j][cnt][rem] == -inf) continue;
+					if(dp[i][j][cnt][rem] == -inf) continue;
 					int ni = (j == m-1 ? i + 1 : i);
 					int nj = (j == m-1 ? 0 : j + 1);
 					if(i != ni) {
