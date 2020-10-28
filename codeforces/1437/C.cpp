@@ -1,126 +1,68 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define nl '\n'
-
-struct Edge {
-    int from, to, capacity, cost;
-    Edge() : from(), to(), capacity(), cost() {}
-    Edge(int _from, int _to, int _capacity, int _cost) : from(_from), to(_to), capacity(_capacity), cost(_cost) {};
+//----------------------------------- DEBUG -----------------------------------
+#define sim template < class c
+#define ris return * this
+#define dor > debug & operator <<
+#define eni(x) sim > typename \
+enable_if<sizeof dud<c>(0) x 1, debug&>::type operator<<(c i) {
+sim > struct rge { c b, e; };
+sim > rge<c> range(c i, c j) { return rge<c>{i, j}; }
+sim > auto dud(c* x) -> decltype(cerr << *x, 0);
+sim > char dud(...);
+struct debug {
+#ifdef LOCAL
+~debug() { cerr << endl; }
+eni(!=) cerr << boolalpha << i; ris; }
+eni(==) ris << range(begin(i), end(i)); }
+sim, class b dor(pair < b, c > d) {
+  ris << "(" << d.first << ", " << d.second << ")";
+}
+sim dor(rge<c> d) {
+  *this << "[";
+  for (auto it = d.b; it != d.e; ++it)
+	*this << ", " + 2 * (it == d.b) << *it;
+  ris << "]";
+}
+#else
+sim dor(const c&) { ris; }
+#endif
 };
+#define imie(...) " [" << #__VA_ARGS__ ": " << (__VA_ARGS__) << "] "
+// debug & operator << (debug & dd, P p) { dd << "(" << p.x << ", " << p.y << ")"; return dd; }
 
-vector<vector<int>> adj, cost, capacity;
+//----------------------------------- END DEBUG --------------------------------
 
-const int INF = 1e9;
-
-void shortest_paths(int n, int v0, vector<int>& d, vector<int>& p) {
-    d.assign(n, INF);
-    d[v0] = 0;
-    vector<bool> inq(n, false);
-    queue<int> q;
-    q.push(v0);
-    p.assign(n, -1);
-
-    while (!q.empty()) {
-        int u = q.front();
-        q.pop();
-        inq[u] = false;
-        for (int v : adj[u]) {
-            if (capacity[u][v] > 0 && d[v] > d[u] + cost[u][v]) {
-                d[v] = d[u] + cost[u][v];
-                p[v] = u;
-                if (!inq[v]) {
-                    inq[v] = true;
-                    q.push(v);
-                }
-            }
-        }
-    }
-}
-
-int min_cost_flow(int N, vector<Edge> edges, int K, int s, int t) {
-    adj.assign(N, vector<int>());
-    cost.assign(N, vector<int>(N, 0));
-    capacity.assign(N, vector<int>(N, 0));
-    for (Edge e : edges) {
-        adj[e.from].push_back(e.to);
-        adj[e.to].push_back(e.from);
-        cost[e.from][e.to] = e.cost;
-        cost[e.to][e.from] = -e.cost;
-        capacity[e.from][e.to] = e.capacity;
-    }
-
-    int flow = 0;
-    int cost = 0;
-    vector<int> d, p;
-    while (flow < K) {
-        shortest_paths(N, s, d, p);
-        if (d[t] == INF)
-            break;
-
-        // find max flow on that path
-        int f = K - flow;
-        int cur = t;
-        while (cur != s) {
-            f = min(f, capacity[p[cur]][cur]);
-            cur = p[cur];
-        }
-
-        // apply flow
-        flow += f;
-        cost += f * d[t];
-        cur = t;
-        while (cur != s) {
-            capacity[p[cur]][cur] -= f;
-            capacity[cur][p[cur]] += f;
-            cur = p[cur];
-        }
-    }
-
-    if (flow < K)
-        return -1;
-    else
-        return cost;
-}
-
-void run_cases() {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    for(auto &u: a)
-        cin >> u;
-
-    vector<Edge> edges;
-    /*
-    source = 3 * n
-    sink = 3 * n + 1
-    */
-
-    int source = 3 * n;
-    int sink = 3 * n + 1;
-    for(int i=0;i<n;i++) {
-        edges.push_back(Edge(source, i, 1, 0));
-    }
-    for(int i=0;i<n;i++) {
-        for(int j=n;j<3*n;j++) {
-            int cost = abs(a[i] - (j - n + 1));
-            edges.push_back(Edge(i, j, 1, cost));
-        }
-    }
-    for(int j=n;j<3*n;j++) {
-        edges.push_back(Edge(j, sink, 1, 0));
-    }
-
-    cout << min_cost_flow(3 * n + 2, edges, n, source, sink) << '\n';
-}
+const int maxN = 1e7;
 
 int main() {
-    ios_base::sync_with_stdio(0); cin.tie(nullptr);
+	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
-    int tests = 1;
-    cin >> tests;
+	int q;
+	cin >> q;
+	while(q--) {
+		int n;
+		cin>>n;
+		vector<int>t(n);
+		for(int i=0;i<n;i++)
+			cin>>t[i];
+	 
+		sort(t.begin(),t.end());
+	 
+		vector<vector<int>>dp(n+1,vector<int>(2*n+5,maxN));
+		dp[0][0] = 0;
+		for(int i=0;i<n;i++) {
+			for(int j=1;j<=2*n;j++) {
+				for(int k=0;k<j;k++) {
+					dp[i+1][j] = min( dp[i+1][j], dp[i][k] + abs(j-t[i]) );
+				}
+			}
+		}
+		int ans = maxN;
+		for(int i=1;i<=2*n;i++)
+			ans = min( ans, dp[n][i] );
+		cout << ans << '\n';
+	}
 
-    for(int test = 1;test <= tests;test++) {
-        run_cases();
-    }
 }
