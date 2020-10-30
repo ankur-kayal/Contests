@@ -51,13 +51,10 @@ int main() {
 
 	int n = s1.length();
 	int m = s2.length();
-	if(n > m) {
-		swap(s1,s2);
-	}
 	string tmp1 = "", tmp2 = "";
 	int rep = min(n,m);
 	int ans = 0;
-	for(int i=1;2*i<=rep;i++) {
+	for(int i=1;i<=rep;i++) {
 		tmp1 += s1[i-1];
 		tmp2 += s2[i-1];
 		if(tmp1 != tmp2) {
@@ -70,8 +67,6 @@ int main() {
 			}
 		}
 	}
-	// cout << isDivisor(s2,s1);
-	ans += (isDivisor(s2,s1));
 	cout << ans << '\n';
 
 }
