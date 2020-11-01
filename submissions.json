@@ -5746,6 +5746,23 @@
     ],
     "timestamp": "May/25/2021 00:39"
   },
+  "CF97347846": {
+    "contest_id": 1445,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1445\\C.cpp",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "Division",
+    "problem_url": "https://codeforces.com/contest/1445/problem/C",
+    "submission_id": "CF97347846",
+    "submission_url": "https://codeforces.com/contest/1445/submission/97347846",
+    "tags": [
+      "math",
+      "number theory",
+      "*1500"
+    ],
+    "timestamp": "Nov/01/2020 18:15"
+  },
   "CF97421871": {
     "contest_id": 1175,
     "language": "GNU C++17 (64)",
