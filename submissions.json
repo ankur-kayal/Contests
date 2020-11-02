@@ -1,4 +1,20 @@
 {
+  "AC17846496": {
+    "contest_id": "abc179",
+    "language": "C++ (GCC 9.2.1)",
+    "path": "atcoder\\abc179\\D.cpp",
+    "platform": "AtCoder",
+    "problem_index": "D",
+    "problem_name": "Leaping Tak",
+    "problem_url": "https://atcoder.jp/contests/abc179/tasks/abc179_d",
+    "submission_id": "AC17846496",
+    "submission_url": "https://atcoder.jp/contests/abc179/submissions/17846496",
+    "tags": [
+      "AtCoder",
+      "*400"
+    ],
+    "timestamp": "Nov/02/2020 22:16"
+  },
   "AC17946465": {
     "contest_id": "arc104",
     "language": "C++ (GCC 9.2.1)",
