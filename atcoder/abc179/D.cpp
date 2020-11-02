@@ -78,19 +78,19 @@ public:
     }
 
     T mult( T a, T b, T m = MOD ) {
-        return ( a * b ) % m;
+        return ( a * b ) % MOD;
     }
 
     T add( T a, T b, T m=MOD ) {
-        return ( a + b ) % m;
+        return ( a + b ) % MOD;
     }
 
     T sub( T a, T b, T m=MOD ) {
-        return ( a - b + m ) % m;
+        return ( a - b + MOD ) % MOD;
     }
 
     T divide( T a, T b, T m=MOD ) {
-        return ( a * modinv( b,m ) ) % m;
+        return ( a * modinv( b,m ) ) % MOD;
     }
 };
 
