@@ -78,10 +78,10 @@ int main() {
 		for(int j=0;j<m;j++) {
 			debug() << imie(i) imie(j);
 			int ele = a[i][j];
-			int lr = find(rows[i].begin(), rows[i].end(), ele) - rows[i].begin();
+			int lr = distance(rows[i].begin(), find(rows[i].begin(), rows[i].end(), ele));
 			int gr = (int)rows[i].size() - lr - 1;
 
-			int lc = find(cols[j].begin(), cols[j].end(), ele) - cols[j].begin();
+			int lc = distance(cols[j].begin(), find(cols[j].begin(), cols[j].end(), ele));
 			int gc = (int)cols[j].size() - lc - 1;
 
 			ans[i][j] = max(lr,lc) + max(gr, gc) + 1;
