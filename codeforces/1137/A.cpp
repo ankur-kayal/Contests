@@ -78,10 +78,10 @@ int main() {
 		for(int j=0;j<m;j++) {
 			debug() << imie(i) imie(j);
 			int ele = a[i][j];
-			int lr = lower_bound(rows[i].begin(), rows[i].end(), ele) - rows[i].begin();
+			int lr = find(rows[i].begin(), rows[i].end(), ele) - rows[i].begin();
 			int gr = (int)rows[i].size() - lr - 1;
 
-			int lc = lower_bound(cols[j].begin(), cols[j].end(), ele) - cols[j].begin();
+			int lc = find(cols[j].begin(), cols[j].end(), ele) - cols[j].begin();
 			int gc = (int)cols[j].size() - lc - 1;
 
 			ans[i][j] = max(lr,lc) + max(gr, gc) + 1;
