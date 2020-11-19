@@ -32,185 +32,86 @@ sim dor(const c&) { ris; }
 #define imie(...) " [" << #__VA_ARGS__ ": " << (__VA_ARGS__) << "] "
 // debug & operator << (debug & dd, P p) { dd << "(" << p.x << ", " << p.y << ")"; return dd; }
 
-//----------------------------------- END DEBUG --------------------------------
+//----------------------------------- END DEBUG --------------------------------int MOD;
 
-template <typename T>
-T inverse(T a, T m) {
-  T u = 0, v = 1;
-  while (a != 0) {
-    T t = m / a;
-    m -= t * a; swap(a, m);
-    u -= t * v; swap(u, v);
-  }
-  assert(m == 1);
-  return u;
-}
 
-template <typename T>
-class Modular {
- public:
-  using Type = typename decay<decltype(T::value)>::type;
+int MOD;
+template<class T> 
+class Math {
 
-  constexpr Modular() : value() {}
-  template <typename U>
-  Modular(const U& x) {
-    value = normalize(x);
-  }
+public:
+    vector<T> fact,invfact,inv;
 
-  template <typename U>
-  static Type normalize(const U& x) {
-    Type v;
-    if (-mod() <= x && x < mod()) v = static_cast<Type>(x);
-    else v = static_cast<Type>(x % mod());
-    if (v < 0) v += mod();
-    return v;
-  }
+    Math( int n ) {
+        fact.resize(n);
+        invfact.resize(n);
+        inv.resize(n);
+        fact[0] = inv[0] = invfact[0] = 1;
+        fact[1] = inv[1] = invfact[1] = 1;
+        for(int i=2;i<n;i++) {
+            fact[i] = mult( i , fact[i-1] );
+            inv[i] = sub( MOD, mult( MOD/i, inv[MOD%i] ) );
+            invfact[i] = mult( invfact[i-1], inv[i] );
+        }
+    }
 
-  const Type& operator()() const { return value; }
-  template <typename U>
-  explicit operator U() const { return static_cast<U>(value); }
-  constexpr static Type mod() { return T::value; }
+    T modinv( T x, T m = MOD ) {
+        return expo(x,m-2,m);
+    }
 
-  Modular& operator+=(const Modular& other) { if ((value += other.value) >= mod()) value -= mod(); return *this; }
-  Modular& operator-=(const Modular& other) { if ((value -= other.value) < 0) value += mod(); return *this; }
-  template <typename U> Modular& operator+=(const U& other) { return *this += Modular(other); }
-  template <typename U> Modular& operator-=(const U& other) { return *this -= Modular(other); }
-  Modular& operator++() { return *this += 1; }
-  Modular& operator--() { return *this -= 1; }
-  Modular operator++(int) { Modular result(*this); *this += 1; return result; }
-  Modular operator--(int) { Modular result(*this); *this -= 1; return result; }
-  Modular operator-() const { return Modular(-value); }
+    T expo( T base, T exp, T m = MOD ) {
+        T res = 1;
+        while( exp ) {
+            if( exp & 1 )
+                res = mult( res, base, m );
+            base = mult( base, base, m );
+            exp >>= 1;
+        }
+        return res;
+    }
 
-  template <typename U = T>
-  typename enable_if<is_same<typename Modular<U>::Type, int>::value, Modular>::type& operator*=(const Modular& rhs) {
-#ifdef _WIN32
-    uint64_t x = static_cast<int64_t>(value) * static_cast<int64_t>(rhs.value);
-    uint32_t xh = static_cast<uint32_t>(x >> 32), xl = static_cast<uint32_t>(x), d, m;
-    asm(
-      "divl %4; \n\t"
-      : "=a" (d), "=d" (m)
-      : "d" (xh), "a" (xl), "r" (mod())
-    );
-    value = m;
-#else
-    value = normalize(static_cast<int64_t>(value) * static_cast<int64_t>(rhs.value));
-#endif
-    return *this;
-  }
-  template <typename U = T>
-  typename enable_if<is_same<typename Modular<U>::Type, int64_t>::value, Modular>::type& operator*=(const Modular& rhs) {
-    int64_t q = static_cast<int64_t>(static_cast<long double>(value) * rhs.value / mod());
-    value = normalize(value * rhs.value - q * mod());
-    return *this;
-  }
-  template <typename U = T>
-  typename enable_if<!is_integral<typename Modular<U>::Type>::value, Modular>::type& operator*=(const Modular& rhs) {
-    value = normalize(value * rhs.value);
-    return *this;
-  }
+    T nCr( T n, T k ) {
+        if( k < 0 || k > n ) return 0;
+        T ans = fact[n];
+        ans = mult( ans , invfact[n-k] );
+        ans = mult( ans , invfact[k] );
+        return ans;
+    }
 
-  Modular& operator/=(const Modular& other) { return *this *= Modular(inverse(other.value, mod())); }
+    T mult( T a, T b, T m = MOD ) {
+        return ( a * b ) % m;
+    }
 
-  template <typename U>
-  friend const Modular<U>& abs(const Modular<U>& v) { return v; }
+    T add( T a, T b, T m=MOD ) {
+        return ( a + b ) % m;
+    }
 
-  template <typename U>
-  friend bool operator==(const Modular<U>& lhs, const Modular<U>& rhs);
+    T sub( T a, T b, T m=MOD ) {
+        return ( a - b + m ) % m;
+    }
 
-  template <typename U>
-  friend bool operator<(const Modular<U>& lhs, const Modular<U>& rhs);
-
-  template <typename U>
-  friend std::istream& operator>>(std::istream& stream, Modular<U>& number);
-
- private:
-  Type value;
+    T divide( T a, T b, T m=MOD ) {
+        return ( a * modinv( b,m ) ) % m;
+    }
 };
-
-template <typename T> bool operator==(const Modular<T>& lhs, const Modular<T>& rhs) { return lhs.value == rhs.value; }
-template <typename T, typename U> bool operator==(const Modular<T>& lhs, U rhs) { return lhs == Modular<T>(rhs); }
-template <typename T, typename U> bool operator==(U lhs, const Modular<T>& rhs) { return Modular<T>(lhs) == rhs; }
-
-template <typename T> bool operator!=(const Modular<T>& lhs, const Modular<T>& rhs) { return !(lhs == rhs); }
-template <typename T, typename U> bool operator!=(const Modular<T>& lhs, U rhs) { return !(lhs == rhs); }
-template <typename T, typename U> bool operator!=(U lhs, const Modular<T>& rhs) { return !(lhs == rhs); }
-
-template <typename T> bool operator<(const Modular<T>& lhs, const Modular<T>& rhs) { return lhs.value < rhs.value; }
-
-template <typename T> Modular<T> operator+(const Modular<T>& lhs, const Modular<T>& rhs) { return Modular<T>(lhs) += rhs; }
-template <typename T, typename U> Modular<T> operator+(const Modular<T>& lhs, U rhs) { return Modular<T>(lhs) += rhs; }
-template <typename T, typename U> Modular<T> operator+(U lhs, const Modular<T>& rhs) { return Modular<T>(lhs) += rhs; }
-
-template <typename T> Modular<T> operator-(const Modular<T>& lhs, const Modular<T>& rhs) { return Modular<T>(lhs) -= rhs; }
-template <typename T, typename U> Modular<T> operator-(const Modular<T>& lhs, U rhs) { return Modular<T>(lhs) -= rhs; }
-template <typename T, typename U> Modular<T> operator-(U lhs, const Modular<T>& rhs) { return Modular<T>(lhs) -= rhs; }
-
-template <typename T> Modular<T> operator*(const Modular<T>& lhs, const Modular<T>& rhs) { return Modular<T>(lhs) *= rhs; }
-template <typename T, typename U> Modular<T> operator*(const Modular<T>& lhs, U rhs) { return Modular<T>(lhs) *= rhs; }
-template <typename T, typename U> Modular<T> operator*(U lhs, const Modular<T>& rhs) { return Modular<T>(lhs) *= rhs; }
-
-template <typename T> Modular<T> operator/(const Modular<T>& lhs, const Modular<T>& rhs) { return Modular<T>(lhs) /= rhs; }
-template <typename T, typename U> Modular<T> operator/(const Modular<T>& lhs, U rhs) { return Modular<T>(lhs) /= rhs; }
-template <typename T, typename U> Modular<T> operator/(U lhs, const Modular<T>& rhs) { return Modular<T>(lhs) /= rhs; }
-
-template<typename T, typename U>
-Modular<T> power(const Modular<T>& a, const U& b) {
-  assert(b >= 0);
-  Modular<T> x = a, res = 1;
-  U p = b;
-  while (p > 0) {
-    if (p & 1) res *= x;
-    x *= x;
-    p >>= 1;
-  }
-  return res;
-}
-
-template <typename T>
-bool IsZero(const Modular<T>& number) {
-  return number() == 0;
-}
-
-template <typename T>
-string to_string(const Modular<T>& number) {
-  return to_string(number());
-}
-
-template <typename T>
-std::ostream& operator<<(std::ostream& stream, const Modular<T>& number) {
-  return stream << number();
-}
-
-template <typename T>
-std::istream& operator>>(std::istream& stream, Modular<T>& number) {
-  typename common_type<typename Modular<T>::Type, int64_t>::type x;
-  stream >> x;
-  number.value = Modular<T>::normalize(x);
-  return stream;
-}
-
-/*
-using ModType = int;
-
-struct VarMod { static ModType value; };
-ModType VarMod::value;
-ModType& md = VarMod::value;
-using Mint = Modular<VarMod>;
-*/
-
-constexpr int md = (int) 998244353;
-using mint = Modular<std::integral_constant<decay<decltype(md)>::type, md>>;
 
 int main() {
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
-  int n;
-  cin >> n;
-  vector<mint> fib(n + 1);
-  fib[1] = 1;
-  fib[2] = 1;
-  for(int i=3;i<=n;i++) {
-    fib[i] = fib[i - 1] + fib[i - 2];
-  }
-  cout << fib[n] / power(mint(2), n);
+	MOD = 998244353;
+	const int maxN = 3e5;
+	Math<int64_t> m(maxN);
+
+	int n;
+	cin >> n;
+	int64_t deno = m.expo(2, n);
+	int64_t a = 1;
+	int64_t b = 1;
+	while(n > 2) {
+		int64_t s = m.add(a , b);
+		a = b;
+		b = s;
+		n--;
+	}
+	cout << m.divide(b , deno) << '\n';
 }
