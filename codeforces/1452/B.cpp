@@ -34,6 +34,7 @@ sim dor(const c&) { ris; }
 
 //----------------------------------- END DEBUG --------------------------------
 
+// int
 int main() {
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
@@ -43,19 +44,40 @@ int main() {
 		int n;
 		cin >> n;
 		vector<int64_t> a(n);
-		int64_t M = -1;
+		int64_t sum = 0;
 		for(int i=0;i<n;i++) {
 			cin >> a[i];
-			M = max(M, a[i]);
+			sum += a[i];
 		}
-
-		int64_t sum = accumulate(a.begin(), a.end(), (int64_t)0);
-		int64_t req = M * (n - 1);
-		int64_t os = sum;
-		sum = max(sum, req);
-		while(sum % (n - 1) != 0) {
-			sum++;
+		vector<int64_t> sufmax(n);
+		sufmax[n-1] = a[n-1];
+		for(int i=n-2;i>=0;i--) {
+			sufmax[i] = max(sufmax[i + 1], a[i]);
 		}
-		cout << sum - os << '\n';
+		// debug() << imie(sufmax);
+		int64_t curmax = -1;
+		int64_t mx = -1;
+		int64_t ans = 0;
+		int64_t sm = 0;
+		for(int i=0;i<n;i++) {
+			mx = max(curmax, i + 1 < n ? sufmax[i + 1] : -1);
+			int64_t tot = sum - a[i];
+			int64_t needed = mx * (n - 1) - tot;
+			// needed %= (n - 1);
+			debug() << imie(needed);
+			if(needed >= a[i]) {
+				needed -=a[i];
+			}
+			else {
+				needed = (a[i] - needed) % (n - 1);
+				if(needed > 0) {
+					needed = n - 1 - needed;
+				}
+			}
+			ans = max(ans, abs(needed));
+			debug() << imie(mx) imie(ans) imie(curmax) imie(tot) imie(needed);
+			curmax = max(curmax, a[i]);
+		}
+		cout << ans << '\n';
 	}
 }
