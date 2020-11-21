@@ -101,13 +101,13 @@ int main() {
 	int X12 = XOR(1, 2);
 	int X23 = XOR(2, 3);
 	int X13 = X12 ^ X23;
-	int R12 = OR(1, 2);
-	int R23 = OR(2, 3);
-	int R13 = OR(1, 3);
+	int A12 = AND(1, 2);
+	int A23 = AND(2, 3);
+	int A13 = AND(1, 3);
 
-	int p = findSum(X12, R12);
-	int q = findSum(X23, R23);
-	int r = findSum(X13, R13);
+	int p = X12 + 2 * A12;
+	int q = X23 + 2 * A23;
+	int r = X13 + 2 * A13;
 	debug() << imie(p) imie(q) imie(r);
 
 	a[1] = (p - q + r) / 2;
