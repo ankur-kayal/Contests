@@ -58,65 +58,66 @@ int XOR(int i, int j) {
 	return x;
 }
 
+int findSum(int X, int R) {
+	int ans = 0;
+	for(int i=0;i<=16;i++) {
+		if((R & (1 << i)) != 0) {
+			ans += 1 << i;
+			if((X & (1 << i)) == 0) {
+				ans += 1 << i;
+			}
+		}
+	}
+	return ans;
+}
+
+pair<int,int> findFirstTwo(int X, int A) {
+	int a = 0;
+	int b = 0;
+	for(int i=0;i<=16;i++) {
+		int Xi = (X & (1 << i));
+		int Ai = (A & (1 << i));
+		if(Xi == 0 and Ai == 0) {
+			// nothing to do;
+		}
+		else if (Xi == 0 && Ai > 0) { 
+            a = ((1 << i) | a);  
+            b = ((1 << i) | b);  
+        } 
+        else if (Xi > 0 && Ai == 0) { 
+            a = ((1 << i) | a);  
+        } 
+	}
+	return make_pair(a,b);
+}
+
 int main() {
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
 	int n;
 	cin >> n;
 	vector<int> a(n + 1);
-	map<int,int> cnt;
-	int mx = 1;
-	for(int i=2;i<=n;i++) {
-		a[i] = XOR(1, i);
-		cnt[a[i]]++;
-		mx = max(mx, cnt[a[i]]);
-	}
-	debug() << imie(cnt);
-	if((int)cnt.size() == n - 1) {
-		int index = -1;
-		for(int i=2;i<=n;i++) {
-			if(a[i] == n - 1) {
-				index = i;
-				break;
-			}
-		}
-		int index2 = index == n ? n - 1 : n;
-		int X12 = a[index2];
-		int X13 = a[index];
-		int X23 = X12 ^ X13;
-		int A12 = AND(1, index2);
-		int A23 = AND(index2, index);
-		int A13 = 0;
+	
+	int X12 = XOR(1, 2);
+	int X23 = XOR(2, 3);
+	int X13 = X12 ^ X23;
+	int R12 = OR(1, 2);
+	int R23 = OR(2, 3);
+	int R13 = OR(1, 3);
 
-		int p = X12 + 2 * A12;
-		int q = X23 + 2 * A23;
-		int r = X13 + 2 * A13;
-		debug() << imie(p) imie(q) imie(r);
+	int p = findSum(X12, R12);
+	int q = findSum(X23, R23);
+	int r = findSum(X13, R13);
+	debug() << imie(p) imie(q) imie(r);
 
-		a[1] = (p - q + r) / 2;
-	}
-	else {
-		vector<int> ind;
-		int val = -1;
-		for(auto u: cnt) {
-			if(u.second == mx) {
-				val = u.first;
-				break;
-			}
-		}
-		for(int i=2;i<=n;i++) {
-			if(a[i] == val) {
-				ind.push_back(i);
-			}
-		}
+	a[1] = (p - q + r) / 2;
+	a[3] = r - a[1];
+	a[2] = q - a[3];
 
-		assert((int)ind.size() >= 2);
-		int ans = AND(ind[0], ind[1]);
-		a[1] = a[ind[0]] ^ ans;
-	}	
-
-	for(int i=2;i<=n;i++) {
-		a[i] = a[i] ^ a[1];
+	// all correct after this
+	for(int i=4;i<=n;i++) {
+		int X = XOR(1 , i);
+		a[i] = X ^ a[1];
 	}
 	cout << "! ";
 	for(int i=1;i<=n;i++) {
