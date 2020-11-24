@@ -52,9 +52,9 @@ int32_t main() {
     int64_t ans = 0;
     for(auto u: a) {
         cnt[u]--;
-        for(int i=0;i<60;i++) {
+        for(int i=0;i<32;i++) {
             int rem = (1LL << i) - u;
-            if(rem >= 0 and cnt.count(rem)) {
+            if(rem >= 0) {
                 ans += cnt[rem];
             }
         }
