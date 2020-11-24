@@ -35,8 +35,8 @@ sim dor(const c&) { ris; }
 // debug & operator << (debug & dd, P p) { dd << "(" << p.x << ", " << p.y << ")"; return dd; }
 
 //----------------------------------- END DEBUG --------------------------------
-#define int int64_t
-int32_t main() {
+
+int main() {
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
     int n;
