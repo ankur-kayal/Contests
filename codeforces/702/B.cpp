@@ -35,7 +35,7 @@ sim dor(const c&) { ris; }
 // debug & operator << (debug & dd, P p) { dd << "(" << p.x << ", " << p.y << ")"; return dd; }
 
 //----------------------------------- END DEBUG --------------------------------
-
+#define int int64_t
 int32_t main() {
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
@@ -52,7 +52,7 @@ int32_t main() {
     int64_t ans = 0;
     for(auto u: a) {
         cnt[u]--;
-        for(int i=0;i<32;i++) {
+        for(int i=0;i<60;i++) {
             int rem = (1LL << i) - u;
             if(rem >= 0 and cnt.count(rem)) {
                 ans += cnt[rem];
