@@ -45,7 +45,7 @@ int32_t main() {
     for(int i=0;i<n;i++) {
         cin >> a[i];
     }
-    map<int,int> cnt;
+    unordered_map<int,int> cnt;
     for(auto u: a) {
         cnt[u]++;
     }
