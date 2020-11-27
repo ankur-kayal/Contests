@@ -1,140 +1,131 @@
-#include <algorithm>
-#include <array>
-#include <cassert>
-#include <chrono>
-#include <cmath>
-#include <cstring>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <numeric>
-#include <queue>
-#include <random>
-#include <set>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
-template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, B> &p) { return os << '(' << p.first << ", " << p.second << ')'; }
-template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type> ostream& operator<<(ostream &os, const T_container &v) { os << '{'; string sep; for (const T &x : v) os << sep << x, sep = ", "; return os << '}'; }
-
-void dbg_out() { cerr << endl; }
-template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr << ' ' << H; dbg_out(T...); }
-
-#ifdef NEAL_DEBUG
-#define dbg(...) cerr << "(" << #__VA_ARGS__ << "):", dbg_out(__VA_ARGS__)
+//----------------------------------- DEBUG -----------------------------------
+#define sim template < class c
+#define ris return * this
+#define dor > debug & operator <<
+#define eni(x) sim > typename \
+enable_if<sizeof dud<c>(0) x 1, debug&>::type operator<<(c i) {
+sim > struct rge { c b, e; };
+sim > rge<c> range(c i, c j) { return rge<c>{i, j}; }
+sim > auto dud(c* x) -> decltype(cerr << *x, 0);
+sim > char dud(...);
+struct debug {
+#ifdef LOCAL
+~debug() { cerr << endl; }
+eni(!=) cerr << boolalpha << i; ris; }
+eni(==) ris << range(begin(i), end(i)); }
+sim, class b dor(pair < b, c > d) {
+  ris << "(" << d.first << ", " << d.second << ")";
+}
+sim dor(rge<c> d) {
+  *this << "[";
+  for (auto it = d.b; it != d.e; ++it)
+    *this << ", " + 2 * (it == d.b) << *it;
+  ris << "]";
+}
 #else
-#define dbg(...)
+sim dor(const c&) { ris; }
 #endif
+};
+#define imie(...) " [" << #__VA_ARGS__ ": " << (__VA_ARGS__) << "] "
+// debug & operator << (debug & dd, P p) { dd << "(" << p.x << ", " << p.y << ")"; return dd; }
 
-template<typename T, bool maximum_mode = false>
-struct RMQ {
-    int n = 0;
-    vector<T> values;
-    vector<vector<int>> range_low;
+//----------------------------------- END DEBUG --------------------------------
 
-    RMQ(const vector<T> &_values = {}) {
-        if (!_values.empty())
-            build(_values);
+// usage:
+//   auto fun = [&](int i, int j) { return min(i, j); };
+//   RMQ<int, decltype(fun)> st(a, fun);
+// or:
+//   RMQ<int> st(a, [&](int i, int j) { return min(i, j); });
+
+template<typename T, class F = function<T(const T&, const T&)>>
+class RMQ {
+
+public:
+    int n;
+    vector<vector<T>> mat;
+    F func;
+
+    RMQ(const vector<T>& a, const F& f) : func(f) {
+        n = static_cast<int>(a.size());
+        int max_log = 32 - __builtin_clz(n);
+        mat.resize(max_log);
+        mat[0] = a;
+        for(int j = 1; j < max_log; j++) {
+            mat[j].resize(n - (1 << j) + 1);
+            for(int i = 0; i <= n - (1 << j); i++) {
+                mat[j][i] = func(mat[j - 1][i], mat[j - 1][i + (1 << (j - 1))]);
+            }
+        }
     }
 
-    static int largest_bit(int x) {
-        return x == 0 ? -1 : 31 - __builtin_clz(x);
-    }
-
-    // Note: when `values[a] == values[b]`, returns b.
-    int better_index(int a, int b) const {
-        return (maximum_mode ? values[b] < values[a] : values[a] < values[b]) ? a : b;
-    }
-
-    void build(const vector<T> &_values) {
-        values = _values;
-        n = int(values.size());
-        int levels = largest_bit(n) + 1;
-        range_low.resize(levels);
-
-        for (int k = 0; k < levels; k++)
-            range_low[k].resize(n - (1 << k) + 1);
-
-        for (int i = 0; i < n; i++)
-            range_low[0][i] = i;
-
-        for (int k = 1; k < levels; k++)
-            for (int i = 0; i <= n - (1 << k); i++)
-                range_low[k][i] = better_index(range_low[k - 1][i], range_low[k - 1][i + (1 << (k - 1))]);
-    }
-
-    // Note: breaks ties by choosing the largest index.
-    int query_index(int a, int b) const {
-        assert(0 <= a && a < b && b <= n);
-        int level = largest_bit(b - a);
-        return better_index(range_low[level][a], range_low[level][b - (1 << level)]);
-    }
-
-    T query_value(int a, int b) const {
-        return values[query_index(a, b)];
+    T query(int from, int to) const {
+        assert(0 <= from && from <= to and to <= n - 1);
+        int lg = 32 - __builtin_clz(to - from + 1) - 1;
+        return func(mat[lg][from], mat[lg][to - (1 << lg) + 1]);
     }
 };
 
+int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
-const int INF = int(1e9) + 5;
-
-void run_case() {
-    int N;
-    cin >> N;
-    vector<int> A(N);
-
-    for (auto &a : A)
-        cin >> a;
-
-    RMQ<int> rmq(A);
-    vector<int> prefix_max(N + 1, -INF);
-    vector<int> suffix_max(N + 1, -INF);
-
-    for (int i = 0; i < N; i++)
-        prefix_max[i + 1] = max(prefix_max[i], A[i]);
-
-    for (int i = N - 1; i >= 0; i--)
-        suffix_max[i] = max(suffix_max[i + 1], A[i]);
-
-    for (int b = N - 1; b >= 2; b--) {
-        int value = suffix_max[b];
-        int start = int(lower_bound(prefix_max.begin(), prefix_max.begin() + b, value) - prefix_max.begin());
-        int end = int(upper_bound(prefix_max.begin(), prefix_max.begin() + b, value) - prefix_max.begin());
-
-        if (start >= end)
-            continue;
-
-        int low = start, high = end;
-
-        while (low < high) {
-            int mid = (low + high) / 2;
-
-            if (mid == b || rmq.query_value(mid, b) < value)
-                low = mid + 1;
-            else
-                high = mid;
+    int t;
+    cin >> t;
+    while(t--) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for(int i=0;i<n;i++) {
+            cin >> a[i];
+        }
+        auto fun = [&](int i, int j) { return min(i,j);};
+        RMQ<int,decltype(fun)> rmq(a,fun);
+        vector<int> prefixMaxes(n), suffixMaxes(n);
+        prefixMaxes[0] = a[0];
+        suffixMaxes[n - 1] = a[n - 1];
+        for(int i = 1; i < n; i++) {
+            prefixMaxes[i] = max(prefixMaxes[i - 1], a[i]);
+        }
+        for(int i = n - 2; i >= 0; i--) {
+            suffixMaxes[i] = max(suffixMaxes[i + 1], a[i]);
+        } 
+        unordered_map<int,int> lastTimeSuffixMaxIs, firstTimeSuffixMaxIs;
+        for(int i=0;i<n;i++) {
+            lastTimeSuffixMaxIs[suffixMaxes[i]] = i;
         }
 
-        if (low < b && rmq.query_value(low, b) == value) {
-            cout << "YES" << '\n';
-            cout << low << ' ' << b - low << ' ' << N - b << '\n';
-            return;
+        for(int i=n-1;i>=0;i--) {
+            firstTimeSuffixMaxIs[suffixMaxes[i]] = i;
         }
+
+        for(int l = 0; l + 2 < n; l++) {
+            int val = prefixMaxes[l];
+            int min = max(l + 2, firstTimeSuffixMaxIs[val]);
+            int max = lastTimeSuffixMaxIs[val];
+            while(min <= max) {
+                int mid = (min + max) / 2;
+                if(rmq.query(l + 1, mid - 1) == val) {
+                    cout << "YES" << '\n';
+                    int midSize = mid - l - 1;
+                    int rightSize = n - mid;
+                    cout << l + 1 << " " << midSize << " " << rightSize << '\n';
+                    goto done;
+                }
+                else if(rmq.query(l + 1, mid - 1) < val) {
+                    max = mid - 1;
+                }
+                else {
+                    min = mid + 1;
+                }
+            }
+        }
+
+        cout << "NO" << '\n';
+        done:
+
+        continue;
     }
 
-    cout << "NO" << '\n';
-}
-
-int main() {
-    ios::sync_with_stdio(false);
-#ifndef NEAL_DEBUG
-    cin.tie(nullptr);
-#endif
-
-    int tests;
-    cin >> tests;
-
-    while (tests-- > 0)
-        run_case();
 }
