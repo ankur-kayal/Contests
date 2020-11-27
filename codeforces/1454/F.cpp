@@ -102,8 +102,8 @@ int main() {
 
         for(int l = 0; l + 2 < n; l++) {
             int val = prefixMaxes[l];
-            int min = max(l + 2, firstTimeSuffixMaxIs[val]);
-            int max = lastTimeSuffixMaxIs[val];
+            int min = max(l + 2, firstTimeSuffixMaxIs.count(val) ? firstTimeSuffixMaxIs[val] : n + 1);
+            int max = lastTimeSuffixMaxIs.count(val) ? lastTimeSuffixMaxIs[val] : -1;
             while(min <= max) {
                 int mid = (min + max) / 2;
                 if(rmq.query(l + 1, mid - 1) == val) {
