@@ -91,7 +91,7 @@ int main() {
         for(int i = n - 2; i >= 0; i--) {
             suffixMaxes[i] = max(suffixMaxes[i + 1], a[i]);
         } 
-        unordered_map<int,int> lastTimeSuffixMaxIs, firstTimeSuffixMaxIs;
+        map<int,int> lastTimeSuffixMaxIs, firstTimeSuffixMaxIs;
         for(int i=0;i<n;i++) {
             lastTimeSuffixMaxIs[suffixMaxes[i]] = i;
         }
