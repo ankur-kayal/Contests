@@ -49,7 +49,7 @@ int main() {
     for(int i=0;i<n;i++) {
         pos[a[i]] = i;
     }
-    unordered_map<int, int> left;
+    map<int, int> left;
     for(int i=0;i<n;i++) {
         int initial = pos[b[i]];
         if(initial > i) {
@@ -59,7 +59,7 @@ int main() {
             left[i - initial]++;
         }
     }
-    unordered_map<int,int> right;
+    map<int,int> right;
     for(int i=0;i<n;i++) {
         int initial = pos[b[i]];
         if(initial > i) {
