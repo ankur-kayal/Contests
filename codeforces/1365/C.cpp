@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-#include <ext/pb_ds/assoc_container.hpp>
-using namespace __gnu_pbds;
 
 //----------------------------------- DEBUG -----------------------------------
 #define sim template < class c
@@ -51,7 +49,7 @@ int main() {
     for(int i=0;i<n;i++) {
         pos[a[i]] = i;
     }
-    gp_hash_table<int, int> left;
+    vector<int> left(n + 1,0);
     for(int i=0;i<n;i++) {
         int initial = pos[b[i]];
         if(initial > i) {
@@ -61,7 +59,7 @@ int main() {
             left[i - initial]++;
         }
     }
-    gp_hash_table<int, int> right;
+    vector<int> right(n + 1, 0);
     for(int i=0;i<n;i++) {
         int initial = pos[b[i]];
         if(initial > i) {
@@ -74,10 +72,10 @@ int main() {
 
     int ans = -1;
     for(auto u: left) {
-        ans = max(ans, u.second);
+        ans = max(ans, u);
     }
     for(auto u: right) {
-        ans = max(ans, u.second);
+        ans = max(ans, u);
     }
     cout << ans << '\n';
 
