@@ -49,7 +49,7 @@ int main() {
     for(int i=0;i<n;i++) {
         pos[a[i]] = i;
     }
-    vector<int> left(n + 1,0);
+    unordered_map<int, int> left;
     for(int i=0;i<n;i++) {
         int initial = pos[b[i]];
         if(initial > i) {
@@ -59,7 +59,7 @@ int main() {
             left[i - initial]++;
         }
     }
-    vector<int> right(n + 1, 0);
+    unordered_map<int,int> right;
     for(int i=0;i<n;i++) {
         int initial = pos[b[i]];
         if(initial > i) {
@@ -72,10 +72,10 @@ int main() {
 
     int ans = -1;
     for(auto u: left) {
-        ans = max(ans, u);
+        ans = max(ans, u.second);
     }
     for(auto u: right) {
-        ans = max(ans, u);
+        ans = max(ans, u.second);
     }
     cout << ans << '\n';
 
