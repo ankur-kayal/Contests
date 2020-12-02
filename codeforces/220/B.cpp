@@ -72,19 +72,6 @@ struct Query {
     } 
 };
 
-int bs = sqrtl(int(1e5)) + 1;
-
-bool comp(Query &a, Query &b) {
-    if(a.l / bs != b.l / bs) {
-        return a.l / bs < b.l / bs;
-    }
-    return a.r < b.r;
-}
-
-// bool comp(Query &a, Query &b) {
-//     return a.order < b.order;
-// }
-
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 
@@ -112,7 +99,9 @@ int main() {
         query[i] = Query(l,r,i);
     }
  
-    sort(query.begin(), query.end(), comp);
+    sort(query.begin(), query.end(), [&](const Query& a, const Query& b) {
+        return a.order < b.order;
+    });
 
     // cerr << "done" << '\n';
     // exit(0);
