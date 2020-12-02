@@ -56,8 +56,6 @@ inline int64_t gilbertOrder(int x, int y, int pow, int rotate) {
     return ans;
 }
 
-int bs = sqrtl(int(1e5)) + 1;
-
 struct Query {
     int l,r,index;
     int64_t order;
@@ -71,29 +69,21 @@ struct Query {
         r = _r;
         index = _index;
         order = gilbertOrder(l,r,21,0);
-    }
-
-    inline pair<int, int> toPair() const {
-        return make_pair(l / bs, ((l / bs) & 1) ? -r : +r);
     } 
 };
 
+int bs = sqrtl(int(1e5)) + 1;
 
-
-// bool comp(Query &a, Query &b) {
-//     if(a.l / bs != b.l / bs) {
-//         return a.l / bs < b.l / bs;
-//     }
-//     return a.r < b.r;
-// }
+bool comp(Query &a, Query &b) {
+    if(a.l / bs != b.l / bs) {
+        return a.l / bs < b.l / bs;
+    }
+    return a.r < b.r;
+}
 
 // bool comp(Query &a, Query &b) {
 //     return a.order < b.order;
 // }
-
-bool comp(Query &a, Query &b) {
-    return a.toPair() < b.toPair();
-}
 
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
