@@ -1263,6 +1263,24 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF101332801": {
+    "contest_id": 1462,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1462\\D.cpp",
+    "platform": "Codeforces",
+    "problem_index": "D",
+    "problem_name": "Add to Neighbour and Remove",
+    "problem_url": "https://codeforces.com/contest/1462/problem/D",
+    "submission_id": "CF101332801",
+    "submission_url": "https://codeforces.com/contest/1462/submission/101332801",
+    "tags": [
+      "greedy",
+      "math",
+      "number theory",
+      "*1400"
+    ],
+    "timestamp": "Dec/15/2020 21:44"
+  },
   "CF101395629": {
     "contest_id": 1462,
     "language": "GNU C++17 (64)",
