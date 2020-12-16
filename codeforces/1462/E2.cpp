@@ -231,15 +231,11 @@ int main() {
         sort(a.begin(), a.end());
 
         list<int> l;
-        queue<int> q;
         Mint ans = 0;
         for(int i=0;i<n;i++) {
-            // while(l.size() > 0 and a[i] - *(l.begin()) > k) l.pop_front();
-            // ans += C(l.size(), m-1);
-            // l.push_back(a[i]);
-            while(q.size() > 0 and a[i] - q.front() > k) q.pop();
-            ans += C(q.size(), m-1);
-            q.push(a[i]);
+            while(l.size() > 0 and a[i] - *(l.begin()) > k) l.pop_front();
+            ans += C(l.size(), m-1);
+            l.push_back(a[i]);
         }
 
         cout << ans << '\n';
