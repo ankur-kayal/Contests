@@ -33,6 +33,18 @@ sim dor(const c&) { ris; }
 // debug & operator << (debug & dd, P p) { dd << "(" << p.x << ", " << p.y << ")"; return dd; }
 
 //----------------------------------- END DEBUG --------------------------------
+/*
+1
+5
+17942112 454594138 234740361 242899555 138750740
+*/
+/*
+[n: 4] 
+ [a: [436899940, 667781341, 459666161, 425113456]] 
+ [b: [436899940, 873799880, 873799880, 1]] 
+ [2 * s1: 2090531426]  [sum: 1989460898]
+
+*/
 
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
@@ -43,35 +55,47 @@ int main() {
         int n;
         cin >> n;
         vector<int64_t> a(n);
-        for(int i=0;i<n;i++) {
-            cin >> a[i];
+        for(auto &u: a) {
+            cin >> u;
         }
 
-        int64_t odd = 0, even = 0;
-        for(int i=0;i<n;i++) {
-            if(i & 1) odd+=a[i];
-            else even+=a[i];
+        int64_t sum = 0;
+        for(auto u: a) {
+            sum += u;
+        }
+        vector<int64_t> b(n);
+
+        b[0] = a[0];
+        for(int i=1;i<n;i++) {
+            if(b[i-1] % a[i] == 0) {
+                b[i] = a[i];
+                continue;
+            }
+            // if(a[i] % b[i-1] <= b[i-1] / 2) {
+            //     b[i] = max(1LL, (a[i] / b[i-1]) * b[i-1]);
+            // }
+            // else {
+            //     b[i] = max(1LL, (a[i] + b[i-1] - 1) / b[i-1] * b[i-1]);
+            // }
+            // // if(i == 3)break;
+
+            b[i] = (a[i] - (a[i] % b[i-1]));
+            b[i] = max(1LL, b[i]);
+            // if(b[i] == 0) {
+            //     b[i] = 
+            // }
+            // debug() << imie(b[i]);
+
         }
 
-        if(odd < even) {
-            for(int i=0;i<n;i++) {
-                if(i & 1) {
-                    cout << 1 << " ";
-                }
-                else {
-                    cout << a[i] << " ";
-                }
-            }
+        int s1 = 0;
+        for(int i=0;i<n;i++) {
+            s1 += abs(a[i] - b[i]);
         }
-        else {
-            for(int i=0;i<n;i++) {
-                if(i & 1) {
-                    cout << a[i] << " ";
-                }
-                else {
-                    cout << 1 << " ";
-                }
-            }
+        debug() << imie(2 * s1) imie(sum);
+        assert(2 * s1 <= sum);
+        for(auto u: b) {
+            cout << u << " ";
         }
         cout << '\n';
     }
