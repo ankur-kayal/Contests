@@ -36,9 +36,9 @@ sim dor(const c&) { ris; }
 
 #define mp make_pair
 
-void run_cases() {
-    int n;
-    cin >> n;
+void run_cases(int n) {
+    // int n;
+    // cin >> n;
 
     set<pair<pair<int,int>, char>> pts, tmp;
     pts.insert(mp(mp(1, 0), 'R'));
@@ -80,16 +80,27 @@ void run_cases() {
 
     // debug() << imie(ans);
 
-    cout << ans.size() << ' ';
+    cout << n << " " << ans.size() << ' ';
 }
 
 void hacked() {
     int n;
     cin >> n;
-    // --n;
-    int mul = (n & 1 ? -1 : 1);
-    int64_t ans = 1 + (3 * n * (n + 4) + 2 - mul * (n * (n + 4) + 2)) / 8;
-    cout << ans << '\n';
+
+    vector<int64_t> ans(n + 1);
+    ans[0] = 1;
+    ans[1] = 4;
+    ans[2] = 4;
+    int diff = 8;
+    for(int i=3;i<=n;i+=2) {
+        ans[i] = ans[i-2] + diff;
+        diff+=4;
+    }
+    for(int i=4;i<=n;i+=2) {
+        ans[i] = (i / 2 + 1) * (i / 2 + 1);
+    }
+
+    cout << ans[n] << "\n";
 }
 
 int main() {
@@ -101,5 +112,7 @@ int main() {
     //     run_cases(i);
     //     hacked(i);
     // }
+    // // run_cases();
+
     hacked();
 }
