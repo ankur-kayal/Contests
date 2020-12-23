@@ -1,4 +1,6 @@
+#include <algorithm>
 #include <bits/stdc++.h>
+#include <utility>
 using namespace std;
 
 //----------------------------------- DEBUG -----------------------------------
@@ -39,63 +41,37 @@ int main() {
 
     int t;
     cin >> t;
-    loop:
     while(t--) {
         int n;
         cin >> n;
-        char s[n][n];
+        char a[n][n];
         for(int i=0;i<n;i++) {
             for(int j=0;j<n;j++) {
-                cin >> s[i][j];
+                cin >> a[i][j];
             }
         }
-        int k = 0;
-        int cnt[3][2] = {{0,0},{0,0},{0,0}};
+
+        char ans[3][n][n];
+
+        vector<pair<int,int>> cnt = {{0,0}, {0,1}, {0,2}};
         for(int i=0;i<n;i++) {
             for(int j=0;j<n;j++) {
-                if(s[i][j] == 'X') {
-                    cnt[(i + j) % 3][0]++;
-                    k++;
-                }
-                else if(s[i][j] == 'O') {
-                    cnt[(i + j) % 3][1]++;
-                    k++;
+                ans[0][i][j] = ans[1][i][j] = ans[2][i][j] = a[i][j];
+                int parity = (i + j) % 3;
+                if(a[i][j] == 'X') {
+                    cnt[parity].first++;
+                    ans[parity][i][j] = 'O';
                 }
             }
         }
 
-        for(int d=0;d<3;d++) {
-            for(int d2=0;d2<3;d2++) {
-                if(d == d2) continue;
-                if(cnt[d][0] + cnt[d2][1] <= k / 3) {
-                    for(int i=0;i<n;i++) {
-                        for(int j=0;j<n;j++) {
-                            if((i + j) % 3 == d) {
-                                if(s[i][j] == 'X') {
-                                    cout << 'O';
-                                }
-                                else {
-                                    cout << s[i][j];
-                                }
-                            }
-                            else if((i + j) % 3 == d2) {
-                                if(s[i][j] == 'O') {
-                                    cout << 'X';
-                                }
-                                else {
-                                    cout << s[i][j];
-                                }
-                            }
-                            else {
-                                cout << s[i][j];
-                            }
-                        }
-                        cout << '\n';
-                    }
-
-                    goto loop;
-                }
+        sort(cnt.begin(), cnt.end());
+        int parity = cnt[0].second;
+        for(int i=0;i<n;i++) {
+            for(int j=0;j<n;j++) {
+                cout << ans[parity][i][j];
             }
+            cout << '\n';
         }
-    }   
+    }
 }
