@@ -1263,6 +1263,24 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF102410766": {
+    "contest_id": 1465,
+    "language": "PyPy 3",
+    "path": "codeforces\\1465\\B.py",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Fair Numbers",
+    "problem_url": "https://codeforces.com/contest/1465/problem/B",
+    "submission_id": "CF102410766",
+    "submission_url": "https://codeforces.com/contest/1465/submission/102410766",
+    "tags": [
+      "brute force",
+      "math",
+      "number theory",
+      "*1000"
+    ],
+    "timestamp": "Dec/26/2020 21:26"
+  },
   "CF102484940": {
     "contest_id": 1025,
     "language": "GNU C++17 (64)",
