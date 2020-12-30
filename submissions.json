@@ -1263,6 +1263,27 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF102741101": {
+    "contest_id": 1469,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1469\\E.cpp",
+    "platform": "Codeforces",
+    "problem_index": "E",
+    "problem_name": "A Bit Similar",
+    "problem_url": "https://codeforces.com/contest/1469/problem/E",
+    "submission_id": "CF102741101",
+    "submission_url": "https://codeforces.com/contest/1469/submission/102741101",
+    "tags": [
+      "bitmasks",
+      "brute force",
+      "hashing",
+      "string suffix structures",
+      "strings",
+      "two pointers",
+      "*2400"
+    ],
+    "timestamp": "Dec/30/2020 12:07"
+  },
   "CF104761305": {
     "contest_id": 1473,
     "language": "GNU C++17 (64)",
