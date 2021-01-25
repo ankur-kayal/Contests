@@ -56,7 +56,15 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 void run_cases() {
     int64_t n;
     cin >> n;
-    cout << ((n & (n - 1)) ? "YES" : "NO") << '\n';
+    bool ok = true;
+    for(int i=1;i<50;i++) {
+        if(n == (1LL << i)) {
+            ok = false;
+            break;
+        }
+    }
+
+    cout << (ok ? "YES" : "NO") << '\n';
 }
 
 int main() {
