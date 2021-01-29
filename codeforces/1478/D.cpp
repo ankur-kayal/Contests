@@ -55,12 +55,14 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 template<typename T>
 T gcd(T a, T b) {
+    T c;
     while(b) {
-        swap(b, a %= b);
+        c = b;
+        b = a % b;
+        a = c;
     }
     return a;
 }
-
 void run_cases() {
     int64_t n,k;
     cin >> n >> k;
