@@ -54,9 +54,10 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 //----------------------------------- END DEFINES -------------------------------- 
 
 template<typename T>
-T gcd(T a, T b) {
+inline T gcd(T a, T b) {
     T c;
-    while(b) {
+    while(b)
+    {
         c = b;
         b = a % b;
         a = c;
