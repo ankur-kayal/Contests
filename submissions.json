@@ -1,4 +1,20 @@
 {
+  "CF106511655": {
+    "contest_id": 990,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\990\\C.cpp",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "Bracket Sequences Concatenation Problem",
+    "problem_url": "https://codeforces.com/contest/990/problem/C",
+    "submission_id": "CF106511655",
+    "submission_url": "https://codeforces.com/contest/990/submission/106511655",
+    "tags": [
+      "implementation",
+      "*1500"
+    ],
+    "timestamp": "Feb/05/2021 12:50"
+  },
   "CF106513273": {
     "contest_id": 990,
     "language": "GNU C++17 (64)",
