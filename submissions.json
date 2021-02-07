@@ -1,4 +1,23 @@
 {
+  "CF106847624": {
+    "contest_id": 1480,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1480\\C.cpp",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "Searching Local Minimum",
+    "problem_url": "https://codeforces.com/contest/1480/problem/C",
+    "submission_id": "CF106847624",
+    "submission_url": "https://codeforces.com/contest/1480/submission/106847624",
+    "tags": [
+      "binary search",
+      "interactive",
+      "math",
+      "ternary search",
+      "*1700"
+    ],
+    "timestamp": "Feb/08/2021 00:26"
+  },
   "CF106849369": {
     "contest_id": 1480,
     "language": "GNU C++17 (64)",

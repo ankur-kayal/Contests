@@ -67,23 +67,27 @@ void run_cases() {
     cin >> n;
 
     
-    int l = 0, r = n + 1;
-    while(r > l + 1) {
+    set<int> indexes;
+    int l = 1, r = n;
+    while(l <= r) {
         // do processing
         int m = (l + r) / 2;
         int index = m;
+        int left = index == 1 ? inf : query(index - 1);
         int right = index == n ? inf : query(index + 1);
         int center = query(index);
         // debug() << imie(index) imie(left) imie(center) imie(right);
-        if(center > right) {
-            l = m;
+        if(left > center and center < right) {
+            cout << "! " << index << endl;
+            return;
         }
-        else {
-            r = m;
+        else if(left < center) {
+            r = m - 1;
+        }
+        else if(center > right) {
+            l = m + 1;
         }
     }
-
-    cout << "! " << r << endl;
 }
 
 int main() {
