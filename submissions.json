@@ -1,4 +1,22 @@
 {
+  "CF106849369": {
+    "contest_id": 1480,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1480\\B.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "The Great Hero",
+    "problem_url": "https://codeforces.com/contest/1480/problem/B",
+    "submission_id": "CF106849369",
+    "submission_url": "https://codeforces.com/contest/1480/submission/106849369",
+    "tags": [
+      "greedy",
+      "implementation",
+      "sortings",
+      "*900"
+    ],
+    "timestamp": "Feb/08/2021 00:38"
+  },
   "CF106887313": {
     "contest_id": 1480,
     "language": "GNU C++17 (64)",
