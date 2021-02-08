@@ -56,7 +56,7 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 const int inf = 1e9;
 
 int query(int index) {
-    cout << "? " << index << '\n' << flush;
+    cout << "? " << index << endl;
     int ai;
     cin >> ai;
     return ai;
@@ -83,11 +83,11 @@ void run_cases() {
         }
     }
 
-    cout << "! " << r << '\n';
+    cout << "! " << r << endl;
 }
 
 int main() {
-    ios_base::sync_with_stdio(0); cin.tie(nullptr);
+    // ios_base::sync_with_stdio(0); cin.tie(nullptr);
 
     int tests = 1;
     // cin >> tests;
