@@ -3,7 +3,7 @@
 using namespace std;
 
 //----------------------------------- DEBUG -----------------------------------
-#define sim template < class c
+#define sim template < class c 
 #define ris return * this
 #define dor > debug & operator <<
 #define eni(x) sim > typename \
