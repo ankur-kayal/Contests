@@ -91,7 +91,7 @@ void run_cases() {
     trav(u, a) cin >> u;
 
     set<int> vals;
-    for(int i=0;i<=100000;i++) {
+    for(int i=0;i<=1000000;i++) {
         vals.insert(i);
     }
     for(int i=0;i<n;i++) {

@@ -3171,6 +3171,24 @@
     ],
     "timestamp": "Feb/19/2021 23:42"
   },
+  "CF107977209": {
+    "contest_id": 1364,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1364\\C.cpp",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "Ehab and Prefix MEXs",
+    "problem_url": "https://codeforces.com/contest/1364/problem/C",
+    "submission_id": "CF107977209",
+    "submission_url": "https://codeforces.com/contest/1364/submission/107977209",
+    "tags": [
+      "brute force",
+      "constructive algorithms",
+      "greedy",
+      "*1600"
+    ],
+    "timestamp": "Feb/20/2021 01:10"
+  },
   "CF107977286": {
     "contest_id": 1364,
     "language": "GNU C++17 (64)",
