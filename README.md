@@ -13,8 +13,9 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-305 | [A - Orac and LCM](https://codeforces.com/contest/1349/problem/A) | [GNU C++17 (64)](./codeforces/1349/A.cpp) | `data structures` `math` `number theory` `*1600` | Feb/20/2021 21:56 | 
-304 | [D - Constructing the Array](https://codeforces.com/contest/1353/problem/D) | [GNU C++17 (64)](./codeforces/1353/D.cpp) | `constructive algorithms` `data structures` `sortings` `*1600` | Feb/20/2021 21:31 | 
+306 | [A - Orac and LCM](https://codeforces.com/contest/1349/problem/A) | [GNU C++17 (64)](./codeforces/1349/A.cpp) | `data structures` `math` `number theory` `*1600` | Feb/20/2021 21:56 | 
+305 | [D - Constructing the Array](https://codeforces.com/contest/1353/problem/D) | [GNU C++17 (64)](./codeforces/1353/D.cpp) | `constructive algorithms` `data structures` `sortings` `*1600` | Feb/20/2021 21:31 | 
+304 | [C - Celex Update](https://codeforces.com/contest/1358/problem/C) | [GNU C++17 (64)](./codeforces/1358/C.cpp) | `math` `*1600` | Feb/20/2021 21:20 | 
 303 | [C - Ehab and Prefix MEXs](https://codeforces.com/contest/1364/problem/C) | [GNU C++17 (64)](./codeforces/1364/C.cpp) | `brute force` `constructive algorithms` `greedy` `*1600` | Feb/20/2021 01:12 | 
 302 | [D - Grid-00100](https://codeforces.com/contest/1371/problem/D) | [GNU C++17 (64)](./codeforces/1371/D.cpp) | `constructive algorithms` `greedy` `implementation` `*1600` | Feb/20/2021 00:57 | 
 301 | [D - Maximum Sum on Even Positions](https://codeforces.com/contest/1373/problem/D) | [GNU C++17 (64)](./codeforces/1373/D.cpp) | `divide and conquer` `dp` `greedy` `implementation` `*1600` | Feb/20/2021 00:39 | 
