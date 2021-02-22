@@ -13,7 +13,8 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-312 | [A - Linova and Kingdom](https://codeforces.com/contest/1336/problem/A) | [GNU C++17 (64)](./codeforces/1336/A.cpp) | `dfs and similar` `dp` `greedy` `sortings` `trees` `*1600` | Feb/22/2021 23:32 | 
+313 | [A - Linova and Kingdom](https://codeforces.com/contest/1336/problem/A) | [GNU C++17 (64)](./codeforces/1336/A.cpp) | `dfs and similar` `dp` `greedy` `sortings` `trees` `*1600` | Feb/22/2021 23:32 | 
+312 | [C - Yet Another Counting Problem](https://codeforces.com/contest/1342/problem/C) | [GNU C++17 (64)](./codeforces/1342/C.cpp) | `math` `number theory` `*1600` | Feb/22/2021 20:34 | 
 311 | [D - Base n](https://atcoder.jp/contests/abc192/tasks/abc192_d) | [PyPy3 (7.3.0)](./atcoder/abc192/D.py) | `AtCoder` `*400` | Feb/20/2021 22:43 | 
 310 | [A - Orac and LCM](https://codeforces.com/contest/1349/problem/A) | [GNU C++17 (64)](./codeforces/1349/A.cpp) | `data structures` `math` `number theory` `*1600` | Feb/20/2021 21:56 | 
 309 | [D - Constructing the Array](https://codeforces.com/contest/1353/problem/D) | [GNU C++17 (64)](./codeforces/1353/D.cpp) | `constructive algorithms` `data structures` `sortings` `*1600` | Feb/20/2021 21:31 | 
