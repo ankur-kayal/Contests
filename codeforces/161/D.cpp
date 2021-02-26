@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#pragma GCC optimize ("O3")
+#pragma GCC target ("sse4")
+
 //----------------------------------- DEBUG -----------------------------------
 #define sim template < class c
 #define ris return * this
@@ -120,7 +123,7 @@ void run_cases() {
     }
 
     dfs(1, 1);
- 
+
     cout << answer << nl;
 }
 
