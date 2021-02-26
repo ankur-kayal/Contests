@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#pragma GCC optimize ("O3")
-#pragma GCC target ("sse4")
+#pragma GCC optimize ("Ofast")
+#pragma GCC optimize ("unroll-loops")
+#pragma GCC target("avx,avx2,tune=native")
 
 //----------------------------------- DEBUG -----------------------------------
 #define sim template < class c
