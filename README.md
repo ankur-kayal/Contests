@@ -13,13 +13,14 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-329 | [D - GCD of an Array](https://codeforces.com/contest/1493/problem/D) | [GNU C++17 (64)](./codeforces/1493/D.cpp) | `brute force` `data structures` `math` `number theory` | Mar/06/2021 23:37 | 
-328 | [B - Planet Lapituletti](https://codeforces.com/contest/1493/problem/B) | [GNU C++17 (64)](./codeforces/1493/B.cpp) | `brute force` `implementation` | Mar/06/2021 20:17 | 
-327 | [A - Anti-knapsack](https://codeforces.com/contest/1493/problem/A) | [GNU C++17 (64)](./codeforces/1493/A.cpp) | `constructive algorithms` | Mar/06/2021 19:47 | 
-326 | [E - Mex Min](https://atcoder.jp/contests/abc194/tasks/abc194_e) | [C++ (GCC 9.2.1)](./atcoder/abc194/E.cpp) | `AtCoder` `*500` | Mar/06/2021 19:03 | 
-325 | [C - Squared Error](https://atcoder.jp/contests/abc194/tasks/abc194_c) | [C++ (GCC 9.2.1)](./atcoder/abc194/C.cpp) | `AtCoder` `*300` | Mar/06/2021 18:06 | 
-324 | [B - Job Assignment](https://atcoder.jp/contests/abc194/tasks/abc194_b) | [C++ (GCC 9.2.1)](./atcoder/abc194/B.cpp) | `AtCoder` `*200` | Mar/06/2021 17:49 | 
-323 | [A - I Scream](https://atcoder.jp/contests/abc194/tasks/abc194_a) | [C++ (GCC 9.2.1)](./atcoder/abc194/A.cpp) | `AtCoder` `*100` | Mar/06/2021 17:34 | 
+330 | [D - GCD of an Array](https://codeforces.com/contest/1493/problem/D) | [GNU C++17 (64)](./codeforces/1493/D.cpp) | `brute force` `data structures` `math` `number theory` | Mar/06/2021 23:37 | 
+329 | [B - Planet Lapituletti](https://codeforces.com/contest/1493/problem/B) | [GNU C++17 (64)](./codeforces/1493/B.cpp) | `brute force` `implementation` | Mar/06/2021 20:17 | 
+328 | [A - Anti-knapsack](https://codeforces.com/contest/1493/problem/A) | [GNU C++17 (64)](./codeforces/1493/A.cpp) | `constructive algorithms` | Mar/06/2021 19:47 | 
+327 | [E - Mex Min](https://atcoder.jp/contests/abc194/tasks/abc194_e) | [C++ (GCC 9.2.1)](./atcoder/abc194/E.cpp) | `AtCoder` `*500` | Mar/06/2021 19:03 | 
+326 | [C - Squared Error](https://atcoder.jp/contests/abc194/tasks/abc194_c) | [C++ (GCC 9.2.1)](./atcoder/abc194/C.cpp) | `AtCoder` `*300` | Mar/06/2021 18:06 | 
+325 | [B - Job Assignment](https://atcoder.jp/contests/abc194/tasks/abc194_b) | [C++ (GCC 9.2.1)](./atcoder/abc194/B.cpp) | `AtCoder` `*200` | Mar/06/2021 17:49 | 
+324 | [A - I Scream](https://atcoder.jp/contests/abc194/tasks/abc194_a) | [C++ (GCC 9.2.1)](./atcoder/abc194/A.cpp) | `AtCoder` `*100` | Mar/06/2021 17:34 | 
+323 | [E - Nearest Opposite Parity](https://codeforces.com/contest/1272/problem/E) | [GNU C++17 (64)](./codeforces/1272/E.cpp) | `dfs and similar` `graphs` `shortest paths` `*1900` | Mar/06/2021 01:13 | 
 322 | [E - Sorting Books](https://codeforces.com/contest/1481/problem/E) | [GNU C++17 (64)](./codeforces/1481/E.cpp) | `data structures` `dp` `greedy` `*2500` | Mar/06/2021 00:39 | 
 321 | [F - Convolution](https://atcoder.jp/contests/practice2/tasks/practice2_f) | [C++ (GCC 9.2.1)](./atcoder/practice2/F.cpp) | `AtCoder` `*100` | Feb/27/2021 14:28 | 
 320 | [D - Distance in Tree](https://codeforces.com/contest/161/problem/D) | [GNU C++17 (64)](./codeforces/161/D.cpp) | `dfs and similar` `dp` `trees` `*1800` | Feb/26/2021 21:22 | 
