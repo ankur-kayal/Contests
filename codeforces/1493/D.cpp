@@ -302,7 +302,7 @@ void run_cases() {
 
     vector<multiset<int>> prime_freq(maxN);
 
-    vector<map<int,int>> array_freq(N);
+    vector<umap<int,int>> array_freq(N);
     for(int i=0;i<N;i++) {
         for(auto u: prime_factors[A[i]]) {
             int val,expo;

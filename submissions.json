@@ -3750,6 +3750,24 @@
     ],
     "timestamp": "Mar/06/2021 00:39"
   },
+  "CF109285571": {
+    "contest_id": 1493,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1493\\D.cpp",
+    "platform": "Codeforces",
+    "problem_index": "D",
+    "problem_name": "GCD of an Array",
+    "problem_url": "https://codeforces.com/contest/1493/problem/D",
+    "submission_id": "CF109285571",
+    "submission_url": "https://codeforces.com/contest/1493/submission/109285571",
+    "tags": [
+      "brute force",
+      "data structures",
+      "math",
+      "number theory"
+    ],
+    "timestamp": "Mar/06/2021 23:36"
+  },
   "CF109285626": {
     "contest_id": 1493,
     "language": "GNU C++17 (64)",
