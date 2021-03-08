@@ -86,11 +86,12 @@ struct custom_hash{
 template<class T, class H>using umap=unordered_map<T,H,custom_hash>;
 
 //----------------------- CUSTOM UNORDERED MAP HASH END--------------------------
-const int maxN = 4e5+10;
+const int maxN = 1e5;
 
 void run_cases() {
+    vector<int> cnt(maxN);
     set<int> mex;
-    for(int i=0;i<=maxN;i++) {
+    for(int i=0;i<=int(1e6);i++) {
         mex.insert(i);
     }
 
@@ -100,7 +101,7 @@ void run_cases() {
     cin >> Q >> X;
 
     vector<vector<int>> fills(X);
-    for(int i=maxN;i>=0;i--) {
+    for(int i=int(1e6);i>=0;i--) {
         fills[i % X].push_back(i);
     }
     while(Q--) {
