@@ -3835,6 +3835,25 @@
     ],
     "timestamp": "Mar/06/2021 23:37"
   },
+  "CF109410055": {
+    "contest_id": 1294,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1294\\D.cpp",
+    "platform": "Codeforces",
+    "problem_index": "D",
+    "problem_name": "MEX maximizing",
+    "problem_url": "https://codeforces.com/contest/1294/problem/D",
+    "submission_id": "CF109410055",
+    "submission_url": "https://codeforces.com/contest/1294/submission/109410055",
+    "tags": [
+      "data structures",
+      "greedy",
+      "implementation",
+      "math",
+      "*1600"
+    ],
+    "timestamp": "Mar/08/2021 21:00"
+  },
   "CF109411353": {
     "contest_id": 1305,
     "language": "GNU C++17 (64)",
