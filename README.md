@@ -13,9 +13,10 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-336 | [C - Circle of Monsters](https://codeforces.com/contest/1334/problem/C) | [Kotlin](./codeforces/1334/C.kt) | `brute force` `constructive algorithms` `greedy` `math` `*1600` | Mar/11/2021 15:44 | 
-335 | [A - Remove Duplicates](https://codeforces.com/contest/978/problem/A) | [Kotlin](./codeforces/978/A.kt) | `implementation` `*800` | Mar/10/2021 21:19 | 
-334 | [C - Diamond Miner](https://codeforces.com/contest/1496/problem/C) | [GNU C++17 (64)](./codeforces/1496/C.cpp) | `geometry` `greedy` `sortings` `*1200` | Mar/10/2021 20:01 | 
+337 | [C - Circle of Monsters](https://codeforces.com/contest/1334/problem/C) | [Kotlin](./codeforces/1334/C.kt) | `brute force` `constructive algorithms` `greedy` `math` `*1600` | Mar/11/2021 15:44 | 
+336 | [A - Remove Duplicates](https://codeforces.com/contest/978/problem/A) | [Kotlin](./codeforces/978/A.kt) | `implementation` `*800` | Mar/10/2021 21:19 | 
+335 | [C - Diamond Miner](https://codeforces.com/contest/1496/problem/C) | [GNU C++17 (64)](./codeforces/1496/C.cpp) | `geometry` `greedy` `sortings` `*1200` | Mar/10/2021 20:01 | 
+334 | [A - Split it!](https://codeforces.com/contest/1496/problem/A) | [GNU C++17 (64)](./codeforces/1496/A.cpp) | `brute force` `constructive algorithms` `greedy` `strings` | Mar/10/2021 18:07 | 
 333 | [C - Perfect Keyboard](https://codeforces.com/contest/1303/problem/C) | [GNU C++17 (64)](./codeforces/1303/C.cpp) | `dfs and similar` `greedy` `implementation` `*1600` | Mar/08/2021 22:00 | 
 332 | [C - Kuroni and Impossible Calculation](https://codeforces.com/contest/1305/problem/C) | [GNU C++17 (64)](./codeforces/1305/C.cpp) | `brute force` `combinatorics` `math` `number theory` `*1600` | Mar/08/2021 21:21 | 
 331 | [D - MEX maximizing](https://codeforces.com/contest/1294/problem/D) | [GNU C++17 (64)](./codeforces/1294/D.cpp) | `data structures` `greedy` `implementation` `math` `*1600` | Mar/08/2021 21:00 | 
