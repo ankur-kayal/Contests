@@ -3929,6 +3929,22 @@
     ],
     "timestamp": "Mar/08/2021 22:00"
   },
+  "CF109637040": {
+    "contest_id": 978,
+    "language": "Kotlin",
+    "path": "codeforces\\978\\A.kt",
+    "platform": "Codeforces",
+    "problem_index": "A",
+    "problem_name": "Remove Duplicates",
+    "problem_url": "https://codeforces.com/contest/978/problem/A",
+    "submission_id": "CF109637040",
+    "submission_url": "https://codeforces.com/contest/978/submission/109637040",
+    "tags": [
+      "implementation",
+      "*800"
+    ],
+    "timestamp": "Mar/10/2021 21:19"
+  },
   "CF109694006": {
     "contest_id": 1334,
     "language": "Kotlin",
