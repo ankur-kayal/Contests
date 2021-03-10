@@ -3929,6 +3929,22 @@
     ],
     "timestamp": "Mar/08/2021 22:00"
   },
+  "CF109574165": {
+    "contest_id": 1496,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1496\\B.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Max and Mex",
+    "problem_url": "https://codeforces.com/contest/1496/problem/B",
+    "submission_id": "CF109574165",
+    "submission_url": "https://codeforces.com/contest/1496/submission/109574165",
+    "tags": [
+      "implementation",
+      "math"
+    ],
+    "timestamp": "Mar/10/2021 18:03"
+  },
   "CF109577332": {
     "contest_id": 1496,
     "language": "GNU C++17 (64)",
