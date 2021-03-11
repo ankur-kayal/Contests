@@ -1,4 +1,20 @@
 {
+  "AC20836988": {
+    "contest_id": "abc191",
+    "language": "Kotlin (1.3.71)",
+    "path": "atcoder\\abc191\\A.kt",
+    "platform": "AtCoder",
+    "problem_index": "A",
+    "problem_name": "Vanishing Pitch",
+    "problem_url": "https://atcoder.jp/contests/abc191/tasks/abc191_a",
+    "submission_id": "AC20836988",
+    "submission_url": "https://atcoder.jp/contests/abc191/submissions/20836988",
+    "tags": [
+      "AtCoder",
+      "*100"
+    ],
+    "timestamp": "Mar/12/2021 01:18"
+  },
   "AC20837021": {
     "contest_id": "abc191",
     "language": "Kotlin (1.3.71)",
