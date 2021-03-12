@@ -1,4 +1,20 @@
 {
+  "AC20847426": {
+    "contest_id": "abc194",
+    "language": "Kotlin (1.3.71)",
+    "path": "atcoder\\abc194\\E.kt",
+    "platform": "AtCoder",
+    "problem_index": "E",
+    "problem_name": "Mex Min",
+    "problem_url": "https://atcoder.jp/contests/abc194/tasks/abc194_e",
+    "submission_id": "AC20847426",
+    "submission_url": "https://atcoder.jp/contests/abc194/submissions/20847426",
+    "tags": [
+      "AtCoder",
+      "*500"
+    ],
+    "timestamp": "Mar/12/2021 17:05"
+  },
   "AC21063047": {
     "contest_id": "abc196",
     "language": "C++ (GCC 9.2.1)",
