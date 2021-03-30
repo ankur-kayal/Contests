@@ -1,4 +1,20 @@
 {
+  "AC21412908": {
+    "contest_id": "abc188",
+    "language": "C++ (GCC 9.2.1)",
+    "path": "atcoder\\abc188\\E.cpp",
+    "platform": "AtCoder",
+    "problem_index": "E",
+    "problem_name": "Peddler",
+    "problem_url": "https://atcoder.jp/contests/abc188/tasks/abc188_e",
+    "submission_id": "AC21412908",
+    "submission_url": "https://atcoder.jp/contests/abc188/submissions/21412908",
+    "tags": [
+      "AtCoder",
+      "*500"
+    ],
+    "timestamp": "Mar/30/2021 23:23"
+  },
   "AC21906602": {
     "contest_id": "dp",
     "language": "C++ (GCC 9.2.1)",
