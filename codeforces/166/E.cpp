@@ -279,13 +279,12 @@ Mint C(int n, int k) {
     }
     return fact[n] * inv_fact[k] * inv_fact[n - k];
 }
-const int maxN = 1e7 + 10;
+
 void run_cases() {
     int n;
     cin >> n;
-    // int dp[n + 1][2];
-    // memset(dp, 0, sizeof dp);
-    array<array<int, 2>, maxN> dp = {};
+    int dp[n + 1][2];
+    memset(dp, 0, sizeof dp);
     dp[0][0] = 1;
     for(int i=1;i<=n;i++) {
         dp[i][0] = (3 * (int64_t)dp[i-1][1]) % md;
