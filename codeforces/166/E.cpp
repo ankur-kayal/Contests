@@ -283,15 +283,8 @@ Mint C(int n, int k) {
 void run_cases() {
     int n;
     cin >> n;
-    int dp[n + 1][2];
-    memset(dp, 0, sizeof dp);
-    dp[0][0] = 1;
-    for(int i=1;i<=n;i++) {
-        dp[i][0] = (3 * (int64_t)dp[i-1][1]) % md;
-        dp[i][1] = (2 * (int64_t)dp[i-1][1] + (int64_t)dp[i-1][0]) % md;
-    }
-
-    cout << dp[n][0] << nl;
+    Mint ans = (power(Mint(3), n) + power(Mint(-1), n) * 3) / Mint(4);
+    cout << ans << nl;
 }
 
 int main() {
