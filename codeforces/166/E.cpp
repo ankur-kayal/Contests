@@ -279,15 +279,17 @@ Mint C(int n, int k) {
     }
     return fact[n] * inv_fact[k] * inv_fact[n - k];
 }
-
+const int maxN = 1e7 + 10;
 void run_cases() {
     int n;
     cin >> n;
-    array<array<Mint, 2>, int(1e7) + 7> dp{0};
+    // int dp[n + 1][2];
+    // memset(dp, 0, sizeof dp);
+    array<array<int, 2>, maxN> dp = {};
     dp[0][0] = 1;
     for(int i=1;i<=n;i++) {
-        dp[i][0] = 3 * dp[i-1][1];
-        dp[i][1] = 2 * dp[i-1][1] + dp[i-1][0];
+        dp[i][0] = (3 * (int64_t)dp[i-1][1]) % md;
+        dp[i][1] = (2 * (int64_t)dp[i-1][1] + (int64_t)dp[i-1][0]) % md;
     }
 
     cout << dp[n][0] << nl;
