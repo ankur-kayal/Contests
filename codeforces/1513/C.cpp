@@ -64,7 +64,7 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 #define Stringize( L )     #L 
 #define MakeString( M, L ) M(L)
 #define $Line MakeString( Stringize, __LINE__ )
-#define Reminder __FILE__ "("  ") : Warning: "
+#define Reminder __FILE__ "(" $Line ") : Warning: "
 
 //----------------------------------- END DEFINES -------------------------------- 
 
@@ -280,34 +280,150 @@ Mint C(int n, int k) {
     return fact[n] * inv_fact[k] * inv_fact[n - k];
 }
 
-const int maxN = 2e5 + 100;
+struct mod_matrix_fixed_size {
+    static const int SIZE = 10;
+ 
+    Mint values[SIZE][SIZE];
+ 
+    mod_matrix_fixed_size() {
+        for (int i = 0; i < SIZE; i++)
+            for (int j = 0; j < SIZE; j++)
+                values[i][j] = 0;
+    }
+ 
+    template<typename T>
+    mod_matrix_fixed_size(const vector<vector<T>> &v) {
+        init(v);
+    }
+ 
+    template<typename T>
+    void init(const vector<vector<T>> &v) {
+        assert(v.size() == SIZE);
+ 
+        for (int i = 0; i < SIZE; i++) {
+            assert(v[i].size() == SIZE);
+ 
+            for (int j = 0; j < SIZE; j++)
+                values[i][j] = v[i][j];
+        }
+    }
+ 
+    Mint *operator[](int index) { return values[index]; }
+    const Mint *operator[](int index) const { return values[index]; }
+ 
+    void make_identity() {
+        for (int i = 0; i < SIZE; i++)
+            for (int j = 0; j < SIZE; j++)
+                values[i][j] = i == j ? 1 : 0;
+    }
+ 
+    mod_matrix_fixed_size operator*(const mod_matrix_fixed_size &other) const {
+        mod_matrix_fixed_size product;
+ 
+        for (int i = 0; i < SIZE; i++)
+            for (int k = 0; k < SIZE; k++) {
+                uint64_t result = 0;
+ 
+                for (int j = 0; j < SIZE; j++)
+                    result += uint64_t(values[i][j]) * uint64_t(other[j][k]);
+ 
+                product[i][k] = result;
+            }
+ 
+        return product;
+    }
+ 
+    mod_matrix_fixed_size& operator*=(const mod_matrix_fixed_size &other) {
+        return *this = *this * other;
+    }
+ 
+    mod_matrix_fixed_size power(int64_t p) const {
+        assert(p >= 0);
+        mod_matrix_fixed_size m = *this;
+        mod_matrix_fixed_size result;
+        result.make_identity();
+ 
+        while (p > 0) {
+            if (p & 1)
+                result *= m;
+ 
+            p >>= 1;
+ 
+            if (p > 0)
+                m *= m;
+        }
+ 
+        return result;
+    }
+ 
+    void print() const {
+        for (int i = 0; i < SIZE; i++)
+            for (int j = 0; j < SIZE; j++)
+                cout << values[i][j] << (j < SIZE - 1 ? ' ' : '\n');
+    }
+};
 
-array<array<Mint, 10>, maxN> dp{0};
+const int maxM = 2e5 + 100;
+array<mod_matrix_fixed_size, maxM> precompute; 
 
 void run_cases() {
-    string n;
+    int n;
+    cin >> n;
     int m;
-    cin >> n >> m;
+    cin >> m;
+    mod_matrix_fixed_size ans;
 
-    Mint ans = 0;
-    for(auto u: n) {
-        ans += dp[m][u-'0'];
+    // vector<vector<Mint>> dp(m + 1, vector<Mint>(10));
+    while(n > 0) {
+        int d = n % 10;
+        ans[0][d] += 1;
+        n /= 10;
     }
-    cout << ans << nl;
+    // for(int i=1;i<=m;i++) {
+    //     dp[i][0] += dp[i-1][9];
+    //     dp[i][1] += dp[i-1][9] + dp[i-1][0];
+    //     dp[i][2] += dp[i-1][1];
+    //     dp[i][3] += dp[i-1][2];
+    //     dp[i][4] += dp[i-1][3];
+    //     dp[i][5] += dp[i-1][4];
+    //     dp[i][6] += dp[i-1][5];
+    //     dp[i][7] += dp[i-1][6];
+    //     dp[i][8] += dp[i-1][7];
+    //     dp[i][9] += dp[i-1][8];
+    // }
+
+    // Matrix<Mint, 10> base;
+    // base[9][0] = 1;
+    // base[9][1] = 1;
+    // for(int i=0;i<=8;i++) {
+    //     base[i][i + 1] = 1;
+    // }
+    ans = ans * precompute[m];
+    // for(int i=0;i<=m;i++) {
+    //     debug() << imie(i) imie(dp[i]);
+    // }
+
+    Mint res = 0;
+    for(int i=0;i<10;i++) {
+        res += ans[0][i];
+    }
+
+    cout << res << nl;
 }
 
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(nullptr);
 
-    for(int i=0;i<10;i++) {
-        dp[0][i] = 1;
+    mod_matrix_fixed_size base;
+    base[9][0] = 1;
+    base[9][1] = 1;
+    for(int i=0;i<=8;i++) {
+        base[i][i + 1] = 1;
     }
 
+    precompute[0].make_identity();
     for(int i=1;i<=200000;i++) {
-        for(int j=0;j<9;j++) {
-            dp[i][j] = dp[i-1][j+1];
-        }
-        dp[i][9] = dp[i-1][0] + dp[i-1][1];
+        precompute[i] = precompute[i-1] * base;
     }
 
     int tests = 1;
@@ -316,4 +432,6 @@ int main() {
     for(int test = 1;test <= tests;test++) {
         run_cases();
     }
+
+    cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
 }
