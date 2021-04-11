@@ -64,7 +64,7 @@ mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 #define Stringize( L )     #L 
 #define MakeString( M, L ) M(L)
 #define $Line MakeString( Stringize, __LINE__ )
-#define Reminder __FILE__ "(" $Line ") : Warning: "
+#define Reminder __FILE__ "("  ") : Warning: "
 
 //----------------------------------- END DEFINES -------------------------------- 
 
@@ -280,221 +280,34 @@ Mint C(int n, int k) {
     return fact[n] * inv_fact[k] * inv_fact[n - k];
 }
 
+const int maxN = 2e5 + 100;
 
-struct Matrix {
-    static const int N = 10;
-    using T = Mint;
-
-    T values[N][N];
-
-    Matrix() {
-        for(int i=0;i<N;i++) {
-            for(int j=0;j<N;j++) {
-                values[i][j] = 0;
-            }
-        }
-    }
-
-    template<typename U>
-    Matrix(const vector<vector<U>> &v) {
-        init(v);
-    }
-
-    template<typename U>
-    void init(const vector<vector<U>> &v) {
-        assert(v.size() == N);
-
-        for(int i=0;i<N;i++) {
-            assert(v[i].size() == N);
-
-            for(int j=0;j<N;j++) {
-                values[i][j] = v[i][j];
-            }
-        }
-    }
-
-    T *operator[](int index) {
-        assert(index >= 0 && index < N);
-        return values[index];
-    }
-
-    const T *operator[](int index) const {
-        assert(index >= 0 && index < N);
-        return values[index];
-    }
-
-    void make_identity() {
-        for (int i = 0; i < N; i++)
-            for (int j = 0; j < N; j++)
-                values[i][j] = i == j ? 1 : 0;
-    }
-
-    Matrix operator*(const Matrix &other) const {
-        Matrix product;
-
-        for(int i=0;i<N;i++) {
-            for(int k=0;k<N;k++) {
-                for(int j=0;j<N;j++) {
-                    product[i][k] += uint64_t(values[i][j]) * uint64_t(other[j][k]);
-                }
-            }
-        }
-
-        return product;
-    }
-
-    Matrix& operator*=(const Matrix &other) {
-        return *this = *this * other;
-    }
-
-    Matrix operator+(const Matrix &other) const {
-        Matrix addition;
-
-        for(int i=0;i<N;i++) {
-            for(int j=0;j<N;j++) {
-                addition[i][j] = values[i][j] + other[i][j];
-            }
-        }
-        return addition;
-    }
-
-    Matrix& operator+=(const Matrix &other) {
-        return *this = *this + other;
-    }
-
-    Matrix operator-(const Matrix &other) const {
-        Matrix subtraction;
-
-        for(int i=0;i<N;i++) {
-            for(int j=0;j<N;j++) {
-                subtraction[i][j] = values[i][j] - other[i][j];
-            }
-        }
-        return subtraction;
-    }
-
-    Matrix& operator-=(const Matrix &other) {
-        return *this = *this - other;
-    }
-
-    void print() {
-        for(int i=0;i<N;i++) {
-            cerr << "[";
-            for(int j=0;j<N;j++) {
-                cerr << values[i][j];
-                if(j != N-1) {
-                    cerr << ", ";
-                }
-            }
-            cerr << "]\n";
-        }
-    }    
-};
-
-Matrix power(Matrix &a, int64_t p) {
-    assert(p >= 0); // exponent must be >= 0
-    
-    Matrix m = a;
-    Matrix result;
-    result.make_identity();
-
-    while(p > 0) {
-        if(p & 1) {
-            result *= m;
-        }
-
-        p /= 2;
-
-        if(p > 0)
-            m *= m;
-    }
-    return result;
-}
-
-Matrix gp_series_sum(Matrix& a, int64_t n) {
-    Matrix result;
-    Matrix result1;
-    Matrix I;
-    result1.make_identity();
-    I.make_identity();
-    vector<int64_t> pows;
-    while(n > 0) {
-        pows.push_back(n);
-        n /= 2;
-    }
-    reverse(pows.begin(), pows.end());
-    for(auto u: pows) {
-        result *= (I + result1);
-        result1 *= result1;
-        if(u & 1) {
-            result1 *= a;
-            result += result1;
-        }
-    }
-    return result;
-}
-
-const int maxM = 2e5 + 100;
-array<Matrix, maxM> precompute; 
+array<array<Mint, 10>, maxN> dp{0};
 
 void run_cases() {
-    int n;
-    cin >> n;
+    string n;
     int m;
-    cin >> m;
-    Matrix ans;
+    cin >> n >> m;
 
-    // vector<vector<Mint>> dp(m + 1, vector<Mint>(10));
-    while(n > 0) {
-        int d = n % 10;
-        ans[0][d] += 1;
-        n /= 10;
+    Mint ans = 0;
+    for(auto u: n) {
+        ans += dp[m][u-'0'];
     }
-    // for(int i=1;i<=m;i++) {
-    //     dp[i][0] += dp[i-1][9];
-    //     dp[i][1] += dp[i-1][9] + dp[i-1][0];
-    //     dp[i][2] += dp[i-1][1];
-    //     dp[i][3] += dp[i-1][2];
-    //     dp[i][4] += dp[i-1][3];
-    //     dp[i][5] += dp[i-1][4];
-    //     dp[i][6] += dp[i-1][5];
-    //     dp[i][7] += dp[i-1][6];
-    //     dp[i][8] += dp[i-1][7];
-    //     dp[i][9] += dp[i-1][8];
-    // }
-
-    // Matrix<Mint, 10> base;
-    // base[9][0] = 1;
-    // base[9][1] = 1;
-    // for(int i=0;i<=8;i++) {
-    //     base[i][i + 1] = 1;
-    // }
-    ans = ans * precompute[m];
-    // for(int i=0;i<=m;i++) {
-    //     debug() << imie(i) imie(dp[i]);
-    // }
-
-    Mint res = 0;
-    for(int i=0;i<10;i++) {
-        res += ans[0][i];
-    }
-
-    cout << res << nl;
+    cout << ans << nl;
 }
 
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(nullptr);
 
-    Matrix base;
-    base[9][0] = 1;
-    base[9][1] = 1;
-    for(int i=0;i<=8;i++) {
-        base[i][i + 1] = 1;
+    for(int i=0;i<10;i++) {
+        dp[0][i] = 1;
     }
 
-    precompute[0].make_identity();
     for(int i=1;i<=200000;i++) {
-        precompute[i] = precompute[i-1] * base;
+        for(int j=0;j<9;j++) {
+            dp[i][j] = dp[i-1][j+1];
+        }
+        dp[i][9] = dp[i-1][0] + dp[i-1][1];
     }
 
     int tests = 1;
@@ -503,6 +316,4 @@ int main() {
     for(int test = 1;test <= tests;test++) {
         run_cases();
     }
-
-    cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
 }
