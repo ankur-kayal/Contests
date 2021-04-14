@@ -285,7 +285,7 @@ Mint C(int n, int k) {
 template<typename T, int N>
 struct Matrix {
 
-    array<array<T, N>, N> values;
+    T values[N][N];
 
     Matrix() {
         for(int i=0;i<N;i++) {
@@ -313,12 +313,12 @@ struct Matrix {
         }
     }
 
-    array<T,N>& operator[](int index) {
+    T *operator[](int index) {
         assert(index >= 0 && index < N);
         return values[index];
     }
 
-    const array<T,N>& operator[](int index) const {
+    const T *operator[](int index) const {
         assert(index >= 0 && index < N);
         return values[index];
     }
@@ -332,7 +332,7 @@ struct Matrix {
     Matrix operator*(const Matrix &other) const {
         Matrix product;
 
-        if(N <= 18) {
+        if(N <= 10) {
             for(int i=0;i<N;i++) {
                 for(int k=0;k<N;k++) {
                     uint64_t result = 0;
@@ -390,25 +390,17 @@ struct Matrix {
         return *this = *this - other;
     }
 
-    void print() const {
-        cerr << "[";
+    void print() {
         for(int i=0;i<N;i++) {
-            if(i == 0)
-                cerr << "[";
-            else
-                cerr <<" [";
+            cerr << "[";
             for(int j=0;j<N;j++) {
                 cerr << values[i][j];
                 if(j != N-1) {
                     cerr << ", ";
                 }
             }
-            if(i != N-1)
-                cerr << "],\n";
-            else
-                cerr << "]";
+            cerr << "]\n";
         }
-        cerr << "]\n";
     }    
 };
 
