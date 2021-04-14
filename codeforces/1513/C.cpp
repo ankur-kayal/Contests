@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <stdint.h>
 using namespace std;
 
 //----------------------------------- DEBUG -----------------------------------
@@ -282,8 +281,9 @@ Mint C(int n, int k) {
 }
 
 
-template<typename T, int N>
 struct Matrix {
+    static const int N = 10;
+    using T = Mint;
 
     T values[N][N];
 
@@ -332,26 +332,13 @@ struct Matrix {
     Matrix operator*(const Matrix &other) const {
         Matrix product;
 
-        if(N <= 10) {
-            for(int i=0;i<N;i++) {
-                for(int k=0;k<N;k++) {
-                    uint64_t result = 0;
-                    for(int j=0;j<N;j++) {
-                        result += uint64_t(values[i][j]) * uint64_t(other[j][k]);
-                    }
-                    product[i][k] = result;
-                }
-            }
-        } else {
-            for(int i=0;i<N;i++) {
-                for(int k=0;k<N;k++) {
-                    for(int j=0;j<N;j++) {
-                        product[i][k] += uint64_t(values[i][j]) * uint64_t(other[j][k]);
-                    }
+        for(int i=0;i<N;i++) {
+            for(int k=0;k<N;k++) {
+                for(int j=0;j<N;j++) {
+                    product[i][k] += uint64_t(values[i][j]) * uint64_t(other[j][k]);
                 }
             }
         }
-        
 
         return product;
     }
@@ -404,12 +391,11 @@ struct Matrix {
     }    
 };
 
-template<typename T, int N>
-Matrix<T, N> power(Matrix<T, N> &a, int64_t p) {
+Matrix power(Matrix &a, int64_t p) {
     assert(p >= 0); // exponent must be >= 0
     
-    Matrix<T, N> m = a;
-    Matrix<T, N> result;
+    Matrix m = a;
+    Matrix result;
     result.make_identity();
 
     while(p > 0) {
@@ -425,11 +411,10 @@ Matrix<T, N> power(Matrix<T, N> &a, int64_t p) {
     return result;
 }
 
-template<typename T, int N>
-Matrix<T, N> gp_series_sum(Matrix<T, N> &a, int64_t n) {
-    Matrix<T, N> result;
-    Matrix<T, N> result1;
-    Matrix<T, N> I;
+Matrix gp_series_sum(Matrix& a, int64_t n) {
+    Matrix result;
+    Matrix result1;
+    Matrix I;
     result1.make_identity();
     I.make_identity();
     vector<int64_t> pows;
@@ -450,22 +435,44 @@ Matrix<T, N> gp_series_sum(Matrix<T, N> &a, int64_t n) {
 }
 
 const int maxM = 2e5 + 100;
-array<Matrix<Mint, 10>, maxM> precompute; 
+array<Matrix, maxM> precompute; 
 
 void run_cases() {
     int n;
     cin >> n;
     int m;
     cin >> m;
-    Matrix<Mint, 10> ans;
+    Matrix ans;
 
+    // vector<vector<Mint>> dp(m + 1, vector<Mint>(10));
     while(n > 0) {
         int d = n % 10;
         ans[0][d] += 1;
         n /= 10;
     }
+    // for(int i=1;i<=m;i++) {
+    //     dp[i][0] += dp[i-1][9];
+    //     dp[i][1] += dp[i-1][9] + dp[i-1][0];
+    //     dp[i][2] += dp[i-1][1];
+    //     dp[i][3] += dp[i-1][2];
+    //     dp[i][4] += dp[i-1][3];
+    //     dp[i][5] += dp[i-1][4];
+    //     dp[i][6] += dp[i-1][5];
+    //     dp[i][7] += dp[i-1][6];
+    //     dp[i][8] += dp[i-1][7];
+    //     dp[i][9] += dp[i-1][8];
+    // }
 
+    // Matrix<Mint, 10> base;
+    // base[9][0] = 1;
+    // base[9][1] = 1;
+    // for(int i=0;i<=8;i++) {
+    //     base[i][i + 1] = 1;
+    // }
     ans = ans * precompute[m];
+    // for(int i=0;i<=m;i++) {
+    //     debug() << imie(i) imie(dp[i]);
+    // }
 
     Mint res = 0;
     for(int i=0;i<10;i++) {
@@ -478,7 +485,7 @@ void run_cases() {
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(nullptr);
 
-    Matrix<Mint, 10> base;
+    Matrix base;
     base[9][0] = 1;
     base[9][1] = 1;
     for(int i=0;i<=8;i++) {
