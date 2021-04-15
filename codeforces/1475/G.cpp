@@ -206,12 +206,12 @@ void run_cases() {
     int n;
     cin >> n;
     vector<int> a(n);
-    array<int,maxN> cnt{0};
+    vector<int> cnt(maxN);
 
     trav(u, a) cin >> u;
     for(auto u: a) cnt[u]++;
 
-    array<int, maxN> dp{0};
+    vector<int> dp(maxN, 0);
 
     sort(rall(a));
     a.resize(unique(all(a)) - a.begin());
