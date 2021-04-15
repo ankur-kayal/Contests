@@ -12,7 +12,7 @@ sim > struct rge { c b, e; };
 sim > rge<c> range(c i, c j) { return rge<c>{i, j}; }
 sim > auto dud(c* x) -> decltype(cerr << *x, 0);
 sim > char dud(...);
-struct debug {
+struct debug { 
 #ifdef LOCAL
 ~debug() { cerr << endl; }
 eni(!=) cerr << boolalpha << i; ris; }
@@ -201,46 +201,24 @@ vector<int64_t> generate_factors(const vector<pair<int64_t, int>> &prime_factors
     return factors;
 }
 
-vector<int64_t> factorize(int64_t n) {
-    vector<int64_t> factors;
-    for(int i=1;i*i<=n;i++) {
-        if(n % i == 0) {
-            factors.push_back(i);
-            if(n / i != i) {
-                factors.push_back(n / i);
-            }
-        }
-    }
-    return factors;
-}
-
 const int maxN = 2e5 + 10;
-vector<vector<int64_t>> divisors(maxN);
-
-void preprocess() {
-    for(int i=1;i<maxN;i++) {
-        divisors[i] = generate_factors(prime_factorize(i));
-    }
-}
-
-
 void run_cases() {
     int n;
     cin >> n;
     vector<int> a(n);
-    array<int,maxN> cnt{0};
+    vector<int> cnt(maxN);
 
     trav(u, a) cin >> u;
     for(auto u: a) cnt[u]++;
 
-    array<int, maxN> dp{0};
+    vector<int> dp(maxN, 0);
 
     sort(rall(a));
     a.resize(unique(all(a)) - a.begin());
 
     for(auto u: a) {
         dp[u] += cnt[u];
-        for(auto divs: divisors[u]) {
+        for(auto divs: generate_factors(prime_factorize(u))) {
             dp[divs] = max(dp[divs], dp[u]);
         }
     }
@@ -252,7 +230,6 @@ void run_cases() {
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(nullptr);
     sieve(maxN);
-    preprocess();
     int tests = 1;
     cin >> tests;
 
