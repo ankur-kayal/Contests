@@ -201,29 +201,7 @@ vector<int64_t> generate_factors(const vector<pair<int64_t, int>> &prime_factors
     return factors;
 }
 
-vector<int64_t> factorize(int64_t n) {
-    vector<int64_t> factors;
-    for(int i=1;i*i<=n;i++) {
-        if(n % i == 0) {
-            factors.push_back(i);
-            if(n / i != i) {
-                factors.push_back(n / i);
-            }
-        }
-    }
-    return factors;
-}
-
 const int maxN = 2e5 + 10;
-vector<vector<int64_t>> divisors(maxN);
-
-void preprocess() {
-    for(int i=1;i<maxN;i++) {
-        divisors[i] = factorize(i);
-    }
-}
-
-
 void run_cases() {
     int n;
     cin >> n;
@@ -240,7 +218,7 @@ void run_cases() {
 
     for(auto u: a) {
         dp[u] += cnt[u];
-        for(auto divs: divisors[u]) {
+        for(auto divs: generate_factors(prime_factorize(u))) {
             dp[divs] = max(dp[divs], dp[u]);
         }
     }
@@ -251,8 +229,7 @@ void run_cases() {
 
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(nullptr);
-    // sieve(maxN);
-    preprocess();
+    sieve(maxN);
     int tests = 1;
     cin >> tests;
 
