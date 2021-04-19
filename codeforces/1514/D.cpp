@@ -116,7 +116,7 @@ void run_cases() {
         int segment_length = r - l + 1;
         int ans = 1;
         int freq;
-        for(int i=0;i<30;i++) {
+        for(int i=0;i<40;i++) {
             int index = uid(l-1, r-1);
 
             freq = upper_bound(all(segments[A[index]]), r)  - lower_bound(all(segments[A[index]]), l);
