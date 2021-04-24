@@ -1263,6 +1263,23 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF114084779": {
+    "contest_id": 1488,
+    "language": "Kotlin",
+    "path": "codeforces\\1488\\B.kt",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "RBS Deletion",
+    "problem_url": "https://codeforces.com/contest/1488/problem/B",
+    "submission_id": "CF114084779",
+    "submission_url": "https://codeforces.com/contest/1488/submission/114084779",
+    "tags": [
+      "*special problem",
+      "greedy",
+      "*1800"
+    ],
+    "timestamp": "Apr/24/2021 12:54"
+  },
   "CF114144273": {
     "contest_id": 1328,
     "language": "GNU C++17 (64)",
