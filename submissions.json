@@ -1263,6 +1263,24 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF114291490": {
+    "contest_id": 1167,
+    "language": "Kotlin",
+    "path": "codeforces\\1167\\A.kt",
+    "platform": "Codeforces",
+    "problem_index": "A",
+    "problem_name": "Telephone Number",
+    "problem_url": "https://codeforces.com/contest/1167/problem/A",
+    "submission_id": "CF114291490",
+    "submission_url": "https://codeforces.com/contest/1167/submission/114291490",
+    "tags": [
+      "brute force",
+      "greedy",
+      "strings",
+      "*800"
+    ],
+    "timestamp": "Apr/26/2021 20:34"
+  },
   "CF114293817": {
     "contest_id": 1167,
     "language": "Kotlin",
