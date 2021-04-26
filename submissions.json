@@ -1263,6 +1263,24 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF114296907": {
+    "contest_id": 1167,
+    "language": "Kotlin",
+    "path": "codeforces\\1167\\C.kt",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "News Distribution",
+    "problem_url": "https://codeforces.com/contest/1167/problem/C",
+    "submission_id": "CF114296907",
+    "submission_url": "https://codeforces.com/contest/1167/submission/114296907",
+    "tags": [
+      "dfs and similar",
+      "dsu",
+      "graphs",
+      "*1400"
+    ],
+    "timestamp": "Apr/26/2021 21:41"
+  },
   "CF114297368": {
     "contest_id": 1167,
     "language": "Kotlin",

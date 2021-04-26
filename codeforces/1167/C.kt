@@ -20,11 +20,33 @@ private fun myAssert(x: Boolean) {
     }
 }
 
+private const val maxN: Int = 500000+10
+
+private val adj: MutableList<MutableList<Int>> = mutableListOf()
+private val vis: MutableList<Boolean> = mutableListOf()
+private val friends: MutableList<Int> = mutableListOf()
+
+private fun init(n: Int) {
+    for (i in 1..n) {
+        adj[i].clear()
+        vis[i] = false
+    }
+}
+
+private fun dfs(node: Int) {
+    vis[node] = true
+    friends.add(node)
+    for(child in adj[node]) {
+        if(!vis[child]) {
+            dfs(child)
+        }
+    }
+}
 
 private fun runCase() {
 
     var(n, m) = readInts()
-    var adj = List(n + 1) { mutableListOf<Int>() }
+    init(n)
     repeat(m) {
         var tmp = readInts()
         if(tmp.size != 2) {
@@ -37,17 +59,6 @@ private fun runCase() {
         }
     }
     var ans = IntArray(n + 1)
-    var friends = mutableListOf<Int>()
-    var vis = BooleanArray(n + 1)
-    fun dfs(node: Int) {
-        vis[node] = true
-        friends.add(node)
-        for(child in adj[node]) {
-            if(!vis[child]) {
-                dfs(child)
-            }
-        }
-    }
     for(i in 1..n) {
 
         if(!vis[i]) {
@@ -68,6 +79,10 @@ fun main(args: Array<String>) {
 
     var t: Int = 1
     // t = readInt()
+    for(i in 0 until maxN) {
+        adj.add(mutableListOf())
+        vis.add(false)
+    }
     repeat(t) {
         runCase()
     }
