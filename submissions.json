@@ -1263,6 +1263,25 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF114293817": {
+    "contest_id": 1167,
+    "language": "Kotlin",
+    "path": "codeforces\\1167\\B.kt",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Lost Numbers",
+    "problem_url": "https://codeforces.com/contest/1167/problem/B",
+    "submission_id": "CF114293817",
+    "submission_url": "https://codeforces.com/contest/1167/submission/114293817",
+    "tags": [
+      "brute force",
+      "divide and conquer",
+      "interactive",
+      "math",
+      "*1400"
+    ],
+    "timestamp": "Apr/26/2021 21:04"
+  },
   "CF114296907": {
     "contest_id": 1167,
     "language": "Kotlin",
