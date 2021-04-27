@@ -1263,6 +1263,22 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF114392559": {
+    "contest_id": 123,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\123\\B.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Squares",
+    "problem_url": "https://codeforces.com/contest/123/problem/B",
+    "submission_id": "CF114392559",
+    "submission_url": "https://codeforces.com/contest/123/submission/114392559",
+    "tags": [
+      "math",
+      "*1800"
+    ],
+    "timestamp": "Apr/28/2021 00:19"
+  },
   "CF114393698": {
     "contest_id": 123,
     "language": "GNU C++17 (64)",
