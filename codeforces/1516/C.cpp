@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <numeric>
 using namespace std;
 
 //----------------------------------- DEBUG -----------------------------------
@@ -97,51 +98,35 @@ template<class T, class H>using umap=unordered_map<T,H,custom_hash>;
 
 //----------------------- CUSTOM UNORDERED MAP HASH END--------------------------
 
-bool find_partiion(const vector<int>&  a) {
-    int n = a.size();
-    int sum = 0;
-    int i, j;
 
-    for (i = 0; i < n; i++)
-        sum += a[i];
- 
-    if (sum % 2 != 0)
-        return false;
- 
-    bool part[sum / 2 + 1];
-    for (i = 0; i <= sum / 2; i++) {
-        part[i] = 0;
-    }
- 
-    for (i = 0; i < n; i++) {
-        for (j = sum / 2; j >= a[i];j--) { 
-            if (part[j - a[i]] == 1 || j == a[i])
-                part[j] = 1;
-        }
-    }
- 
-    return part[sum / 2];
-}
 
 void run_cases() {
     int n;
     cin >> n;
     vector<int> a(n);
     trav(u, a) cin >> u;
+    bitset<200100> dp;
+    dp[0] = 1;
+    int s = accumulate(all(a), 0);
+    for(auto u: a) {
+        dp = dp | (dp << u);
+    }
     
-    if(!find_partiion(a)) {
+    if((s & 1) || dp[s / 2] == 0) {
         cout << 0 << nl;
         return;
     } else {
         for(int i=0;i<n;i++) {
-            vector<int> tmp;
+            dp.reset();
+            dp[0] = 1;
+
             for(int j=0;j<n;j++) {
                 if(i != j) {
-                    tmp.push_back(a[j]);
+                    dp = dp | (dp << a[j]);
                 }
             }
-
-            if(!find_partiion(tmp)) {
+            int new_sum = s - a[i];
+            if((new_sum & 1) || dp[new_sum / 2] == 0) {
                 cout << 1 << nl;
                 cout << i + 1 << nl;
                 return;
