@@ -1263,6 +1263,22 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF114374850": {
+    "contest_id": 1216,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1216\\D.cpp",
+    "platform": "Codeforces",
+    "problem_index": "D",
+    "problem_name": "Swords",
+    "problem_url": "https://codeforces.com/contest/1216/problem/D",
+    "submission_id": "CF114374850",
+    "submission_url": "https://codeforces.com/contest/1216/submission/114374850",
+    "tags": [
+      "math",
+      "*1300"
+    ],
+    "timestamp": "Apr/27/2021 20:22"
+  },
   "CF114376412": {
     "contest_id": 1216,
     "language": "GNU C++17 (64)",
