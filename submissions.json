@@ -1263,6 +1263,24 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF114482361": {
+    "contest_id": 1431,
+    "language": "Kotlin",
+    "path": "codeforces\\1431\\B.kt",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Polycarp and the Language of Gods",
+    "problem_url": "https://codeforces.com/contest/1431/problem/B",
+    "submission_id": "CF114482361",
+    "submission_url": "https://codeforces.com/contest/1431/submission/114482361",
+    "tags": [
+      "*special problem",
+      "implementation",
+      "two pointers",
+      "*1400"
+    ],
+    "timestamp": "Apr/29/2021 01:42"
+  },
   "CF114483490": {
     "contest_id": 61,
     "language": "GNU C++17 (64)",
