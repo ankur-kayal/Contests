@@ -227,22 +227,20 @@ void run_cases() {
     for(auto u: tmp) {
         compress[u] = id++;
     }
-    for(auto&u: a) {
-        u = compress[u];
-    }
 
     for(int i=n-1;i>=1;i--) {
-        right.set(a[i], 1);
+        int mapped = compress[a[i]];
+        right.set(mapped, 1);
     }
 
     int64_t ans = 0;
-    left.set(a[0], 1);
-    right.set(a[0], 0);
+    left.set(compress[a[0]], 1);
+    right.set(compress[a[0]], 0);
     for(int i=1;i<n-1;i++) {
         int mapped = compress[a[i]];
-        left.set(a[i], 1);
-        right.set(a[i], 0);
-        ans += left.query_suffix(a[i] + 1) * right.query(0, a[i]);
+        left.set(mapped, 1);
+        right.set(mapped, 0);
+        ans += left.query_suffix(mapped + 1) * right.query(0, mapped);
 
     }
     cout << ans;
