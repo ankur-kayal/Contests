@@ -217,17 +217,18 @@ void run_cases() {
     cin >> n;
     fenwick_tree<int64_t> left, right;
     left.init(n + 10); right.init(n + 10);
+    map<int,int> compress;
     vector<int> a(n);
     trav(u, a) cin >> u;
-    vector<pair<int, int>> pairs(n);
-    for(int i = 0; i < n; ++i) {
-        pairs[i] = {a[i], i};
+    vector<int> tmp = a;
+    sort(all(tmp));
+
+    int id = 1;
+    for(auto u: tmp) {
+        compress[u] = id++;
     }
-    sort(pairs.begin(), pairs.end());
-    int nxt = 1;
-    for(int i = 0; i < n; ++i) {
-        if(i > 0 && pairs[i-1].first != pairs[i].first) nxt++;
-        a[pairs[i].second] = nxt;
+    for(auto&u: a) {
+        u = compress[u];
     }
 
     for(int i=n-1;i>=1;i--) {
@@ -238,6 +239,7 @@ void run_cases() {
     left.set(a[0], 1);
     right.set(a[0], 0);
     for(int i=1;i<n-1;i++) {
+        int mapped = compress[a[i]];
         left.set(a[i], 1);
         right.set(a[i], 0);
         ans += left.query_suffix(a[i] + 1) * right.query(0, a[i]);
