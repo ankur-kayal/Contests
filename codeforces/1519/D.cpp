@@ -100,7 +100,7 @@ template<class T, class H>using umap=unordered_map<T,H,custom_hash>;
 void run_cases() {
     int n;
     cin >> n;
-    int64_t a[n + 1], b[n + 1];
+    vector<int64_t> a(n + 1), b(n + 1);
 
     for(int i=1;i<=n;i++) {
         cin >> a[i];
@@ -109,8 +109,7 @@ void run_cases() {
         cin >> b[i];
     }
 
-    int64_t dp[n + 1][n + 1];
-    memset(dp, 0, sizeof dp);
+    vector<vector<int64_t>> dp(n + 1, vector<int64_t>(n + 1));
     for(int i=1;i<=n;i++) {
         dp[i][i] = a[i] * b[i];
     }
@@ -127,14 +126,16 @@ void run_cases() {
         }
     }
 
-    int64_t prefix[n + 2];
-    memset(prefix, 0, sizeof prefix);
+    for(auto u: dp) {
+        debug() << imie(u);
+    }
+
+    vector<int64_t> prefix(n + 2);
     for(int i=1;i<=n;i++) {
         prefix[i] = prefix[i-1] + a[i] * b[i];
     }
 
-    int64_t suffix[n + 2];
-    memset(suffix, 0, sizeof suffix);
+    vector<int64_t> suffix(n + 2);
     for(int i=n;i>=1;i--) {
         suffix[i] = suffix[i + 1] + a[i] * b[i];
     }
