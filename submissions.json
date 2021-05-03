@@ -1263,6 +1263,26 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF115066082": {
+    "contest_id": 519,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\519\\E.cpp",
+    "platform": "Codeforces",
+    "problem_index": "E",
+    "problem_name": "A and B and Lecture Rooms",
+    "problem_url": "https://codeforces.com/contest/519/problem/E",
+    "submission_id": "CF115066082",
+    "submission_url": "https://codeforces.com/contest/519/submission/115066082",
+    "tags": [
+      "binary search",
+      "data structures",
+      "dfs and similar",
+      "dp",
+      "trees",
+      "*2100"
+    ],
+    "timestamp": "May/04/2021 01:15"
+  },
   "CF115105979": {
     "contest_id": 1501,
     "language": "GNU C++17 (64)",
