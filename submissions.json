@@ -1,4 +1,20 @@
 {
+  "AC22347036": {
+    "contest_id": "abc196",
+    "language": "Python (3.8.2)",
+    "path": "atcoder\\abc196\\F.py",
+    "platform": "AtCoder",
+    "problem_index": "F",
+    "problem_name": "Substring 2",
+    "problem_url": "https://atcoder.jp/contests/abc196/tasks/abc196_f",
+    "submission_id": "AC22347036",
+    "submission_url": "https://atcoder.jp/contests/abc196/submissions/22347036",
+    "tags": [
+      "AtCoder",
+      "*600"
+    ],
+    "timestamp": "May/06/2021 14:35"
+  },
   "AC22347057": {
     "contest_id": "abc196",
     "language": "C++ (GCC 9.2.1)",
