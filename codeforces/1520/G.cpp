@@ -37,6 +37,8 @@ sim dor(const c&) { ris; }
 
 //----------------------------------- END DEBUG --------------------------------
 
+#pragma gcc optimize("trapv")
+
 const int INF = 1e9 + 7;
 const int64_t INF64 = 1e18;
 
