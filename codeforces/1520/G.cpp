@@ -37,42 +37,41 @@ sim dor(const c&) { ris; }
 
 //----------------------------------- END DEBUG --------------------------------
 
-#pragma gcc optimize("trapv")
-
 const int INF = 1e9 + 7;
 const int64_t INF64 = 1e18;
 
 int dx[] = {-1, 0, 1, 0};
 int dy[] = {0, 1, 0, -1};
 
-vector<vector<int64_t>> bfs(vector<vector<int64_t>> &grid, pair<int,int> source) {
+vector<vector<int>> bfs(vector<vector<int>> &grid, pair<int,int> source) {
     int n = grid.size();
     int m = grid[0].size();
-    vector<vector<int64_t>> distance(n, vector<int64_t>(m, INF));
-    vector<vector<bool>> vis(n, vector<bool>(m, false));
+    vector<vector<int>> distance(n, vector<int>(m, -1));
 
     auto is_valid = [&](int x, int y) -> bool {
         if(x < 0 || x >= n || y < 0 || y >= m) return false;
         if(grid[x][y] == -1) return false;
-        return !vis[x][y];
+        
+        if(distance[x][y] != -1) return false;
+
+        return true;
+
     };
 
     int source_x, source_y;
     tie(source_x, source_y) = source;
 
-    vector<pair<int,int>> q;
-    q.push_back(source);
+    queue<pair<int,int>> q;
+    q.push(source);
     distance[source_x][source_y] = 0;
-    vis[source_x][source_y] = true;
-    for(int i=0;i<q.size();i++) {
-        auto [x, y] = q[i];
-        
+    while(!q.empty()) {
+        auto [x, y] = q.front();
+        q.pop();
         for(int j=0;j<4;j++) {
             int new_x = x + dx[j];
             int new_y = y + dy[j];
             if(is_valid(new_x, new_y)) {
-                vis[new_x][new_y] = true;
-                q.push_back({new_x, new_y});
+                q.push({new_x, new_y});
                 distance[new_x][new_y] = distance[x][y] + 1;
             }
         }
@@ -84,39 +83,48 @@ vector<vector<int64_t>> bfs(vector<vector<int64_t>> &grid, pair<int,int> source)
 void run_cases() {
     int64_t n, m, w;
     cin >> n >> m >> w;
-    vector<vector<int64_t>> grid(n, vector<int64_t>(m));
+    vector<vector<int>> grid(n, vector<int>(m));
     for(int i=0;i<n;i++) {
         for(int j=0;j<m;j++) {
             cin >> grid[i][j];
         }
     }
 
-    vector<vector<int64_t>> distance_from_source = bfs(grid, {0, 0});
-    vector<vector<int64_t>> distance_from_destination = bfs(grid, {n-1, m-1});
+    vector<vector<int>> distance = bfs(grid, {0, 0});
 
     
 
-    int64_t ans = distance_from_source[n-1][m-1] < INF ? distance_from_source[n-1][m-1] * w : INF64;
+    int64_t ans = distance[n-1][m-1] != -1 ? w * distance[n-1][m-1] : INF64;
+
+    debug() << imie(ans);
+    debug() << imie(distance);
 
     int64_t source_portal = INF64;
 
     for(int i=0;i<n;i++) {
         for(int j=0;j<m;j++) {
-            if(grid[i][j] >= 1 and distance_from_source[i][j] != INF) {
-                source_portal = min(source_portal, distance_from_source[i][j] * w + grid[i][j]);
+            if(grid[i][j] >= 1 && distance[i][j] >= 0) {
+                debug() << imie(distance[i][j]);
+                source_portal = min(source_portal, w * distance[i][j] + grid[i][j]);
             }
         }
     }
 
     int64_t destination_portal = INF64;
+    distance = bfs(grid, {n-1, m-1});
+
+    debug() << imie(distance);
 
     for(int i=0;i<n;i++) {
         for(int j=0;j<m;j++) {
-            if(grid[i][j] >= 1 and distance_from_destination[i][j] != INF) {
-                destination_portal = min(destination_portal, distance_from_destination[i][j] * w + grid[i][j]);
+            if(grid[i][j] >= 1 && distance[i][j] >= 0) {
+                debug() << imie(distance[i][j]);
+                destination_portal = min(destination_portal, w * distance[i][j]+ grid[i][j]);
             }
         }
     }
+
+    debug() << imie(destination_portal) imie(source_portal);
 
     ans = min(ans, destination_portal + source_portal);
 
