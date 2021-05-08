@@ -53,7 +53,6 @@ void run_cases() {
     }
     vector<pair<int,int>> broken, construct;
 
-    // Break the tree into multiple forests of bamboo
     function<void(int,int)> break_dfs = [&](int node, int par) -> void {
         parent[node] = par;
         vector<int> children;
@@ -101,7 +100,7 @@ void run_cases() {
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
-
+    debug() << imie(adj);
     vector<int> leafs;
     vector<int> vis(n, 0);
     function<void(int,int)> find_bamboo_leafs = [&](int node, int par) -> void {
@@ -126,12 +125,12 @@ void run_cases() {
             bamboo_leafs.push_back(leafs);
         }
     }
-
-    // connect all bamboo trees in the forest
+    debug() << imie(bamboo_leafs) imie(broken);
     for(int i=0;i<int(bamboo_leafs.size())-1;i++) {
         construct.push_back({bamboo_leafs[i][1], bamboo_leafs[i+1][0]});
     }
-
+    debug() << imie(construct.size()) imie(broken.size());
+    // assert(construct.size() == broken.size());
     cout << broken.size() << nl;
     if(!broken.empty()) {
         for(int i=0;i<broken.size();i++) {
@@ -140,7 +139,41 @@ void run_cases() {
             cout << construct[i].first + 1 << " " << construct[i].second + 1 << nl;
         }
     }
+    debug() << imie(broken) << nl << imie(construct);
 }
+
+/*
+15
+1 20 9 29
+1 30 2 22
+1 33 4 37
+1 6 11 38
+1 19 15 35
+1 21 7 12
+1 5 31 10
+5 13 10 13
+10 30 13 25
+14 16 17 26
+19 24 18 21
+22 30 21 24
+23 34 24 33
+23 30 28 32
+30 32 32 34
+
+brokens:
+1 20
+1 30
+1 33
+1 6
+1 19
+1 21
+1 5
+
+2
+1 4 7 5
+1 6 3 4
+
+*/
 
 int main() {
     ios_base::sync_with_stdio(0); cin.tie(nullptr);
