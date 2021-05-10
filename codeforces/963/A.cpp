@@ -162,16 +162,12 @@ void run_cases() {
     cin >> s;
 
     mod_int common_sum = 0;
-    mod_int pow_a = mod_int(a).pow(n);
-    mod_int pow_b = 1;
     for(int i=0;i<k;i++) {
         if(s[i] == '+') {
-            common_sum += pow_a * pow_b;
+            common_sum += mod_int(a).pow(n - i) * mod_int(b).pow(i);
         } else {
-            common_sum -= pow_a * pow_b;
+            common_sum -= mod_int(a).pow(n - i) * mod_int(b).pow(i);
         }
-        pow_a /= a;
-        pow_b *= b;
     }
 
     auto gp = [&](mod_int r, int64_t terms) -> mod_int {
