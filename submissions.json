@@ -1263,6 +1263,23 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF115998660": {
+    "contest_id": 1431,
+    "language": "Kotlin",
+    "path": "codeforces\\1431\\D.kt",
+    "platform": "Codeforces",
+    "problem_index": "D",
+    "problem_name": "Used Markers",
+    "problem_url": "https://codeforces.com/contest/1431/problem/D",
+    "submission_id": "CF115998660",
+    "submission_url": "https://codeforces.com/contest/1431/submission/115998660",
+    "tags": [
+      "*special problem",
+      "greedy",
+      "*1500"
+    ],
+    "timestamp": "May/12/2021 12:19"
+  },
   "CF116045440": {
     "contest_id": 1446,
     "language": "GNU C++17 (64)",
