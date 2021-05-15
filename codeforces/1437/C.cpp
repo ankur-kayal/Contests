@@ -38,7 +38,7 @@ void shortest_paths(int n, int v0, vector<int>& d, vector<int>& p) {
     }
 }
 
-int min_cost_flow(const int &N, const vector<Edge> &edges, const int &K, const int &s, const int &t) {
+int min_cost_flow(int N, vector<Edge> edges, int K, int s, int t) {
     adj.assign(N, vector<int>());
     cost.assign(N, vector<int>(N, 0));
     capacity.assign(N, vector<int>(N, 0));
