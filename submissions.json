@@ -1263,6 +1263,22 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF116596020": {
+    "contest_id": 1408,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1408\\A.cpp",
+    "platform": "Codeforces",
+    "problem_index": "A",
+    "problem_name": "Circle Coloring",
+    "problem_url": "https://codeforces.com/contest/1408/problem/A",
+    "submission_id": "CF116596020",
+    "submission_url": "https://codeforces.com/contest/1408/submission/116596020",
+    "tags": [
+      "constructive algorithms",
+      "*800"
+    ],
+    "timestamp": "May/19/2021 00:00"
+  },
   "CF116618945": {
     "contest_id": 1399,
     "language": "GNU C++17 (64)",
