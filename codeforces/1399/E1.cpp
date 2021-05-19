@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -15,90 +14,51 @@ void run_cases() {
     int64_t N, S;
     cin >> N >> S;
 
-    vector<vector<vector<int64_t>>> adj(N);
+    vector<vector<pair<int64_t,int64_t>>> adj(N);
 
     for(int i=1;i<N;i++) {
-        int64_t u, v, w, c;
+        int64_t u, v, w;
         cin >> u >> v >> w;
         --u, --v;
-        c = 1;
-        adj[u].push_back({v, w, c});
-        adj[v].push_back({u, w, c});
+        adj[u].push_back({v, w});
+        adj[v].push_back({u, w});
     }
-    vector<vector<int64_t>> edge_contributions;
+    vector<pair<int64_t,int64_t>> edge_contributions;
     vector<int64_t> leaf_count(N);
     auto dfs = y_combinator([&](auto dfs, int node, int par) -> void {
         if(adj[node].size() == 1 && node != 0) {
             leaf_count[node] = 1;
             return;
         }
-        for(auto edge: adj[node]) {
-            int64_t child = edge[0];
-            int64_t weight = edge[1];
-            int64_t cost = edge[2];
+        for(auto [child, weight]: adj[node]) {
             if(child != par) {
                 dfs(child, node);
-                edge_contributions.push_back({weight, leaf_count[child], cost});
+                edge_contributions.push_back({weight, leaf_count[child]});
                 leaf_count[node] += leaf_count[child];
             }
         }
     });
 
     dfs(0, -1);
-    vector<int64_t> order1, order2;
+    multiset<vector<int64_t>> order;
 
     int64_t path_sum = 0;
-    for(auto edge : edge_contributions) {
-        int64_t weight = edge[0];
-        int64_t count = edge[1];
-        int64_t cost = edge[2];
+    for(auto [weight, count] : edge_contributions) {
         path_sum += weight * count;
-        if(cost == 1) {
-            while(weight != 0){
-                order1.push_back(((weight + 1) / 2) * count);
-                weight/=2;
-            }
-        } else {
-            while(weight != 0){
-                order2.push_back(((weight + 1) / 2) * count);
-                weight/=2;
-            }
-        }
-    }
-    sort(order1.rbegin(), order1.rend());
-    sort(order2.rbegin(), order2.rend());
-
-    vector<int64_t> prefix1 = {0}, prefix2={0};
-    for(auto u: order1) {
-        prefix1.push_back(prefix1.back() + u);
+        order.insert({((weight + 1) / 2) * count, weight, count});
     }
 
-    for(auto u: order2) {
-        prefix2.push_back(prefix2.back() + u);
+    int moves = 0;
+    while(path_sum > S) {
+        vector<int64_t> modify = *prev(order.end());
+        order.erase(prev(order.end()));
+        path_sum -= modify[0];
+        modify[1] /= 2;
+        modify[0] = ((modify[1] + 1) / 2) * modify[2];
+        order.insert(modify);
+        moves++;
     }
-
-    if(path_sum <= S) {
-        cout << 0 << '\n';
-        return;
-    }
-
-    int64_t best = 1e18;
-
-    for(int i=0;i<prefix1.size();i++) {
-        int64_t cost = i;
-
-        int64_t needed = path_sum - S - prefix1[i];
-        if(needed <= 0) {
-            best = min(best, cost);
-            continue;
-        }
-        if(prefix2.back() < needed) continue;
-        
-        cost = cost + (lower_bound(prefix2.begin(), prefix2.end(), needed) - prefix2.begin()) * 2;
-        best = min(best, cost);
-    }
-
-    cout << best << '\n';    
+    cout << moves << '\n';
 }
 
 int main() {
