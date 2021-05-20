@@ -71,42 +71,13 @@ void run_cases() {
         special = true;
     }
 
-    debug() << imie(matched) imie(unmatched);
-
-    int turn = 1;
-    int reversed = false;
-
-    while(zeros > 0) {
-        turn ^= 1;
-        if(!unmatched.empty() && !reversed) {
-            reversed = true;
-            continue;
-        }
-
-        if(special) {
-            score[turn]++;
-            special = false;
-            zeros--;
-            continue;
-        }
-
-        if(!unmatched.empty()) {
-            zeros--;
-            unmatched.erase(unmatched.begin());
-            score[turn]++;
-            continue;
-        }
-
-        int val = *matched.begin();
-        matched.erase(matched.begin());
-        matched.erase(matched.find(N - val - 1));
-        unmatched.insert(N - val - 1);
-        score[turn]++;
-        zeros--;
-
+    if(special && pos.size() != 1) {
+        score[1] = 1;
+    } else {
+        score[0] = 1;
     }
 
-    debug() << imie(score);
+    assert(score[0] != score[1]);
 
     if(score[0] == score[1]) {
         cout << "DRAW\n";
