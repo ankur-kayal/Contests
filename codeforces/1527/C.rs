@@ -1,4 +1,4 @@
-use std::collections::BTreeMap;
+use std::collections::HashMap;
 use std::io::{stdin, stdout, BufWriter, Write};
 #[derive(Default)]
 struct Scanner {
@@ -25,7 +25,7 @@ fn main() {
   for _ in 0..t {
     let n: usize = scan.next();
     let a: Vec<i64> = (0..n).map(|_| scan.next()).collect();
-    let mut cache: BTreeMap<i64, i64> = BTreeMap::new();
+    let mut cache: HashMap<i64, i64> = HashMap::new();
     let mut ans: i64 = 0;
 
     for i in 0..n {

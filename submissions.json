@@ -1263,6 +1263,24 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF116957104": {
+    "contest_id": 1527,
+    "language": "Rust",
+    "path": "codeforces\\1527\\C.rs",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "Sequence Pair Weight",
+    "problem_url": "https://codeforces.com/contest/1527/problem/C",
+    "submission_id": "CF116957104",
+    "submission_url": "https://codeforces.com/contest/1527/submission/116957104",
+    "tags": [
+      "hashing",
+      "implementation",
+      "math",
+      "*1600"
+    ],
+    "timestamp": "May/22/2021 01:43"
+  },
   "CF116957178": {
     "contest_id": 1527,
     "language": "Rust",
