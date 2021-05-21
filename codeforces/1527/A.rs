@@ -18,7 +18,6 @@ impl Scanner {
 
 fn main() {
   let mut scan = Scanner::default();
-  let out = &mut BufWriter::new(stdout());
 
   let t: i32 = scan.next();
   for _ in 0..t {
@@ -26,7 +25,7 @@ fn main() {
     for i in 0..45 {
       let k: i64 = (1i64 << i) - 1;
       if k >= n {
-        writeln!(out, "{}", k >> 1).ok();
+        println!("{}", k >> 1);
         break;
       }
     }
