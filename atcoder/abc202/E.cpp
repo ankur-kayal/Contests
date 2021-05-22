@@ -1,40 +1,140 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
+using namespace std;
 
-std::vector<std::vector<int>> children, list;
-std::vector<int> in, out, depth;
-int timer;
+#define nl '\n'
 
-void dfs(const int u) {
-    in[u] = timer++;
-    list[depth[u]].push_back(in[u]);
-    for (const int v : children[u]) {
-        depth[v] = depth[u] + 1;
-        dfs(v);
+inline int64_t gilbertOrder(int x, int y, int pow, int rotate) {
+    if (pow == 0) {
+        return 0;
     }
-    out[u] = timer++;
+    int hpow = 1 << (pow-1);
+    int seg = (x < hpow) ? (
+        (y < hpow) ? 0 : 3
+    ) : (
+        (y < hpow) ? 1 : 2
+    );
+    seg = (seg + rotate) & 3;
+    const int rotateDelta[4] = {3, 0, 0, 1};
+    int nx = x & (x ^ hpow), ny = y & (y ^ hpow);
+    int nrot = (rotate + rotateDelta[seg]) & 3;
+    int64_t subSquareSize = int64_t(1) << (2*pow - 2);
+    int64_t ans = seg * subSquareSize;
+    int64_t add = gilbertOrder(nx, ny, pow-1, nrot);
+    ans += (seg == 1 || seg == 2) ? add : (subSquareSize - add - 1);
+    return ans;
+}
+ 
+struct Query {
+    int l, r, idx, val;
+    int64_t ord;
+
+    Query() {}
+
+    Query(int _l, int _r, int _idx, int _val) {
+        l = _l;
+        r = _r;
+        idx = _idx;
+        val = _val;
+        ord = gilbertOrder(l, r, 21, 0);
+    }
+};
+ 
+inline bool operator<(const Query &a, const Query &b) {
+    return a.ord < b.ord;
+}
+
+
+void run_cases() {
+    int N;
+    cin >> N;
+    vector<vector<int>> adj(N);
+    for(int i=1;i<N;i++) {
+        int parent;
+        cin >> parent;
+        --parent;
+        adj[i].push_back(parent);
+        adj[parent].push_back(i);
+    }
+
+    vector<int> in(N), out(N), depth(N), euler;
+    int timer = 0;
+
+    function<void(int,int)> dfs = [&](int node, int par) -> void {
+        in[node] = timer++;
+
+        euler.push_back(node);
+
+        for(int child: adj[node]) {
+            if(child != par) {
+                depth[child] = depth[node] + 1;
+                dfs(child, node);
+            }
+        }
+
+        euler.push_back(node);
+        out[node] = timer++;
+    };
+
+    dfs(0, -1);
+
+    for(auto &u: euler) {
+        u = depth[u];
+    }
+
+    int Q;
+    cin >> Q;
+    vector<Query> query(Q);
+    for(int i=0;i<Q;i++) {
+        int u, d;
+        cin >> u >> d;
+        --u;
+        int l = in[u];
+        int r = out[u];
+        query[i] = Query(l, r, i, d);
+    }
+ 
+    sort(query.begin(), query.end());
+
+    vector<int> answers(Q, 0);
+    vector<int> cnt(N, 0);
+ 
+    auto add = [&](int64_t val) -> void {
+        cnt[val]++;
+    };
+ 
+    auto sub = [&](int64_t val) -> void {
+        cnt[val]--;
+    };
+ 
+    int l = query[0].l, r = query[0].l - 1;
+    for(auto u: query) {
+        while(r < u.r) {
+            r++, add(euler[r]);
+        }
+        while(l > u.l) {
+            l--, add(euler[l]);
+        }
+        while(r > u.r) {
+            sub(euler[r]), r--;
+        }
+        while(l < u.l) {
+            sub(euler[l]), l++;
+        }
+        answers[u.idx] = cnt[u.val];
+    }
+ 
+    for(auto u: answers) {
+        cout << u / 2 << nl;
+    }
 }
 
 int main() {
-    int N;
-    std::cin >> N;
-    children = list = std::vector<std::vector<int>>(N);
-    in = out = depth = std::vector<int>(N);
-    for (int i = 1; i < N; ++i) {
-        int p;
-        std::cin >> p;
-        children[p - 1].push_back(i);
+    ios_base::sync_with_stdio(0); cin.tie(nullptr);
+
+    int tests = 1;
+    // cin >> tests;
+
+    for(int test = 1;test <= tests;test++) {
+        run_cases();
     }
-    dfs(0);
-    int Q;
-    std::cin >> Q;
-    while (Q--) {
-        int u, d;
-        std::cin >> u >> d;
-        u -= 1;
-        const auto& v = list[d];
-        std::cout << std::lower_bound(v.cbegin(), v.cend(), out[u]) - std::lower_bound(v.cbegin(), v.cend(), in[u]) << '\n';
-    }
-    return 0;
 }
