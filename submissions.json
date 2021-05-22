@@ -1,0 +1,18 @@
+{
+  "AC22844119": {
+    "contest_id": "abc202",
+    "language": "C++ (GCC 9.2.1)",
+    "path": "atcoder\\abc202\\E.cpp",
+    "platform": "AtCoder",
+    "problem_index": "E",
+    "problem_name": "Count Descendants",
+    "problem_url": "https://atcoder.jp/contests/abc202/tasks/abc202_e",
+    "submission_id": "AC22844119",
+    "submission_url": "https://atcoder.jp/contests/abc202/submissions/22844119",
+    "tags": [
+      "AtCoder",
+      "*500"
+    ],
+    "timestamp": "May/22/2021 21:53"
+  }
+}
