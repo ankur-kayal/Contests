@@ -198,12 +198,7 @@ void run_cases() {
     for(auto &u: A)
         cin >> u;
 
-    int64_t dp[101][35001];
-    for(int i=0;i<=K;i++) {
-        for(int j=0;j<=N;j++) {
-            dp[i][j] = INF;
-        }
-    }
+    vector<vector<int64_t>> dp(K + 1, vector<int64_t>(N + 1, INF));
 
     segment_tree tree;
     dp[0][0] = 0;
