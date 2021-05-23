@@ -1263,6 +1263,25 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF117076400": {
+    "contest_id": 1527,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1527\\E.cpp",
+    "platform": "Codeforces",
+    "problem_index": "E",
+    "problem_name": "Partition Game",
+    "problem_url": "https://codeforces.com/contest/1527/problem/E",
+    "submission_id": "CF117076400",
+    "submission_url": "https://codeforces.com/contest/1527/submission/117076400",
+    "tags": [
+      "binary search",
+      "data structures",
+      "divide and conquer",
+      "dp",
+      "*2500"
+    ],
+    "timestamp": "May/23/2021 13:53"
+  },
   "CF117146801": {
     "contest_id": 1422,
     "language": "GNU C++17 (64)",
