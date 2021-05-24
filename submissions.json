@@ -1263,6 +1263,21 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "CF117257040": {
+    "contest_id": 1529,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1529\\D.cpp",
+    "platform": "Codeforces",
+    "problem_index": "D",
+    "problem_name": "Kavi on Pairing Duty",
+    "problem_url": "https://codeforces.com/contest/1529/problem/D",
+    "submission_id": "CF117257040",
+    "submission_url": "https://codeforces.com/contest/1529/submission/117257040",
+    "tags": [
+      "dp"
+    ],
+    "timestamp": "May/24/2021 23:13"
+  },
   "CF117258020": {
     "contest_id": 1529,
     "language": "GNU C++17 (64)",
