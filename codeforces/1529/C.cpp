@@ -19,7 +19,7 @@ void run_cases() {
         adj[v].push_back(u);
     }
 
-    vector<array<int64_t, 2>> dp(N);
+    vector<vector<int64_t>> dp(N, vector<int64_t>(2, 0));
 
     int64_t res = 0, ans = 0;
 
