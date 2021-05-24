@@ -1262,5 +1262,21 @@
       "*500"
     ],
     "timestamp": "May/22/2021 21:53"
+  },
+  "CF117263166": {
+    "contest_id": 545,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\545\\A.cpp",
+    "platform": "Codeforces",
+    "problem_index": "A",
+    "problem_name": "Toy Cars",
+    "problem_url": "https://codeforces.com/contest/545/problem/A",
+    "submission_id": "CF117263166",
+    "submission_url": "https://codeforces.com/contest/545/submission/117263166",
+    "tags": [
+      "implementation",
+      "*900"
+    ],
+    "timestamp": "May/25/2021 00:39"
   }
 }
