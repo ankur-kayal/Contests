@@ -154,25 +154,15 @@ template<const int &MOD> _m_int<MOD> _m_int<MOD>::save_inv[_m_int<MOD>::SAVE_INV
 extern const int MOD = 998244353;
 using mod_int = _m_int<MOD>;
 
+
 void run_cases() {
     int N;
     cin >> N;
     vector<int> A(N);
     for(auto &u: A) {
         cin >> u;
-    }
-    vector<pair<int,int>> compress;
-    for(int i=0;i<N;i++) {
-        compress.emplace_back(A[i], i);
     }    
-    sort(compress.begin(), compress.end());
-    int id = 0;
-    for(int i=0;i<N;i++) {
-        if(i > 0 && compress[i-1].first != compress[i].first) id++;
-        A[compress[i].second] = id;
-    }
-
-    vector<int> last_pos(N);
+    map<int,int> last_pos;
     for(int i=0;i<N;i++) {
         last_pos[A[i]] = i;
     }
