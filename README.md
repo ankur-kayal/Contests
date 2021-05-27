@@ -13,6 +13,7 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
+382 | [A - DIY Wooden Ladder](https://codeforces.com/contest/1197/problem/A) | [GNU C++17 (64)](./codeforces/1197/A.cpp) | `greedy` `math` `sortings` `*900` | May/28/2021 00:47 | 
 381 | [D - Ilya and Escalator](https://codeforces.com/contest/518/problem/D) | [GNU C++17 (64)](./codeforces/518/D.cpp) | `combinatorics` `dp` `math` `probabilities` `*1700` | May/26/2021 22:44 | 
 380 | [C - Wet Shark and Flowers](https://codeforces.com/contest/621/problem/C) | [GNU C++17 (64)](./codeforces/621/C.cpp) | `combinatorics` `math` `number theory` `probabilities` `*1700` | May/26/2021 20:16 | 
 379 | [E - Monotonic Renumeration](https://codeforces.com/contest/1102/problem/E) | [GNU C++17 (64)](./codeforces/1102/E.cpp) | `combinatorics` `sortings` `*1700` | May/26/2021 19:54 | 
