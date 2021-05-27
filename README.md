@@ -13,8 +13,9 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-383 | [A - DIY Wooden Ladder](https://codeforces.com/contest/1197/problem/A) | [GNU C++17 (64)](./codeforces/1197/A.cpp) | `greedy` `math` `sortings` `*900` | May/28/2021 00:47 | 
-382 | [B - Pillars](https://codeforces.com/contest/1197/problem/B) | [GNU C++17 (64)](./codeforces/1197/B.cpp) | `greedy` `implementation` `*1000` | May/28/2021 00:41 | 
+384 | [A - DIY Wooden Ladder](https://codeforces.com/contest/1197/problem/A) | [GNU C++17 (64)](./codeforces/1197/A.cpp) | `greedy` `math` `sortings` `*900` | May/28/2021 00:47 | 
+383 | [B - Pillars](https://codeforces.com/contest/1197/problem/B) | [GNU C++17 (64)](./codeforces/1197/B.cpp) | `greedy` `implementation` `*1000` | May/28/2021 00:41 | 
+382 | [C - Array Splitting](https://codeforces.com/contest/1197/problem/C) | [GNU C++17 (64)](./codeforces/1197/C.cpp) | `greedy` `sortings` `*1400` | May/28/2021 00:17 | 
 381 | [D - Ilya and Escalator](https://codeforces.com/contest/518/problem/D) | [GNU C++17 (64)](./codeforces/518/D.cpp) | `combinatorics` `dp` `math` `probabilities` `*1700` | May/26/2021 22:44 | 
 380 | [C - Wet Shark and Flowers](https://codeforces.com/contest/621/problem/C) | [GNU C++17 (64)](./codeforces/621/C.cpp) | `combinatorics` `math` `number theory` `probabilities` `*1700` | May/26/2021 20:16 | 
 379 | [E - Monotonic Renumeration](https://codeforces.com/contest/1102/problem/E) | [GNU C++17 (64)](./codeforces/1102/E.cpp) | `combinatorics` `sortings` `*1700` | May/26/2021 19:54 | 
