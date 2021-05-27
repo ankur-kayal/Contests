@@ -22,7 +22,7 @@ void run_cases() {
 
     for(int i=N;i>1;i--) {
         auto it = order.find({pos[i], i});
-        if(next(it) != order.end()) {
+        if(it != order.end()) {
             if(next(it)->second == i - 1) {
                 order.erase(order.find({pos[i], i}));
                 order.erase(order.find({pos[i - 1], i - 1}));
