@@ -13,9 +13,10 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-387 | [E - Crypto Lights](https://codeforces.com/contest/1523/problem/E) | [GNU C++17 (64)](./codeforces/1523/E.cpp) | `combinatorics` `*2600` | May/30/2021 23:32 | 
-386 | [C - Compression and Expansion](https://codeforces.com/contest/1523/problem/C) | [GNU C++17 (64)](./codeforces/1523/C.cpp) | `brute force` `data structures` `implementation` `trees` `*1600` | May/30/2021 20:58 | 
-385 | [B - Lord of the Values](https://codeforces.com/contest/1523/problem/B) | [GNU C++17 (64)](./codeforces/1523/B.cpp) | `constructive algorithms` `*1100` | May/30/2021 20:28 | 
+388 | [E - Crypto Lights](https://codeforces.com/contest/1523/problem/E) | [GNU C++17 (64)](./codeforces/1523/E.cpp) | `combinatorics` `*2600` | May/30/2021 23:32 | 
+387 | [C - Compression and Expansion](https://codeforces.com/contest/1523/problem/C) | [GNU C++17 (64)](./codeforces/1523/C.cpp) | `brute force` `data structures` `implementation` `trees` `*1600` | May/30/2021 20:58 | 
+386 | [B - Lord of the Values](https://codeforces.com/contest/1523/problem/B) | [GNU C++17 (64)](./codeforces/1523/B.cpp) | `constructive algorithms` `*1100` | May/30/2021 20:28 | 
+385 | [A - Game of Life](https://codeforces.com/contest/1523/problem/A) | [GNU C++17 (64)](./codeforces/1523/A.cpp) | `implementation` `*800` | May/30/2021 20:17 | 
 384 | [A - DIY Wooden Ladder](https://codeforces.com/contest/1197/problem/A) | [GNU C++17 (64)](./codeforces/1197/A.cpp) | `greedy` `math` `sortings` `*900` | May/28/2021 00:47 | 
 383 | [B - Pillars](https://codeforces.com/contest/1197/problem/B) | [GNU C++17 (64)](./codeforces/1197/B.cpp) | `greedy` `implementation` `*1000` | May/28/2021 00:41 | 
 382 | [C - Array Splitting](https://codeforces.com/contest/1197/problem/C) | [GNU C++17 (64)](./codeforces/1197/C.cpp) | `greedy` `sortings` `*1400` | May/28/2021 00:17 | 
