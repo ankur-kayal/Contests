@@ -46,20 +46,11 @@ void run_cases() {
         }
 
 
-        // Do SOS dp 3^n complexity
-        // for(int mask = 0; mask < (1 << set_bits); mask++) {
-        //     for(int submask = mask; submask > 0; submask = (submask - 1) & mask) {
-        //         if(submask != mask)
-        //             cnt[submask] += cnt[mask];
-        //     }
-        // }
-
-        // Do SOS dp, faster n*2^n complexity
-        for(int bit = 0; bit < set_bits; bit++) {
-            for(int mask = 0; mask < (1 << set_bits); mask++) {
-                if(mask & (1 << bit)) {
-                    cnt[mask ^ (1 << bit)] += cnt[mask];
-                }
+        // Do SOS dp
+        for(int mask = 0; mask < (1 << set_bits); mask++) {
+            for(int submask = mask; submask > 0; submask = (submask - 1) & mask) {
+                if(submask != mask)
+                    cnt[submask] += cnt[mask];
             }
         }
 
