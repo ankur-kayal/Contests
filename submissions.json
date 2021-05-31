@@ -6062,6 +6062,25 @@
     ],
     "timestamp": "May/30/2021 23:32"
   },
+  "CF118021144": {
+    "contest_id": 1523,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1523\\D.cpp",
+    "platform": "Codeforces",
+    "problem_index": "D",
+    "problem_name": "Love-Hate",
+    "problem_url": "https://codeforces.com/contest/1523/problem/D",
+    "submission_id": "CF118021144",
+    "submission_url": "https://codeforces.com/contest/1523/submission/118021144",
+    "tags": [
+      "bitmasks",
+      "brute force",
+      "dp",
+      "probabilities",
+      "*2400"
+    ],
+    "timestamp": "Jun/01/2021 01:48"
+  },
   "CF118021186": {
     "contest_id": 1523,
     "language": "GNU C++17 (64)",

@@ -24,7 +24,7 @@ void run_cases() {
 
     int64_t best_answer = 0;
 
-    for(int iterations = 0; iterations < 10; iterations++) {
+    for(int iterations = 0; iterations < 30; iterations++) {
         int position = uid(0, N - 1);
         vector<int> bits;
         for(int bit = 0; bit < M; bit++) {
