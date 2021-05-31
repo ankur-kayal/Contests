@@ -35,6 +35,7 @@ void run_cases() {
 
         int set_bits = bits.size();
         vector<int> cnt(1 << set_bits);
+        vector<int> tmp_cnt(1 << set_bits);
         for(int i = 0; i < N; i++) {
             int mask = 0;
             for(int bit = 0; bit < set_bits; bit++) {
@@ -49,10 +50,11 @@ void run_cases() {
         // Do SOS dp
         for(int mask = 0; mask < (1 << set_bits); mask++) {
             for(int submask = mask; submask > 0; submask = (submask - 1) & mask) {
-                if(submask != mask)
-                    cnt[submask] += cnt[mask];
+                tmp_cnt[submask] += cnt[mask];
             }
         }
+
+        cnt = tmp_cnt;
 
         int64_t current_answer = 0;
         // Validate the best answer in this iteration
