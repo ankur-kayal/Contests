@@ -6138,6 +6138,22 @@
     ],
     "timestamp": "Jun/01/2021 01:57"
   },
+  "CF118226186": {
+    "contest_id": 1531,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1531\\B1.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B1",
+    "problem_name": "\u041c\u043e\u043d\u0438\u0442\u043e\u0440\u0438\u043d\u0433",
+    "problem_url": "https://codeforces.com/contest/1531/problem/B1",
+    "submission_id": "CF118226186",
+    "submission_url": "https://codeforces.com/contest/1531/submission/118226186",
+    "tags": [
+      "*special problem",
+      "*special problem"
+    ],
+    "timestamp": "Jun/03/2021 01:14"
+  },
   "CF118226194": {
     "contest_id": 1531,
     "language": "GNU C++17 (64)",

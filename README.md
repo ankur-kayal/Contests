@@ -13,7 +13,8 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-394 | [B2 - Мониторинг](https://codeforces.com/contest/1531/problem/B2) | [GNU C++17 (64)](./codeforces/1531/B2.cpp) | `*special problem` | Jun/03/2021 01:15 | 
+395 | [B2 - Мониторинг](https://codeforces.com/contest/1531/problem/B2) | [GNU C++17 (64)](./codeforces/1531/B2.cpp) | `*special problem` | Jun/03/2021 01:15 | 
+394 | [B1 - Мониторинг](https://codeforces.com/contest/1531/problem/B1) | [GNU C++17 (64)](./codeforces/1531/B1.cpp) | `*special problem` `*special problem` | Jun/03/2021 01:14 | 
 393 | [D - Love-Hate](https://codeforces.com/contest/1523/problem/D) | [GNU C++17 (64)](./codeforces/1523/D.cpp) | `bitmasks` `brute force` `dp` `probabilities` `*2400` | Jun/01/2021 01:57 | 
 392 | [E - Crypto Lights](https://codeforces.com/contest/1523/problem/E) | [GNU C++17 (64)](./codeforces/1523/E.cpp) | `combinatorics` `*2600` | May/30/2021 23:32 | 
 391 | [C - Compression and Expansion](https://codeforces.com/contest/1523/problem/C) | [GNU C++17 (64)](./codeforces/1523/C.cpp) | `brute force` `data structures` `implementation` `trees` `*1600` | May/30/2021 20:58 | 
