@@ -13,11 +13,12 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
+400 | [A - Mezo Playing Zoma](https://codeforces.com/contest/1285/problem/A) | [GNU C++17 (64)](./codeforces/1285/A.cpp) | `math` `*800` | Jun/04/2021 02:21 | 
 399 | [C - Fadi and LCM](https://codeforces.com/contest/1285/problem/C) | [GNU C++17 (64)](./codeforces/1285/C.cpp) | `brute force` `math` `number theory` `*1400` | Jun/04/2021 02:15 | 
 398 | [C - XOR and OR](https://codeforces.com/contest/282/problem/C) | [GNU C++17 (64)](./codeforces/282/C.cpp) | `constructive algorithms` `implementation` `math` `*1500` | Jun/04/2021 02:01 | 
 397 | [B2 - Мониторинг](https://codeforces.com/contest/1531/problem/B2) | [GNU C++17 (64)](./codeforces/1531/B2.cpp) | `*special problem` | Jun/03/2021 01:15 | 
 396 | [B1 - Мониторинг](https://codeforces.com/contest/1531/problem/B1) | [GNU C++17 (64)](./codeforces/1531/B1.cpp) | `*special problem` `*special problem` | Jun/03/2021 01:14 | 
-395 | [A - Зингер | color](https://codeforces.com/contest/1531/problem/A) | [GNU C++17 (64)](./codeforces/1531/A.cpp) | `*special problem` | Jun/03/2021 01:05 | 
+395 | [A - Singer | color](https://codeforces.com/contest/1531/problem/A) | [GNU C++17 (64)](./codeforces/1531/A.cpp) | `*special problem` | Jun/03/2021 01:05 | 
 394 | [E - Compatible Numbers](https://codeforces.com/contest/165/problem/E) | [GNU C++17 (64)](./codeforces/165/E.cpp) | `bitmasks` `brute force` `dfs and similar` `dp` `*2200` | Jun/01/2021 13:13 | 
 393 | [D - Love-Hate](https://codeforces.com/contest/1523/problem/D) | [GNU C++17 (64)](./codeforces/1523/D.cpp) | `bitmasks` `brute force` `dp` `probabilities` `*2400` | Jun/01/2021 01:57 | 
 392 | [E - Crypto Lights](https://codeforces.com/contest/1523/problem/E) | [GNU C++17 (64)](./codeforces/1523/E.cpp) | `combinatorics` `*2600` | May/30/2021 23:32 | 
