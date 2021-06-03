@@ -13,7 +13,8 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-398 | [C - Fadi and LCM](https://codeforces.com/contest/1285/problem/C) | [GNU C++17 (64)](./codeforces/1285/C.cpp) | `brute force` `math` `number theory` `*1400` | Jun/04/2021 02:15 | 
+399 | [C - Fadi and LCM](https://codeforces.com/contest/1285/problem/C) | [GNU C++17 (64)](./codeforces/1285/C.cpp) | `brute force` `math` `number theory` `*1400` | Jun/04/2021 02:15 | 
+398 | [C - XOR and OR](https://codeforces.com/contest/282/problem/C) | [GNU C++17 (64)](./codeforces/282/C.cpp) | `constructive algorithms` `implementation` `math` `*1500` | Jun/04/2021 02:01 | 
 397 | [B2 - Мониторинг](https://codeforces.com/contest/1531/problem/B2) | [GNU C++17 (64)](./codeforces/1531/B2.cpp) | `*special problem` | Jun/03/2021 01:15 | 
 396 | [B1 - Мониторинг](https://codeforces.com/contest/1531/problem/B1) | [GNU C++17 (64)](./codeforces/1531/B1.cpp) | `*special problem` `*special problem` | Jun/03/2021 01:14 | 
 395 | [A - Зингер | color](https://codeforces.com/contest/1531/problem/A) | [GNU C++17 (64)](./codeforces/1531/A.cpp) | `*special problem` | Jun/03/2021 01:05 | 
