@@ -38,8 +38,6 @@ void run_cases() {
         for(int i = 1; i < logN; i++) {
             if(up[n][i - 1] != -1) {
                 up[n][i] = up[up[n][i - 1]][i - 1];
-            } else {
-                break;
             }
         }
     };
@@ -84,7 +82,7 @@ void run_cases() {
                 }
             }
 
-            cout << got_gold << " " << money << '\n' << flush;
+            cout << got_gold << " " << money << endl;
         }
     }
 }
