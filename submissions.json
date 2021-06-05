@@ -6292,6 +6292,26 @@
     ],
     "timestamp": "Jun/04/2021 02:37"
   },
+  "CF118523931": {
+    "contest_id": 1535,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1535\\E.cpp",
+    "platform": "Codeforces",
+    "problem_index": "E",
+    "problem_name": "Gold Transfer",
+    "problem_url": "https://codeforces.com/contest/1535/problem/E",
+    "submission_id": "CF118523931",
+    "submission_url": "https://codeforces.com/contest/1535/submission/118523931",
+    "tags": [
+      "binary search",
+      "data structures",
+      "dp",
+      "greedy",
+      "interactive",
+      "trees"
+    ],
+    "timestamp": "Jun/05/2021 21:36"
+  },
   "CF118523967": {
     "contest_id": 1535,
     "language": "GNU C++17 (64)",

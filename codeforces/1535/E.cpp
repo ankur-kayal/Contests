@@ -8,7 +8,7 @@ void run_cases() {
     cin >> Q;
 
     const int maxN = 3e5+10;
-    const int logN = 19;
+    const int logN = 20;
 
     int up[maxN][logN];
     for(int i = 0; i < maxN; i++) {
