@@ -6445,6 +6445,24 @@
     ],
     "timestamp": "Jun/05/2021 21:36"
   },
+  "CF119088081": {
+    "contest_id": 1538,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1538\\G.cpp",
+    "platform": "Codeforces",
+    "problem_index": "G",
+    "problem_name": "Gift Set",
+    "problem_url": "https://codeforces.com/contest/1538/problem/G",
+    "submission_id": "CF119088081",
+    "submission_url": "https://codeforces.com/contest/1538/submission/119088081",
+    "tags": [
+      "binary search",
+      "greedy",
+      "math",
+      "ternary search"
+    ],
+    "timestamp": "Jun/10/2021 23:50"
+  },
   "CF119119658": {
     "contest_id": 1538,
     "language": "GNU C++17 (64)",
