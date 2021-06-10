@@ -13,16 +13,17 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-416 | [F1 - Falling Sand (Easy Version)](https://codeforces.com/contest/1534/problem/F1) | [GNU C++17 (64)](./codeforces/1534/F1.cpp) | `dfs and similar` `graphs` `greedy` | Jun/17/2021 00:48 | 
-415 | [C - Little Alawn's Puzzle](https://codeforces.com/contest/1534/problem/C) | [Python 3](./codeforces/1534/C.py) | `combinatorics` `dp` `dsu` `graphs` `math` | Jun/14/2021 23:49 | 
-414 | [E - Lost Array](https://codeforces.com/contest/1534/problem/E) | [GNU C++17 (64)](./codeforces/1534/E.cpp) | `constructive algorithms` `dp` `graphs` `greedy` `implementation` `interactive` `shortest paths` | Jun/14/2021 23:09 | 
-413 | [D - Lost Tree](https://codeforces.com/contest/1534/problem/D) | [GNU C++17 (64)](./codeforces/1534/D.cpp) | `constructive algorithms` `interactive` `trees` | Jun/14/2021 01:44 | 
-412 | [B - Histogram Ugliness](https://codeforces.com/contest/1534/problem/B) | [GNU C++17 (64)](./codeforces/1534/B.cpp) | `greedy` `implementation` `math` | Jun/13/2021 21:41 | 
-411 | [A - Colour the Flag](https://codeforces.com/contest/1534/problem/A) | [GNU C++17 (64)](./codeforces/1534/A.cpp) | `brute force` `implementation` | Jun/13/2021 21:10 | 
-410 | [E - Funny Substrings](https://codeforces.com/contest/1538/problem/E) | [GNU C++17 (64)](./codeforces/1538/E.cpp) | `data structures` `hashing` `implementation` `matrices` `strings` | Jun/11/2021 11:11 | 
-409 | [G - Gift Set](https://codeforces.com/contest/1538/problem/G) | [GNU C++17 (64)](./codeforces/1538/G.cpp) | `binary search` `greedy` `math` `ternary search` | Jun/10/2021 23:50 | 
-408 | [F - Interesting Function](https://codeforces.com/contest/1538/problem/F) | [GNU C++17 (64)](./codeforces/1538/F.cpp) | `binary search` `dp` `math` `number theory` | Jun/10/2021 21:26 | 
-407 | [D - Another Problem About Dividing Numbers](https://codeforces.com/contest/1538/problem/D) | [GNU C++17 (64)](./codeforces/1538/D.cpp) | `constructive algorithms` `math` `number theory` | Jun/10/2021 21:19 | 
+417 | [F1 - Falling Sand (Easy Version)](https://codeforces.com/contest/1534/problem/F1) | [GNU C++17 (64)](./codeforces/1534/F1.cpp) | `dfs and similar` `graphs` `greedy` | Jun/17/2021 00:48 | 
+416 | [C - Little Alawn's Puzzle](https://codeforces.com/contest/1534/problem/C) | [Python 3](./codeforces/1534/C.py) | `combinatorics` `dp` `dsu` `graphs` `math` | Jun/14/2021 23:49 | 
+415 | [E - Lost Array](https://codeforces.com/contest/1534/problem/E) | [GNU C++17 (64)](./codeforces/1534/E.cpp) | `constructive algorithms` `dp` `graphs` `greedy` `implementation` `interactive` `shortest paths` | Jun/14/2021 23:09 | 
+414 | [D - Lost Tree](https://codeforces.com/contest/1534/problem/D) | [GNU C++17 (64)](./codeforces/1534/D.cpp) | `constructive algorithms` `interactive` `trees` | Jun/14/2021 01:44 | 
+413 | [B - Histogram Ugliness](https://codeforces.com/contest/1534/problem/B) | [GNU C++17 (64)](./codeforces/1534/B.cpp) | `greedy` `implementation` `math` | Jun/13/2021 21:41 | 
+412 | [A - Colour the Flag](https://codeforces.com/contest/1534/problem/A) | [GNU C++17 (64)](./codeforces/1534/A.cpp) | `brute force` `implementation` | Jun/13/2021 21:10 | 
+411 | [E - Funny Substrings](https://codeforces.com/contest/1538/problem/E) | [GNU C++17 (64)](./codeforces/1538/E.cpp) | `data structures` `hashing` `implementation` `matrices` `strings` | Jun/11/2021 11:11 | 
+410 | [G - Gift Set](https://codeforces.com/contest/1538/problem/G) | [GNU C++17 (64)](./codeforces/1538/G.cpp) | `binary search` `greedy` `math` `ternary search` | Jun/10/2021 23:50 | 
+409 | [F - Interesting Function](https://codeforces.com/contest/1538/problem/F) | [GNU C++17 (64)](./codeforces/1538/F.cpp) | `binary search` `dp` `math` `number theory` | Jun/10/2021 21:26 | 
+408 | [D - Another Problem About Dividing Numbers](https://codeforces.com/contest/1538/problem/D) | [GNU C++17 (64)](./codeforces/1538/D.cpp) | `constructive algorithms` `math` `number theory` | Jun/10/2021 21:19 | 
+407 | [C - Number of Pairs](https://codeforces.com/contest/1538/problem/C) | [GNU C++17 (64)](./codeforces/1538/C.cpp) | `binary search` `data structures` `math` `two pointers` | Jun/10/2021 20:33 | 
 406 | [E - Gold Transfer](https://codeforces.com/contest/1535/problem/E) | [GNU C++17 (64)](./codeforces/1535/E.cpp) | `binary search` `data structures` `dp` `greedy` `interactive` `trees` | Jun/05/2021 21:36 | 
 405 | [D - Playoff Tournament](https://codeforces.com/contest/1535/problem/D) | [GNU C++17 (64)](./codeforces/1535/D.cpp) | `data structures` `dfs and similar` `dp` `implementation` `trees` | Jun/04/2021 22:25 | 
 404 | [C - Unstable String](https://codeforces.com/contest/1535/problem/C) | [GNU C++17 (64)](./codeforces/1535/C.cpp) | `binary search` `dp` `greedy` `implementation` `strings` `two pointers` | Jun/04/2021 20:47 | 
