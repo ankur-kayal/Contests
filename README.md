@@ -13,7 +13,8 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-407 | [F1 - Falling Sand (Easy Version)](https://codeforces.com/contest/1534/problem/F1) | [GNU C++17 (64)](./codeforces/1534/F1.cpp) | `dfs and similar` `graphs` `greedy` | Jun/17/2021 00:48 | 
+408 | [F1 - Falling Sand (Easy Version)](https://codeforces.com/contest/1534/problem/F1) | [GNU C++17 (64)](./codeforces/1534/F1.cpp) | `dfs and similar` `graphs` `greedy` | Jun/17/2021 00:48 | 
+407 | [C - Little Alawn's Puzzle](https://codeforces.com/contest/1534/problem/C) | [Python 3](./codeforces/1534/C.py) | `combinatorics` `dp` `dsu` `graphs` `math` | Jun/14/2021 23:49 | 
 406 | [E - Gold Transfer](https://codeforces.com/contest/1535/problem/E) | [GNU C++17 (64)](./codeforces/1535/E.cpp) | `binary search` `data structures` `dp` `greedy` `interactive` `trees` | Jun/05/2021 21:36 | 
 405 | [D - Playoff Tournament](https://codeforces.com/contest/1535/problem/D) | [GNU C++17 (64)](./codeforces/1535/D.cpp) | `data structures` `dfs and similar` `dp` `implementation` `trees` | Jun/04/2021 22:25 | 
 404 | [C - Unstable String](https://codeforces.com/contest/1535/problem/C) | [GNU C++17 (64)](./codeforces/1535/C.cpp) | `binary search` `dp` `greedy` `implementation` `strings` `two pointers` | Jun/04/2021 20:47 | 
