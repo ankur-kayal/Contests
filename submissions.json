@@ -6445,6 +6445,25 @@
     ],
     "timestamp": "Jun/05/2021 21:36"
   },
+  "CF119480138": {
+    "contest_id": 1534,
+    "language": "Python 3",
+    "path": "codeforces\\1534\\C.py",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "Little Alawn's Puzzle",
+    "problem_url": "https://codeforces.com/contest/1534/problem/C",
+    "submission_id": "CF119480138",
+    "submission_url": "https://codeforces.com/contest/1534/submission/119480138",
+    "tags": [
+      "combinatorics",
+      "dp",
+      "dsu",
+      "graphs",
+      "math"
+    ],
+    "timestamp": "Jun/14/2021 23:44"
+  },
   "CF119480462": {
     "contest_id": 1534,
     "language": "Python 3",
