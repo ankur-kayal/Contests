@@ -11,7 +11,14 @@ void run_cases() {
         return;
     }
 
-    bool ok = true;
+    bool ok = false;
+
+    for(int i = 2; i * i <= N; i++) {
+        if(N % i == 0) {
+            ok = true;
+            break;
+        }
+    }
 
     if(N & 1) {
         ok = false;
