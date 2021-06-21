@@ -13,8 +13,9 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-421 | [C - Prefixes and Suffixes](https://codeforces.com/contest/1092/problem/C) | [Kotlin](./codeforces/1092/C.kt) | `strings` `*1700` | Jun/23/2021 00:32 | 
-420 | [C - Good Array](https://codeforces.com/contest/1077/problem/C) | [GNU C++17 (64)](./codeforces/1077/C.cpp) | `*1300` | Jun/22/2021 20:41 | 
+422 | [C - Prefixes and Suffixes](https://codeforces.com/contest/1092/problem/C) | [Kotlin](./codeforces/1092/C.kt) | `strings` `*1700` | Jun/23/2021 00:32 | 
+421 | [C - Good Array](https://codeforces.com/contest/1077/problem/C) | [GNU C++17 (64)](./codeforces/1077/C.cpp) | `*1300` | Jun/22/2021 20:41 | 
+420 | [C - Stable Groups](https://codeforces.com/contest/1539/problem/C) | [GNU C++17 (64)](./codeforces/1539/C.cpp) | `greedy` `sortings` `*1200` | Jun/22/2021 00:31 | 
 419 | [F1 - Falling Sand (Easy Version)](https://codeforces.com/contest/1534/problem/F1) | [GNU C++17 (64)](./codeforces/1534/F1.cpp) | `dfs and similar` `graphs` `greedy` | Jun/17/2021 00:48 | 
 418 | [C - Little Alawn's Puzzle](https://codeforces.com/contest/1534/problem/C) | [Python 3](./codeforces/1534/C.py) | `combinatorics` `dp` `dsu` `graphs` `math` | Jun/14/2021 23:49 | 
 417 | [E - Lost Array](https://codeforces.com/contest/1534/problem/E) | [GNU C++17 (64)](./codeforces/1534/E.cpp) | `constructive algorithms` `dp` `graphs` `greedy` `implementation` `interactive` `shortest paths` | Jun/14/2021 23:09 | 
