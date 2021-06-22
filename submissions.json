@@ -6896,6 +6896,21 @@
     ],
     "timestamp": "Jun/22/2021 20:41"
   },
+  "CF120304175": {
+    "contest_id": 1532,
+    "language": "Kotlin",
+    "path": "codeforces\\1532\\E.kt",
+    "platform": "Codeforces",
+    "problem_index": "E",
+    "problem_name": "Good Array",
+    "problem_url": "https://codeforces.com/contest/1532/problem/E",
+    "submission_id": "CF120304175",
+    "submission_url": "https://codeforces.com/contest/1532/submission/120304175",
+    "tags": [
+      "*special problem"
+    ],
+    "timestamp": "Jun/22/2021 20:45"
+  },
   "CF120309179": {
     "contest_id": 1532,
     "language": "Kotlin",
