@@ -6881,6 +6881,22 @@
     ],
     "timestamp": "Jun/22/2021 00:31"
   },
+  "CF120302122": {
+    "contest_id": 1532,
+    "language": "Kotlin",
+    "path": "codeforces\\1532\\D.kt",
+    "platform": "Codeforces",
+    "problem_index": "D",
+    "problem_name": "Teams Forming",
+    "problem_url": "https://codeforces.com/contest/1532/problem/D",
+    "submission_id": "CF120302122",
+    "submission_url": "https://codeforces.com/contest/1532/submission/120302122",
+    "tags": [
+      "*special problem",
+      "sortings"
+    ],
+    "timestamp": "Jun/22/2021 20:22"
+  },
   "CF120303863": {
     "contest_id": 1077,
     "language": "GNU C++17 (64)",
