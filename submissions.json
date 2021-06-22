@@ -6881,6 +6881,22 @@
     ],
     "timestamp": "Jun/22/2021 00:31"
   },
+  "CF120300534": {
+    "contest_id": 1532,
+    "language": "Kotlin",
+    "path": "codeforces\\1532\\B.kt",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Frog Jumping",
+    "problem_url": "https://codeforces.com/contest/1532/problem/B",
+    "submission_id": "CF120300534",
+    "submission_url": "https://codeforces.com/contest/1532/submission/120300534",
+    "tags": [
+      "*special problem",
+      "math"
+    ],
+    "timestamp": "Jun/22/2021 20:05"
+  },
   "CF120301539": {
     "contest_id": 1532,
     "language": "Kotlin",
