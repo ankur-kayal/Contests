@@ -19,9 +19,9 @@ fun main() {
 
     val n = input.readLine()!!.toInt()
     var ans = 1L
-    for(i in n downTo maxOf(1, n - 50)) {
-        for(j in n downTo maxOf(1, n - 50)) {
-            for(k in n downTo maxOf(1, n - 50)) {
+    for(i in n downTo maxOf(1, n - 100)) {
+        for(j in n downTo maxOf(1, n - 100)) {
+            for(k in n downTo maxOf(1, n - 100)) {
                 ans = maxOf(ans, getLcm(i.toLong(), j.toLong(), k.toLong()))
             }
         }
