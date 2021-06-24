@@ -13,8 +13,9 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-431 | [A - LCM Challenge](https://codeforces.com/contest/235/problem/A) | [Kotlin](./codeforces/235/A.kt) | `number theory` `*1600` | Jun/25/2021 01:58 | 
-430 | [E2 - Erase and Extend (Hard Version)](https://codeforces.com/contest/1537/problem/E2) | [GNU C++17 (64)](./codeforces/1537/E2.cpp) | `binary search` `data structures` `greedy` `hashing` `string suffix structures` `strings` `two pointers` `*2200` | Jun/25/2021 00:11 | 
+432 | [A - LCM Challenge](https://codeforces.com/contest/235/problem/A) | [Kotlin](./codeforces/235/A.kt) | `number theory` `*1600` | Jun/25/2021 01:58 | 
+431 | [E2 - Erase and Extend (Hard Version)](https://codeforces.com/contest/1537/problem/E2) | [GNU C++17 (64)](./codeforces/1537/E2.cpp) | `binary search` `data structures` `greedy` `hashing` `string suffix structures` `strings` `two pointers` `*2200` | Jun/25/2021 00:11 | 
+430 | [F - Figure Fixing](https://codeforces.com/contest/1537/problem/F) | [Kotlin](./codeforces/1537/F.kt) | `constructive algorithms` `dfs and similar` `dsu` `graphs` `greedy` `math` `*2200` | Jun/24/2021 20:35 | 
 429 | [C - Prefixes and Suffixes](https://codeforces.com/contest/1092/problem/C) | [Kotlin](./codeforces/1092/C.kt) | `strings` `*1700` | Jun/23/2021 00:32 | 
 428 | [C - Good Array](https://codeforces.com/contest/1077/problem/C) | [GNU C++17 (64)](./codeforces/1077/C.cpp) | `*1300` | Jun/22/2021 20:41 | 
 427 | [C - Stable Groups](https://codeforces.com/contest/1539/problem/C) | [GNU C++17 (64)](./codeforces/1539/C.cpp) | `greedy` `sortings` `*1200` | Jun/22/2021 00:31 | 

@@ -6912,6 +6912,27 @@
     ],
     "timestamp": "Jun/23/2021 00:32"
   },
+  "CF120455926": {
+    "contest_id": 1537,
+    "language": "Kotlin",
+    "path": "codeforces\\1537\\F.kt",
+    "platform": "Codeforces",
+    "problem_index": "F",
+    "problem_name": "Figure Fixing",
+    "problem_url": "https://codeforces.com/contest/1537/problem/F",
+    "submission_id": "CF120455926",
+    "submission_url": "https://codeforces.com/contest/1537/submission/120455926",
+    "tags": [
+      "constructive algorithms",
+      "dfs and similar",
+      "dsu",
+      "graphs",
+      "greedy",
+      "math",
+      "*2200"
+    ],
+    "timestamp": "Jun/24/2021 20:35"
+  },
   "CF120472200": {
     "contest_id": 1537,
     "language": "GNU C++17 (64)",
