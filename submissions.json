@@ -7024,6 +7024,26 @@
     ],
     "timestamp": "Jun/25/2021 01:58"
   },
+  "CF120531123": {
+    "contest_id": 1539,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1539\\D.cpp",
+    "platform": "Codeforces",
+    "problem_index": "D",
+    "problem_name": "PriceFixed",
+    "problem_url": "https://codeforces.com/contest/1539/problem/D",
+    "submission_id": "CF120531123",
+    "submission_url": "https://codeforces.com/contest/1539/submission/120531123",
+    "tags": [
+      "binary search",
+      "greedy",
+      "implementation",
+      "sortings",
+      "two pointers",
+      "*1600"
+    ],
+    "timestamp": "Jun/25/2021 20:25"
+  },
   "CF71129187": {
     "contest_id": 1303,
     "language": "GNU C++14",
