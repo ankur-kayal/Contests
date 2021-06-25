@@ -7064,6 +7064,26 @@
     ],
     "timestamp": "Jun/25/2021 20:25"
   },
+  "CF120577633": {
+    "contest_id": 1541,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1541\\C.cpp",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "Great Graphs",
+    "problem_url": "https://codeforces.com/contest/1541/problem/C",
+    "submission_id": "CF120577633",
+    "submission_url": "https://codeforces.com/contest/1541/submission/120577633",
+    "tags": [
+      "constructive algorithms",
+      "graphs",
+      "greedy",
+      "shortest paths",
+      "sortings",
+      "*1400"
+    ],
+    "timestamp": "Jun/25/2021 21:58"
+  },
   "CF120639253": {
     "contest_id": 1541,
     "language": "GNU C++17 (64)",
