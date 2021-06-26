@@ -37,28 +37,16 @@ sim dor(const c&) { ris; }
 
 //----------------------------------- END DEBUG --------------------------------
 
-/*
-
-(2, 3)
-(4, 6)
-
-2 < x < 3
-
-x = 2.5 = 5
-
-[3, 2]
-
-*/
 
 void run_cases() {
     int N;
     cin >> N;
-    vector<vector<int64_t>> ranges(N);
+    vector<vector<int>> ranges(N);
     for(int i = 0; i < N; i++) {
-        int64_t t, l, r;
+        int t, l, r;
         cin >> t >> l >> r;
-        l *= 100;
-        r *= 100;
+        l *= 2;
+        r *= 2;
         switch(t) {
             case 2:
                 r--;
@@ -75,8 +63,8 @@ void run_cases() {
 
     int ans = 0;
 
-    auto intersect = [&](vector<int64_t> &a, vector<int64_t> &b) -> bool {
-        vector<int64_t> common = {max(a[0], b[0]), min(a[1], b[1])};
+    auto intersect = [&](vector<int> &a, vector<int> &b) -> bool {
+        vector<int> common = {max(a[0], b[0]), min(a[1], b[1])};
         return common[0] <= common[1];
     };
 
