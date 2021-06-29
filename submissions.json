@@ -7064,6 +7064,23 @@
     ],
     "timestamp": "Jun/25/2021 20:25"
   },
+  "CF120883897": {
+    "contest_id": 1533,
+    "language": "Kotlin",
+    "path": "codeforces\\1533\\A.kt",
+    "platform": "Codeforces",
+    "problem_index": "A",
+    "problem_name": "Travel to Bertown",
+    "problem_url": "https://codeforces.com/contest/1533/problem/A",
+    "submission_id": "CF120883897",
+    "submission_url": "https://codeforces.com/contest/1533/submission/120883897",
+    "tags": [
+      "*special problem",
+      "implementation",
+      "math"
+    ],
+    "timestamp": "Jun/29/2021 20:09"
+  },
   "CF120884546": {
     "contest_id": 1533,
     "language": "Kotlin",
