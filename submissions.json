@@ -7064,6 +7064,22 @@
     ],
     "timestamp": "Jun/25/2021 20:25"
   },
+  "CF120888805": {
+    "contest_id": 1533,
+    "language": "Kotlin",
+    "path": "codeforces\\1533\\D.kt",
+    "platform": "Codeforces",
+    "problem_index": "D",
+    "problem_name": "String Searching",
+    "problem_url": "https://codeforces.com/contest/1533/problem/D",
+    "submission_id": "CF120888805",
+    "submission_url": "https://codeforces.com/contest/1533/submission/120888805",
+    "tags": [
+      "*special problem",
+      "hashing"
+    ],
+    "timestamp": "Jun/29/2021 20:50"
+  },
   "CF120892244": {
     "contest_id": 1533,
     "language": "Kotlin",
