@@ -7064,6 +7064,24 @@
     ],
     "timestamp": "Jun/25/2021 20:25"
   },
+  "CF120892244": {
+    "contest_id": 1533,
+    "language": "Kotlin",
+    "path": "codeforces\\1533\\E.kt",
+    "platform": "Codeforces",
+    "problem_index": "E",
+    "problem_name": "Chess Team Forming",
+    "problem_url": "https://codeforces.com/contest/1533/problem/E",
+    "submission_id": "CF120892244",
+    "submission_url": "https://codeforces.com/contest/1533/submission/120892244",
+    "tags": [
+      "*special problem",
+      "binary search",
+      "data structures",
+      "greedy"
+    ],
+    "timestamp": "Jun/29/2021 21:25"
+  },
   "CF120906569": {
     "contest_id": 1533,
     "language": "Kotlin",
