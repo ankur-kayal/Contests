@@ -13,16 +13,17 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-459 | [F - The Sum of the k-th Powers](https://codeforces.com/contest/622/problem/F) | [GNU C++17 (64)](./codeforces/622/F.cpp) | `math` `*2600` | Jul/10/2021 17:06 | 
-458 | [D1 - RPD and Rap Sheet (Easy Version)](https://codeforces.com/contest/1543/problem/D1) | [Kotlin](./codeforces/1543/D1.kt) | `bitmasks` `constructive algorithms` `interactive` `math` `*1700` | Jul/08/2021 23:19 | 
-457 | [D2 - RPD and Rap Sheet (Hard Version)](https://codeforces.com/contest/1543/problem/D2) | [Kotlin](./codeforces/1543/D2.kt) | `brute force` `constructive algorithms` `interactive` `math` `*2200` | Jul/08/2021 23:18 | 
-456 | [C - Need for Pink Slips](https://codeforces.com/contest/1543/problem/C) | [GNU C++17 (64)](./codeforces/1543/C.cpp) | `bitmasks` `brute force` `dfs and similar` `implementation` `math` `probabilities` `*1900` | Jul/07/2021 21:36 | 
-455 | [B - Customising the Track](https://codeforces.com/contest/1543/problem/B) | [GNU C++17 (64)](./codeforces/1543/B.cpp) | `combinatorics` `greedy` `math` `*900` | Jul/07/2021 20:14 | 
-454 | [A - Exciting Bets](https://codeforces.com/contest/1543/problem/A) | [GNU C++17 (64)](./codeforces/1543/A.cpp) | `greedy` `math` `number theory` `*900` | Jul/07/2021 20:09 | 
-453 | [C - Strange Function](https://codeforces.com/contest/1542/problem/C) | [Kotlin](./codeforces/1542/C.kt) | `math` `number theory` `*1600` | Jul/04/2021 00:21 | 
-452 | [B - Plus and Multiply](https://codeforces.com/contest/1542/problem/B) | [Kotlin](./codeforces/1542/B.kt) | `constructive algorithms` `math` `number theory` `*1500` | Jul/03/2021 23:23 | 
-451 | [A - Odd Set](https://codeforces.com/contest/1542/problem/A) | [GNU C++17 (64)](./codeforces/1542/A.cpp) | `math` `*800` | Jul/03/2021 18:36 | 
-450 | [C - Tree Diameter](https://codeforces.com/contest/1146/problem/C) | [Kotlin](./codeforces/1146/C.kt) | `bitmasks` `graphs` `interactive` `*1700` | Jul/02/2021 01:50 | 
+460 | [F - The Sum of the k-th Powers](https://codeforces.com/contest/622/problem/F) | [GNU C++17 (64)](./codeforces/622/F.cpp) | `math` `*2600` | Jul/10/2021 17:06 | 
+459 | [D1 - RPD and Rap Sheet (Easy Version)](https://codeforces.com/contest/1543/problem/D1) | [Kotlin](./codeforces/1543/D1.kt) | `bitmasks` `constructive algorithms` `interactive` `math` `*1700` | Jul/08/2021 23:19 | 
+458 | [D2 - RPD and Rap Sheet (Hard Version)](https://codeforces.com/contest/1543/problem/D2) | [Kotlin](./codeforces/1543/D2.kt) | `brute force` `constructive algorithms` `interactive` `math` `*2200` | Jul/08/2021 23:18 | 
+457 | [C - Need for Pink Slips](https://codeforces.com/contest/1543/problem/C) | [GNU C++17 (64)](./codeforces/1543/C.cpp) | `bitmasks` `brute force` `dfs and similar` `implementation` `math` `probabilities` `*1900` | Jul/07/2021 21:36 | 
+456 | [B - Customising the Track](https://codeforces.com/contest/1543/problem/B) | [GNU C++17 (64)](./codeforces/1543/B.cpp) | `combinatorics` `greedy` `math` `*900` | Jul/07/2021 20:14 | 
+455 | [A - Exciting Bets](https://codeforces.com/contest/1543/problem/A) | [GNU C++17 (64)](./codeforces/1543/A.cpp) | `greedy` `math` `number theory` `*900` | Jul/07/2021 20:09 | 
+454 | [C - Strange Function](https://codeforces.com/contest/1542/problem/C) | [Kotlin](./codeforces/1542/C.kt) | `math` `number theory` `*1600` | Jul/04/2021 00:21 | 
+453 | [B - Plus and Multiply](https://codeforces.com/contest/1542/problem/B) | [Kotlin](./codeforces/1542/B.kt) | `constructive algorithms` `math` `number theory` `*1500` | Jul/03/2021 23:23 | 
+452 | [A - Odd Set](https://codeforces.com/contest/1542/problem/A) | [GNU C++17 (64)](./codeforces/1542/A.cpp) | `math` `*800` | Jul/03/2021 18:36 | 
+451 | [C - Tree Diameter](https://codeforces.com/contest/1146/problem/C) | [Kotlin](./codeforces/1146/C.kt) | `bitmasks` `graphs` `interactive` `*1700` | Jul/02/2021 01:50 | 
+450 | [F - Three Paths on a Tree](https://codeforces.com/contest/1294/problem/F) | [GNU C++17 (64)](./codeforces/1294/F.cpp) | `dfs and similar` `dp` `greedy` `trees` `*2000` | Jul/01/2021 23:59 | 
 449 | [F - Binary String Partition](https://codeforces.com/contest/1533/problem/F) | [Kotlin](./codeforces/1533/F.kt) | `*special problem` `binary search` `greedy` | Jun/30/2021 00:56 | 
 448 | [E - Chess Team Forming](https://codeforces.com/contest/1533/problem/E) | [Kotlin](./codeforces/1533/E.kt) | `*special problem` `binary search` `data structures` `greedy` | Jun/29/2021 21:25 | 
 447 | [D - String Searching](https://codeforces.com/contest/1533/problem/D) | [Kotlin](./codeforces/1533/D.kt) | `*special problem` `hashing` | Jun/29/2021 20:50 | 
