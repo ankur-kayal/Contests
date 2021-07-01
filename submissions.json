@@ -7335,6 +7335,24 @@
     ],
     "timestamp": "Jun/30/2021 00:56"
   },
+  "CF121056447": {
+    "contest_id": 1146,
+    "language": "Kotlin",
+    "path": "codeforces\\1146\\C.kt",
+    "platform": "Codeforces",
+    "problem_index": "C",
+    "problem_name": "Tree Diameter",
+    "problem_url": "https://codeforces.com/contest/1146/problem/C",
+    "submission_id": "CF121056447",
+    "submission_url": "https://codeforces.com/contest/1146/submission/121056447",
+    "tags": [
+      "bitmasks",
+      "graphs",
+      "interactive",
+      "*1700"
+    ],
+    "timestamp": "Jul/02/2021 01:50"
+  },
   "CF121189326": {
     "contest_id": 1542,
     "language": "GNU C++17 (64)",
