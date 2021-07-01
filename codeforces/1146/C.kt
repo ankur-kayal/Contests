@@ -21,15 +21,14 @@ fun main() {
             if(a.isEmpty() || b.isEmpty()) {
                 break
             }
-            output.append("${a.size} ${b.size}")
+            print("${a.size} ${b.size}")
             for(i in a) {
-                output.append(" $i")
+                print(" $i")
             }
             for(i in b) {
-                output.append(" $i")
+                print(" $i")
             }
-            println(output)
-            output.clear()
+            println()
             ans = maxOf(ans, input.readLine()!!.toInt())
         }
 
