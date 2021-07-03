@@ -7335,6 +7335,24 @@
     ],
     "timestamp": "Jun/30/2021 00:56"
   },
+  "CF121256819": {
+    "contest_id": 1542,
+    "language": "Kotlin",
+    "path": "codeforces\\1542\\B.kt",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Plus and Multiply",
+    "problem_url": "https://codeforces.com/contest/1542/problem/B",
+    "submission_id": "CF121256819",
+    "submission_url": "https://codeforces.com/contest/1542/submission/121256819",
+    "tags": [
+      "constructive algorithms",
+      "math",
+      "number theory",
+      "*1500"
+    ],
+    "timestamp": "Jul/03/2021 23:23"
+  },
   "CF121260716": {
     "contest_id": 1542,
     "language": "Kotlin",
