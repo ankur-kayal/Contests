@@ -1263,6 +1263,22 @@
     ],
     "timestamp": "May/22/2021 21:53"
   },
+  "AC23976425": {
+    "contest_id": "abc208",
+    "language": "C++ (GCC 9.2.1)",
+    "path": "atcoder\\abc208\\D.cpp",
+    "platform": "AtCoder",
+    "problem_index": "D",
+    "problem_name": "Shortest Path Queries 2",
+    "problem_url": "https://atcoder.jp/contests/abc208/tasks/abc208_d",
+    "submission_id": "AC23976425",
+    "submission_url": "https://atcoder.jp/contests/abc208/submissions/23976425",
+    "tags": [
+      "AtCoder",
+      "*400"
+    ],
+    "timestamp": "Jul/04/2021 18:10"
+  },
   "AC24103032": {
     "contest_id": "abc209",
     "language": "C++ (GCC 9.2.1)",
