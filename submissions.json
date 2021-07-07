@@ -7335,6 +7335,24 @@
     ],
     "timestamp": "Jun/30/2021 00:56"
   },
+  "CF121573338": {
+    "contest_id": 1543,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1543\\A.cpp",
+    "platform": "Codeforces",
+    "problem_index": "A",
+    "problem_name": "Exciting Bets",
+    "problem_url": "https://codeforces.com/contest/1543/problem/A",
+    "submission_id": "CF121573338",
+    "submission_url": "https://codeforces.com/contest/1543/submission/121573338",
+    "tags": [
+      "greedy",
+      "math",
+      "number theory",
+      "*900"
+    ],
+    "timestamp": "Jul/07/2021 20:09"
+  },
   "CF121576952": {
     "contest_id": 1543,
     "language": "GNU C++17 (64)",
