@@ -13,17 +13,18 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-472 | [C - AquaMoon and Strange Sort](https://codeforces.com/contest/1546/problem/C) | [GNU C++17 (64)](./codeforces/1546/C.cpp) | `sortings` `*1500` | Jul/15/2021 12:25 | 
-471 | [B - AquaMoon and Stolen String](https://codeforces.com/contest/1546/problem/B) | [GNU C++17 (64)](./codeforces/1546/B.cpp) | `interactive` `math` `*1200` | Jul/15/2021 02:35 | 
-470 | [A - AquaMoon and Two Arrays](https://codeforces.com/contest/1546/problem/A) | [GNU C++17 (64)](./codeforces/1546/A.cpp) | `brute force` `greedy` `*800` | Jul/15/2021 02:23 | 
-469 | [C - Manhattan Subarrays](https://codeforces.com/contest/1550/problem/C) | [GNU C++17 (64)](./codeforces/1550/C.cpp) | `brute force` `geometry` `greedy` `implementation` `*1700` | Jul/14/2021 22:08 | 
-468 | [B - Maximum Cost Deletion](https://codeforces.com/contest/1550/problem/B) | [GNU C++17 (64)](./codeforces/1550/B.cpp) | `greedy` `math` `*1000` | Jul/14/2021 20:21 | 
-467 | [A - Find The Array](https://codeforces.com/contest/1550/problem/A) | [GNU C++17 (64)](./codeforces/1550/A.cpp) | `greedy` `math` `*800` | Jul/14/2021 20:13 | 
-466 | [G - How Many Paths?](https://codeforces.com/contest/1547/problem/G) | [Kotlin](./codeforces/1547/G.kt) | `dfs and similar` `dp` `graphs` `trees` `*2100` | Jul/13/2021 02:24 | 
-465 | [F - Array Stabilization (GCD version)](https://codeforces.com/contest/1547/problem/F) | [GNU C++17 (64)](./codeforces/1547/F.cpp) | `binary search` `brute force` `data structures` `divide and conquer` `number theory` `two pointers` `*1900` | Jul/10/2021 22:34 | 
-464 | [E - Air Conditioners](https://codeforces.com/contest/1547/problem/E) | [GNU C++17 (64)](./codeforces/1547/E.cpp) | `data structures` `dp` `implementation` `shortest paths` `sortings` `two pointers` `*1500` | Jul/10/2021 21:40 | 
-463 | [D - Co-growing Sequence](https://codeforces.com/contest/1547/problem/D) | [GNU C++17 (64)](./codeforces/1547/D.cpp) | `bitmasks` `constructive algorithms` `greedy` `*1300` | Jul/10/2021 21:03 | 
-462 | [C - Pair Programming](https://codeforces.com/contest/1547/problem/C) | [GNU C++17 (64)](./codeforces/1547/C.cpp) | `greedy` `two pointers` `*1100` | Jul/10/2021 20:45 | 
+473 | [C - AquaMoon and Strange Sort](https://codeforces.com/contest/1546/problem/C) | [GNU C++17 (64)](./codeforces/1546/C.cpp) | `sortings` `*1500` | Jul/15/2021 12:25 | 
+472 | [B - AquaMoon and Stolen String](https://codeforces.com/contest/1546/problem/B) | [GNU C++17 (64)](./codeforces/1546/B.cpp) | `interactive` `math` `*1200` | Jul/15/2021 02:35 | 
+471 | [A - AquaMoon and Two Arrays](https://codeforces.com/contest/1546/problem/A) | [GNU C++17 (64)](./codeforces/1546/A.cpp) | `brute force` `greedy` `*800` | Jul/15/2021 02:23 | 
+470 | [C - Manhattan Subarrays](https://codeforces.com/contest/1550/problem/C) | [GNU C++17 (64)](./codeforces/1550/C.cpp) | `brute force` `geometry` `greedy` `implementation` `*1700` | Jul/14/2021 22:08 | 
+469 | [B - Maximum Cost Deletion](https://codeforces.com/contest/1550/problem/B) | [GNU C++17 (64)](./codeforces/1550/B.cpp) | `greedy` `math` `*1000` | Jul/14/2021 20:21 | 
+468 | [A - Find The Array](https://codeforces.com/contest/1550/problem/A) | [GNU C++17 (64)](./codeforces/1550/A.cpp) | `greedy` `math` `*800` | Jul/14/2021 20:13 | 
+467 | [G - How Many Paths?](https://codeforces.com/contest/1547/problem/G) | [Kotlin](./codeforces/1547/G.kt) | `dfs and similar` `dp` `graphs` `trees` `*2100` | Jul/13/2021 02:24 | 
+466 | [F - Array Stabilization (GCD version)](https://codeforces.com/contest/1547/problem/F) | [GNU C++17 (64)](./codeforces/1547/F.cpp) | `binary search` `brute force` `data structures` `divide and conquer` `number theory` `two pointers` `*1900` | Jul/10/2021 22:34 | 
+465 | [E - Air Conditioners](https://codeforces.com/contest/1547/problem/E) | [GNU C++17 (64)](./codeforces/1547/E.cpp) | `data structures` `dp` `implementation` `shortest paths` `sortings` `two pointers` `*1500` | Jul/10/2021 21:40 | 
+464 | [D - Co-growing Sequence](https://codeforces.com/contest/1547/problem/D) | [GNU C++17 (64)](./codeforces/1547/D.cpp) | `bitmasks` `constructive algorithms` `greedy` `*1300` | Jul/10/2021 21:03 | 
+463 | [C - Pair Programming](https://codeforces.com/contest/1547/problem/C) | [GNU C++17 (64)](./codeforces/1547/C.cpp) | `greedy` `two pointers` `*1100` | Jul/10/2021 20:45 | 
+462 | [B - Alphabetical Strings](https://codeforces.com/contest/1547/problem/B) | [GNU C++17 (64)](./codeforces/1547/B.cpp) | `greedy` `implementation` `strings` `*800` | Jul/10/2021 20:36 | 
 461 | [F - The Sum of the k-th Powers](https://codeforces.com/contest/622/problem/F) | [GNU C++17 (64)](./codeforces/622/F.cpp) | `math` `*2600` | Jul/10/2021 17:06 | 
 460 | [D1 - RPD and Rap Sheet (Easy Version)](https://codeforces.com/contest/1543/problem/D1) | [Kotlin](./codeforces/1543/D1.kt) | `bitmasks` `constructive algorithms` `interactive` `math` `*1700` | Jul/08/2021 23:19 | 
 459 | [D2 - RPD and Rap Sheet (Hard Version)](https://codeforces.com/contest/1543/problem/D2) | [Kotlin](./codeforces/1543/D2.kt) | `brute force` `constructive algorithms` `interactive` `math` `*2200` | Jul/08/2021 23:18 | 
