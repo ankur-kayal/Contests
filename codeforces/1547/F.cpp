@@ -3,37 +3,190 @@ using namespace std;
 
 #define nl '\n'
 
-// usage:
-//   auto fun = [&](int i, int j) { return min(i, j); };
-//   SparseTable<int, decltype(fun)> st(a, fun);
-// or:
-//   SparseTable<int> st(a, [&](int i, int j) { return min(i, j); });
-template <typename T, class F = function<T(const T&, const T&)>>
-class SparseTable {
- public:
-  int n;
-  vector<vector<T>> mat;
-  F func;
+struct segment_change {
+    int64_t to_set;
+    static const int64_t SENTINEL = -1;
 
-  SparseTable(const vector<T>& a, const F& f) : func(f) {
-    n = static_cast<int>(a.size());
-    int max_log = 32 - __builtin_clz(n);
-    mat.resize(max_log);
-    mat[0] = a;
-    for (int j = 1; j < max_log; j++) {
-      mat[j].resize(n - (1 << j) + 1);
-      for (int i = 0; i <= n - (1 << j); i++) {
-        mat[j][i] = func(mat[j - 1][i], mat[j - 1][i + (1 << (j - 1))]);
-      }
+    // Make sure that the default constructor is the identity segment_change
+    segment_change(int64_t _to_set = SENTINEL) : to_set(_to_set) {}
+
+    // resets to the SENTINEL value
+    void reset() {
+        to_set = SENTINEL;
     }
-  }
 
-  T get(int from, int to) const {
-    assert(0 <= from && from <= to && to <= n - 1);
-    int lg = 32 - __builtin_clz(to - from + 1) - 1;
-    return func(mat[lg][from], mat[lg][to - (1 << lg) + 1]);
-  }
+    bool has_change() const {
+        return to_set != SENTINEL;
+    }
+
+    // Return the combined result of applying this segment change followed by the `other`.
+    segment_change combine(const segment_change &other) const {
+        return segment_change(other.to_set);
+    }
 };
+
+struct segment {
+    int64_t sum;
+
+    // Make sure that the default constructor is the identity segment
+    segment(int64_t _sum = 0) : sum(_sum) {}
+
+    // checks if the current segment is empty based on the default value
+    bool empty() const {
+        return sum == 0;
+    }
+
+    // evaluating the change on a particular node
+    void apply(int length, const segment_change &change) {
+        if(change.has_change()) {
+            sum = change.to_set;
+        }
+    }
+
+    // merge function
+    void join(const segment &other) {
+        sum = gcd(sum, other.sum);
+    }
+
+    void join(const segment &a, const segment &b) {
+        *this = a;
+        join(b);
+    }
+};
+
+struct segment_tree {
+    int tree_n = 0;
+    vector<segment> tree;
+    vector<segment_change> changes;
+
+    segment_tree(int n = -1) {
+        if(n >= 0) {
+            init(n);
+        }
+    }
+
+    void init(int n) {
+        tree_n = 1;
+        while(tree_n < n) {
+            tree_n *= 2;
+        }
+
+        tree.assign(2 * tree_n, segment());
+        changes.assign(2 * tree_n, segment_change());
+    }
+
+    void build(const vector<segment> &initial, int x, int lx, int rx) {
+        if(rx - lx == 1) {
+            if(lx < int(initial.size())) {
+                tree[x] = initial[lx];
+            }
+            return;
+        }
+
+        int m = (rx + lx) / 2;
+        build(initial, 2 * x + 1, lx, m);
+        build(initial, 2 * x + 2, m, rx);
+        tree[x].join(tree[2 * x + 1], tree[2 * x + 2]);
+    }
+
+    // Builds our tree from an array in O(n).
+    void build(const vector<segment> &initial) {
+        int n = int(initial.size());
+        init(n);
+        assert(n <= tree_n);
+
+        build(initial, 0, 0, tree_n);
+    }
+
+    // Apply the change to the current index and push down the change
+    void propagate(int x, int lx, int rx) {
+        if(!changes[x].has_change()) {
+            return;
+        }
+        tree[x].apply(rx - lx, changes[x]);
+        if(rx - lx != 1) {
+            changes[2 * x + 1] = changes[2 * x + 1].combine(changes[x]);
+            changes[2 * x + 2] = changes[2 * x + 2].combine(changes[x]);
+        }
+        changes[x].reset();
+    }
+
+    // Queries in the range [l, r)
+    segment query(int l, int r, int x, int lx, int rx) {
+        propagate(x, lx, rx);
+        if(lx >= r or l >= rx) {
+            return segment();
+        }
+        if(lx >= l && rx <= r) {
+            return tree[x];
+        }
+        int m = (lx + rx) / 2;
+        segment left = query(l, r, 2 * x + 1, lx, m);
+        segment right = query(l, r, 2 * x + 2, m, rx);
+        left.join(right);
+        return left;
+    }
+
+    segment query(int l, int r) {
+        return query(l, r, 0, 0, tree_n);
+    }
+
+    // Updates the change in the range [l, r)
+    void update(int l, int r, const segment_change &change, int x, int lx, int rx) {
+        propagate(x, lx, rx);
+        if(lx >= r || l >= rx) {
+            return;
+        }
+        if(lx >= l && rx <= r) {
+            changes[x] = changes[x].combine(change);
+            propagate(x, lx, rx);
+            return;
+        }
+
+        int m = (lx + rx) / 2;
+        update(l, r, change, 2 * x + 1, lx, m);
+        update(l, r, change, 2 * x + 2, m, rx);
+        tree[x].join(tree[2 * x + 1], tree[2 * x + 2]);
+    }
+
+    void update(int l, int r, const segment_change &change) {
+        update(l, r, change, 0, 0, tree_n);
+    } 
+};
+
+
+//----------------------------------- DEBUG -----------------------------------
+#define sim template < class c
+#define ris return * this
+#define dor > debug & operator <<
+#define eni(x) sim > typename \
+enable_if<sizeof dud<c>(0) x 1, debug&>::type operator<<(c i) {
+sim > struct rge { c b, e; };
+sim > rge<c> range(c i, c j) { return rge<c>{i, j}; }
+sim > auto dud(c* x) -> decltype(cerr << *x, 0);
+sim > char dud(...);
+struct debug {
+#ifdef LOCAL
+~debug() { cerr << endl; }
+eni(!=) cerr << boolalpha << i; ris; }
+eni(==) ris << range(begin(i), end(i)); }
+sim, class b dor(pair < b, c > d) {
+  ris << "(" << d.first << ", " << d.second << ")";
+}
+sim dor(rge<c> d) {
+  *this << "[";
+  for (auto it = d.b; it != d.e; ++it)
+    *this << ", " + 2 * (it == d.b) << *it;
+  ris << "]";
+}
+#else
+sim dor(const c&) { ris; }
+#endif
+};
+#define imie(...) " [" << #__VA_ARGS__ ": " << (__VA_ARGS__) << "] "
+// debug & operator << (debug & dd, P p) { dd << "(" << p.x << ", " << p.y << ")"; return dd; }
+
+//----------------------------------- END DEBUG --------------------------------
 
 void run_cases() {
     int N;
@@ -45,8 +198,13 @@ void run_cases() {
     for(auto u: A)
         AD.push_back(u);
 
-    auto fun = [&](int i, int j) { return gcd(i, j); };
-    SparseTable<int64_t, decltype(fun)> st(AD, fun);
+    debug() << imie(AD);
+    segment_tree gtree(2 * N);
+    vector<segment> segments;
+    for(auto u: AD)
+        segments.push_back(segment(u));
+
+    gtree.build(segments);
 
     int l = 0, r = N;
 
@@ -55,9 +213,10 @@ void run_cases() {
         int64_t prev = -1;
         for(int i = 0; i < N; i++) {
             if(prev == -1) {
-                prev = st.get(i, i + m - 1);
+                prev = gtree.query(i, i + m).sum;
             } else {
-                int64_t curr = st.get(i, i + m - 1);
+                int64_t curr = gtree.query(i, i + m).sum;
+                debug() << imie(i) imie(i + m) imie(prev) imie(curr) imie(m);
                 if(curr != prev) {
                     return false;
                 }
