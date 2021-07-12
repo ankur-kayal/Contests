@@ -19,13 +19,13 @@ fun main() {
 
     val t = readLine()!!.toInt()
     repeat(t) {
-        readLine()!!
-        val (n, m) = readLine()!!.split(' ').map { it.toInt() }
+        input.readLine()!!
+        val (n, m) = input.readLine()!!.split(' ').map { it.toInt() }
         val adj = Array(n) { mutableListOf<Int>() }
         val indeg = IntArray(n) { 0 }
         val unreachable = BooleanArray(n) { true }
         repeat(m) {
-            var (a, b) = readLine()!!.split(' ').map { it.toInt() }
+            var (a, b) = input.readLine()!!.split(' ').map { it.toInt() }
             --a;--b
             adj[a].add(b)
             indeg[b]++
