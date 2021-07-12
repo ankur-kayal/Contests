@@ -7627,6 +7627,25 @@
     ],
     "timestamp": "Jul/10/2021 17:06"
   },
+  "CF122243149": {
+    "contest_id": 1547,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1547\\G.cpp",
+    "platform": "Codeforces",
+    "problem_index": "G",
+    "problem_name": "How Many Paths?",
+    "problem_url": "https://codeforces.com/contest/1547/problem/G",
+    "submission_id": "CF122243149",
+    "submission_url": "https://codeforces.com/contest/1547/submission/122243149",
+    "tags": [
+      "dfs and similar",
+      "dp",
+      "graphs",
+      "trees",
+      "*2100"
+    ],
+    "timestamp": "Jul/12/2021 23:46"
+  },
   "CF122251643": {
     "contest_id": 1547,
     "language": "Kotlin",
