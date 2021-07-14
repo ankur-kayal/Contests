@@ -44,33 +44,49 @@ void run_cases() {
     for(auto &u: A)
         cin >> u;
 
+    int l = 0;
     int64_t ans = 0;
-
-    auto d = [&](pair<int,int> p, pair<int,int> q) {
-        return abs(p.first - q.first) + abs(p.second - q.second);
-    };
-    auto valid = [&](vector<pair<int,int>> &a) {
-        if(a.size() < 3) {
-            return true;
-        }
-        for(int i = 0; i < a.size(); i++) {
-            for(int j = i + 1; j < a.size(); j++) {
-                for(int k = j + 1; k < a.size(); k++) {
-                    if(d(a[i], a[k]) == d(a[i], a[j]) + d(a[j], a[k])) {
-                        return false;
-                    }
-                }
+    deque<int> q;
+    deque<int> rq;
+    auto LISf = [&]() {
+        // debug() << imie(q);
+        vector<int> dp;
+        int n = q.size();
+        for(int i = 0; i < n; i++) {
+            int x = q.at(i);
+            auto it = upper_bound(dp.begin(), dp.end(), x);
+            if (it == dp.end()) {
+                dp.push_back(x);
+            } else {
+                *it = x;
             }
         }
-        return true;
+        // debug() << imie(q)
+        return dp.size();
     };
-    int l = 0;
-    vector<pair<int,int>> q;
+    auto LISr = [&]() {
+        // debug() << imie(q);
+        vector<int> dp;
+        int n = rq.size();
+        for(int i = 0; i < n; i++) {
+            int x = rq.at(i);
+            auto it = upper_bound(dp.begin(), dp.end(), x);
+            if (it == dp.end()) {
+                dp.push_back(x);
+            } else {
+                *it = x;
+            }
+        }
+        // debug() << imie(dp.size());
+        return dp.size();
+    };
     for(int r = 0; r < N; r++) {
         // add r
-        q.emplace_back(A[r], r + 1);
-        while(!valid(q)) {
-            q.erase(q.begin());
+        q.push_back(A[r]);
+        rq.push_front(A[r]);
+        while(LISf() > 2 || LISr() > 2) {
+            q.pop_front();
+            rq.pop_back();
             l++;
         }
         debug() << imie(l) imie(r);
