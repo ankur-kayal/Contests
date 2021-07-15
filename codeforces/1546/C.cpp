@@ -11,7 +11,7 @@ void run_cases() {
     for(auto &u: A)
         cin >> u;
 
-    vector<vector<int>> pos(*max_element(A.begin(), A.end())+1, vector<int>(2, 0));
+    vector<vector<int>> pos(100100, vector<int>(2, 0));
     vector<int64_t> B = A;
     sort(B.begin(), B.end());
     for(int i = 0; i < N; i++) {
