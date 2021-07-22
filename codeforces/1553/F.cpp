@@ -171,7 +171,7 @@ void run_cases() {
     for(auto &u: A)
         cin >> u;
 
-    int64_t maxA = 3e5+10;
+    int64_t maxA = *max_element(A.begin(), A.end()) + 10;
 
     segment_tree left_mod, right_mod;
     left_mod.init(maxA); right_mod.init(maxA); ;
