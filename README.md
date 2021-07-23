@@ -13,8 +13,9 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
-476 | [D2 - Domino (hard version)](https://codeforces.com/contest/1551/problem/D2) | [GNU C++17 (64)](./codeforces/1551/D2.cpp) | `constructive algorithms` `implementation` `math` `*2100` | Jul/23/2021 21:44 | 
-475 | [D1 - Domino (easy version)](https://codeforces.com/contest/1551/problem/D1) | [GNU C++17 (64)](./codeforces/1551/D1.cpp) | `constructive algorithms` `math` `*1700` | Jul/23/2021 20:55 | 
+477 | [D2 - Domino (hard version)](https://codeforces.com/contest/1551/problem/D2) | [GNU C++17 (64)](./codeforces/1551/D2.cpp) | `constructive algorithms` `implementation` `math` `*2100` | Jul/23/2021 21:44 | 
+476 | [D1 - Domino (easy version)](https://codeforces.com/contest/1551/problem/D1) | [GNU C++17 (64)](./codeforces/1551/D1.cpp) | `constructive algorithms` `math` `*1700` | Jul/23/2021 20:55 | 
+475 | [C - Interesting Story](https://codeforces.com/contest/1551/problem/C) | [GNU C++17 (64)](./codeforces/1551/C.cpp) | `greedy` `sortings` `strings` `*1500` | Jul/23/2021 20:45 | 
 474 | [C - AquaMoon and Strange Sort](https://codeforces.com/contest/1546/problem/C) | [GNU C++17 (64)](./codeforces/1546/C.cpp) | `sortings` `*1500` | Jul/15/2021 12:25 | 
 473 | [B - AquaMoon and Stolen String](https://codeforces.com/contest/1546/problem/B) | [GNU C++17 (64)](./codeforces/1546/B.cpp) | `interactive` `math` `*1200` | Jul/15/2021 02:35 | 
 472 | [A - AquaMoon and Two Arrays](https://codeforces.com/contest/1546/problem/A) | [GNU C++17 (64)](./codeforces/1546/A.cpp) | `brute force` `greedy` `*800` | Jul/15/2021 02:23 | 
