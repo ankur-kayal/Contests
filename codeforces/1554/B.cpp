@@ -47,7 +47,7 @@ void run_cases() {
     // (n - i) * (n - j) - k * (ai | aj)
     // (n^2 - n(i + j) + ij)
 
-    int64_t cutoff = 500;
+    int64_t cutoff = 1000;
 
     int64_t ans = -2e18;
     int64_t zero = 0;
