@@ -8,7 +8,7 @@ def getP(j):
         return (j+1)%3
 
 def solve(st, n, m):
-    ## preprocess 
+    ## preprocess
     ## type ab, bc, ca, ac, cb, ba
     pref = [[0]*(n+1) for i in range(6)]
     match = 'abcacb'
