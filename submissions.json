@@ -8525,6 +8525,25 @@
     ],
     "timestamp": "Jul/23/2021 21:44"
   },
+  "CF124408897": {
+    "contest_id": 1555,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1555\\F.cpp",
+    "platform": "Codeforces",
+    "problem_index": "F",
+    "problem_name": "Good Graph",
+    "problem_url": "https://codeforces.com/contest/1555/problem/F",
+    "submission_id": "CF124408897",
+    "submission_url": "https://codeforces.com/contest/1555/submission/124408897",
+    "tags": [
+      "data structures",
+      "dsu",
+      "graphs",
+      "trees",
+      "*2700"
+    ],
+    "timestamp": "Jul/31/2021 14:46"
+  },
   "CF124515379": {
     "contest_id": 1555,
     "language": "GNU C++17 (64)",
