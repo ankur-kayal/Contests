@@ -92,7 +92,7 @@ struct _m_int {
     friend bool operator<=(const _m_int &a, const _m_int &b) { return a.val <= b.val; }
     friend bool operator>=(const _m_int &a, const _m_int &b) { return a.val >= b.val; }
  
-    static const int SAVE_INV = int(3e6) + 5;
+    static const int SAVE_INV = int(1e6) + 5;
     static _m_int save_inv[SAVE_INV];
  
     static void prepare_inv() {
@@ -239,6 +239,9 @@ void run_cases() {
         cin >> x;
         cout << ans[x] << '\n';
     }
+
+    
+    
 }
 
 int main() {
