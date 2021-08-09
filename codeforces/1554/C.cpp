@@ -42,7 +42,7 @@ void run_cases() {
     int N, M;
     cin >> N >> M;
     M++;
-    if(N >= M) {
+    if(N > M) {
         cout << 0 << '\n';
         return;
     }
