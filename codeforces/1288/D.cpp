@@ -36,7 +36,7 @@ void run_cases() {
         }
 
         for(int i = 0; i < (1 << M); i++) {
-            for(int j = i; j < (1 << M); j++) {
+            for(int j = 0; j < (1 << M); j++) {
                 if(masks[i] && masks[j] && ((i | j) == (1 << M) - 1)) {
                     position1 = pos[i], position2 = pos[j];
                     l = m;
