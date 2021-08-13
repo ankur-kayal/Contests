@@ -8525,6 +8525,23 @@
     ],
     "timestamp": "Jul/23/2021 21:44"
   },
+  "CF125790034": {
+    "contest_id": 322,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\322\\B.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Ciel and Flowers",
+    "problem_url": "https://codeforces.com/contest/322/problem/B",
+    "submission_id": "CF125790034",
+    "submission_url": "https://codeforces.com/contest/322/submission/125790034",
+    "tags": [
+      "combinatorics",
+      "math",
+      "*1600"
+    ],
+    "timestamp": "Aug/13/2021 23:49"
+  },
   "CF125790232": {
     "contest_id": 1288,
     "language": "GNU C++17 (64)",
