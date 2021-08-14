@@ -7,16 +7,13 @@ int block;
 
 struct Query {
     int64_t l, r, id;
-    pair<int64_t, int64_t> order;
 
     Query() {}
 
-    Query(int64_t _l, int64_t _r, int64_t _id) : l(_l), r(_r), id(_id) {
-        order = {l / block, ((l / block) & 1) ? -r : r};
-    }
+    Query(int64_t _l, int64_t _r, int64_t _id) : l(_l), r(_r), id(_id) {}
 
-    bool operator < (const Query &other) {
-        return order < other.order;
+    bool operator < (Query &other) {
+        return make_pair(l / block, r) < make_pair(other.l / block, other.r);
     }
 };
 
