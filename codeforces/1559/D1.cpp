@@ -64,34 +64,8 @@ void run_cases() {
     };
 
     for(int i = 1; i <= N; i++) {
-        add_edge(1, i);
-    }
-
-    vector<int> p1, p2;
-
-    for(int i = 1; i <= N; i++) {
-        if(tree1.find(i) != tree1.find(1)) {
-            p1.push_back(i);
-        }
-        if(tree2.find(i) != tree2.find(1)) {
-            p2.push_back(i);
-        }
-    }
-
-    int i = 0, j = 0;
-
-    while(i < p1.size() && j < p2.size()) {
-        int u = p1[i];
-        int v = p2[j];
-
-        if(tree1.find(u) == tree1.find(1) && tree2.find(u) == tree2.find(1)) {
-            i++;
-        } else if(tree2.find(v) == tree2.find(1) && tree1.find(v) == tree1.find(1)) {
-            j++;
-        } else {
-            add_edge(u, v);
-            i++;
-            j++;
+        for(int j = 1; j <= N; j++) {
+            add_edge(i, j);
         }
     }
 
