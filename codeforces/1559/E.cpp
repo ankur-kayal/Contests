@@ -187,36 +187,76 @@ void build_mobius(int maximum) {
     }
 }
 
+
+//----------------------------------- DEBUG -----------------------------------
+#define sim template < class c
+#define ris return * this
+#define dor > debug & operator <<
+#define eni(x) sim > typename \
+enable_if<sizeof dud<c>(0) x 1, debug&>::type operator<<(c i) {
+sim > struct rge { c b, e; };
+sim > rge<c> range(c i, c j) { return rge<c>{i, j}; }
+sim > auto dud(c* x) -> decltype(cerr << *x, 0);
+sim > char dud(...);
+struct debug {
+#ifdef LOCAL
+~debug() { cerr << endl; }
+eni(!=) cerr << boolalpha << i; ris; }
+eni(==) ris << range(begin(i), end(i)); }
+sim, class b dor(pair < b, c > d) {
+  ris << "(" << d.first << ", " << d.second << ")";
+}
+sim dor(rge<c> d) {
+  *this << "[";
+  for (auto it = d.b; it != d.e; ++it)
+    *this << ", " + 2 * (it == d.b) << *it;
+  ris << "]";
+}
+#else
+sim dor(const c&) { ris; }
+#endif
+};
+#define imie(...) " [" << #__VA_ARGS__ ": " << (__VA_ARGS__) << "] "
+// debug & operator << (debug & dd, P p) { dd << "(" << p.x << ", " << p.y << ")"; return dd; }
+
+//----------------------------------- END DEBUG --------------------------------
+
 void run_cases() {
 
-    auto solve = [] (vector<int> &L, vector<int> &R, int max_sum) -> mod_int {
-
+    auto solve = [&](vector<int>& L, vector<int> &R, int maxSum) -> mod_int {
         int N = L.size();
+        for(int i = 0; i < N; i++) {
+            R[i] -= L[i];
+            maxSum -= L[i];
+            if(R[i] < 0) {
+                return 0;
+            }
+        }
 
-        vector<vector<mod_int>> dp(N + 1, vector<mod_int>(max_sum + 1));
-        dp[0] = {1};
+        if(maxSum < 0) {
+            return 0;
+        }
+
+        vector<vector<mod_int>> dp(N + 1, vector<mod_int>(maxSum + 1));
+        dp[0][0] = 1;
 
         for(int i = 0; i < N; i++) {
-            for(int j = 0; j <= max_sum; j++) {
-                int l = j - R[i] - 1;
-                int r = j - L[i];
-                if(r >= 0) {
-                    dp[i + 1][j] += dp[i][r];
+            mod_int current_sum = 0;
+            for(int j = 0; j <= maxSum; j++) {
+                current_sum += dp[i][j];
+                dp[i + 1][j] = current_sum;
+                if(j - R[i] >= 0) {
+                    current_sum -= dp[i][j - R[i]];
                 }
-                if(l >= 0) {
-                    dp[i + 1][j] -= dp[i][l];
-                }
-            }
-            for(int j = 1; j <= max_sum; j++) {
-                dp[i + 1][j] += dp[i + 1][j - 1];
             }
         }
 
         mod_int res = 0;
 
-        for(int i = 0; i <= max_sum; i++) {
+        for(int i = 0; i <= maxSum; i++) {
             res += dp[N][i];
         }
+
         return res;
     };
 
