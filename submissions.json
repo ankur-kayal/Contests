@@ -8525,6 +8525,25 @@
     ],
     "timestamp": "Jul/23/2021 21:44"
   },
+  "CF126336668": {
+    "contest_id": 1560,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1560\\E.cpp",
+    "platform": "Codeforces",
+    "problem_index": "E",
+    "problem_name": "Polycarp and String Transformation",
+    "problem_url": "https://codeforces.com/contest/1560/problem/E",
+    "submission_id": "CF126336668",
+    "submission_url": "https://codeforces.com/contest/1560/submission/126336668",
+    "tags": [
+      "binary search",
+      "implementation",
+      "sortings",
+      "strings",
+      "*1800"
+    ],
+    "timestamp": "Aug/18/2021 21:20"
+  },
   "CF126418963": {
     "contest_id": 1560,
     "language": "GNU C++17 (64)",
