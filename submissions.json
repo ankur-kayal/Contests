@@ -8525,6 +8525,24 @@
     ],
     "timestamp": "Jul/23/2021 21:44"
   },
+  "CF126318106": {
+    "contest_id": 1560,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1560\\D.cpp",
+    "platform": "Codeforces",
+    "problem_index": "D",
+    "problem_name": "Make a Power of Two",
+    "problem_url": "https://codeforces.com/contest/1560/problem/D",
+    "submission_id": "CF126318106",
+    "submission_url": "https://codeforces.com/contest/1560/submission/126318106",
+    "tags": [
+      "greedy",
+      "math",
+      "strings",
+      "*1300"
+    ],
+    "timestamp": "Aug/18/2021 20:49"
+  },
   "CF126336668": {
     "contest_id": 1560,
     "language": "GNU C++17 (64)",
