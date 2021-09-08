@@ -9603,6 +9603,21 @@
     ],
     "timestamp": "Aug/26/2021 21:55"
   },
+  "CF128227318": {
+    "contest_id": 1569,
+    "language": "GNU C++17 (64)",
+    "path": "codeforces\\1569\\B.cpp",
+    "platform": "Codeforces",
+    "problem_index": "B",
+    "problem_name": "Chess Tournament",
+    "problem_url": "https://codeforces.com/contest/1569/problem/B",
+    "submission_id": "CF128227318",
+    "submission_url": "https://codeforces.com/contest/1569/submission/128227318",
+    "tags": [
+      "constructive algorithms"
+    ],
+    "timestamp": "Sep/08/2021 20:19"
+  },
   "CF128261833": {
     "contest_id": 1569,
     "language": "GNU C++17 (64)",
