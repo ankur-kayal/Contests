@@ -13,6 +13,7 @@ A repository to keep track of problem solving practice, containing solutions fro
 
 | # | Title | Solution | Tags | Submitted |
 |---| ----- | -------- | ---- | --------- |
+556 | [I - Palindrome Pairs](https://codeforces.com/contest/1045/problem/I) | [GNU C++17 (64)](./codeforces/1045/I.cpp) | `hashing` `strings` `*1600` | Sep/16/2021 23:27 | 
 555 | [D - Inconvenient Pairs](https://codeforces.com/contest/1569/problem/D) | [GNU C++17 (64)](./codeforces/1569/D.cpp) | `binary search` `data structures` `implementation` `sortings` `two pointers` | Sep/09/2021 13:16 | 
 554 | [C - Jury Meeting](https://codeforces.com/contest/1569/problem/C) | [GNU C++17 (64)](./codeforces/1569/C.cpp) | `combinatorics` `math` | Sep/08/2021 21:20 | 
 553 | [B - Chess Tournament](https://codeforces.com/contest/1569/problem/B) | [GNU C++17 (64)](./codeforces/1569/B.cpp) | `constructive algorithms` | Sep/08/2021 20:19 | 
